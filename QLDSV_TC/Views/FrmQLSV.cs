@@ -233,6 +233,7 @@ namespace QLDSV_TC.Views
 
                     qldsV_TCDataSet.SINHVIEN.Rows.Add(row);
                     SINHVIENTableAdapter.Update(qldsV_TCDataSet.SINHVIEN);
+                    positionSelectedSV = -1;
                 }
                 catch (Exception ex)
                 {
