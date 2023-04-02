@@ -6,7 +6,7 @@
 - Giáo viên hướng dẫn: Lưu Nguyễn Kỳ Thư
 
 Những công việc cần làm trong đồ án này là:
-Yêu cầu: Giả sử  trường có 2 khoa: công nghệ thông tin (CNTT),  và viễn thông (VT)
+- Yêu cầu: Giả sử  trường có 2 khoa: công nghệ thông tin (CNTT),  và viễn thông (VT)
 1.	Phân tán cơ sở dữ liệu QLDSV_HTC ra làm 3 mảnh với điều kiện sau: 
 -	QLDSV được đặt trên server1: chứa thông tin của các sinh viên thuộc khoa công nghệ thông tin
 -	QLDSV được đặt trên server2:  chứa thông tin của các sinh viên thuộc khoa viễn thông.
