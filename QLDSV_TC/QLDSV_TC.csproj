@@ -80,6 +80,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ChiTietDongHocPhi.cs" />
+    <Compile Include="Model\DangKy.cs" />
+    <Compile Include="Model\GiangVien.cs" />
+    <Compile Include="Model\HocPhi.cs" />
+    <Compile Include="Model\Khoa.cs" />
+    <Compile Include="Model\Lop.cs" />
+    <Compile Include="Model\LopTinChi.cs" />
+    <Compile Include="Model\MonHoc.cs" />
+    <Compile Include="Model\SinhVien.cs" />
+    <Compile Include="Model\SinhVien.designer.cs">
+      <DependentUpon>SinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLDSV_TCDataSet.cs">
       <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
     </Compile>
@@ -88,6 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Services\ProcessStore.cs" />
     <Compile Include="Views\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
