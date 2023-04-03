@@ -43,6 +43,18 @@ namespace QLDSV_TC
         public static FrmMain frmMain;
         public static Views.FrmQLSV frmQLSV;
 
+        public class processStore
+        {
+            public String flagMode { get; set; }
+            public string primaryKey { get; set; }
+
+            public processStore(String flagMode, String primaryKey)
+            {
+                this.flagMode = flagMode;
+                this.primaryKey = primaryKey;
+            }
+        }
+
         public static bool KetNoi()
         {
             if (Program.connect.State == ConnectionState.Open) Program.connect.Close();

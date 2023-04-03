@@ -67,7 +67,7 @@
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlClass = new DevExpress.XtraGrid.GridControl();
             this.bdsLOP = new System.Windows.Forms.BindingSource(this.components);
             this.QLDSV_TC = new System.Windows.Forms.BindingSource(this.components);
             this.qldsV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
@@ -95,7 +95,7 @@
             this.txtMSSV = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlStudents = new DevExpress.XtraGrid.GridControl();
             this.bdsSINHVIEN = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewStudents = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -130,6 +130,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bdsDANGKY = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
@@ -145,7 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsV_TCDataSet)).BeginInit();
@@ -163,7 +164,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMSSV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSINHVIEN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -183,6 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDANGKY)).BeginInit();
             this.SuspendLayout();
             // 
             // bar2
@@ -234,9 +236,9 @@
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.Controls.Add(this.panelControl2);
-            this.dataLayoutControl1.Controls.Add(this.gridControl1);
+            this.dataLayoutControl1.Controls.Add(this.gridControlClass);
             this.dataLayoutControl1.Controls.Add(this.pncFormSV);
-            this.dataLayoutControl1.Controls.Add(this.gridControl2);
+            this.dataLayoutControl1.Controls.Add(this.gridControlStudents);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 67);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
@@ -364,6 +366,7 @@
             // 
             this.btnAddSV.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSV.Appearance.Options.UseFont = true;
+            this.btnAddSV.Enabled = false;
             this.btnAddSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSV.ImageOptions.Image")));
             this.btnAddSV.Location = new System.Drawing.Point(12, 12);
             this.btnAddSV.MinimumSize = new System.Drawing.Size(100, 45);
@@ -486,16 +489,16 @@
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
-            // gridControl1
+            // gridControlClass
             // 
-            this.gridControl1.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
-            this.gridControl1.DataSource = this.bdsLOP;
-            this.gridControl1.Location = new System.Drawing.Point(12, 12);
-            this.gridControl1.MainView = this.gridViewClass;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(796, 296);
-            this.gridControl1.TabIndex = 10;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControlClass.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControlClass.DataSource = this.bdsLOP;
+            this.gridControlClass.Location = new System.Drawing.Point(12, 12);
+            this.gridControlClass.MainView = this.gridViewClass;
+            this.gridControlClass.Name = "gridControlClass";
+            this.gridControlClass.Size = new System.Drawing.Size(796, 296);
+            this.gridControlClass.TabIndex = 10;
+            this.gridControlClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewClass});
             // 
             // bdsLOP
@@ -524,7 +527,7 @@
             this.colKHOAHOC,
             this.colMAKHOA});
             this.gridViewClass.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridViewClass.GridControl = this.gridControl1;
+            this.gridViewClass.GridControl = this.gridControlClass;
             this.gridViewClass.Name = "gridViewClass";
             this.gridViewClass.OptionsBehavior.ReadOnly = true;
             this.gridViewClass.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Fast;
@@ -837,15 +840,15 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "THÔNG TIN SINH VIÊN";
             // 
-            // gridControl2
+            // gridControlStudents
             // 
-            this.gridControl2.DataSource = this.bdsSINHVIEN;
-            this.gridControl2.Location = new System.Drawing.Point(812, 12);
-            this.gridControl2.MainView = this.gridViewStudents;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(962, 431);
-            this.gridControl2.TabIndex = 5;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControlStudents.DataSource = this.bdsSINHVIEN;
+            this.gridControlStudents.Location = new System.Drawing.Point(812, 12);
+            this.gridControlStudents.MainView = this.gridViewStudents;
+            this.gridControlStudents.Name = "gridControlStudents";
+            this.gridControlStudents.Size = new System.Drawing.Size(962, 431);
+            this.gridControlStudents.TabIndex = 5;
+            this.gridControlStudents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewStudents});
             // 
             // bdsSINHVIEN
@@ -867,7 +870,7 @@
             this.colNGAYSINH,
             this.colDANGHIHOC});
             this.gridViewStudents.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridViewStudents.GridControl = this.gridControl2;
+            this.gridViewStudents.GridControl = this.gridControlStudents;
             this.gridViewStudents.Name = "gridViewStudents";
             this.gridViewStudents.OptionsNavigation.AutoFocusNewRow = true;
             this.gridViewStudents.OptionsView.ShowViewCaption = true;
@@ -959,7 +962,11 @@
             this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
             this.colNGAYSINH.AppearanceHeader.Options.UseTextOptions = true;
             this.colNGAYSINH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colNGAYSINH.FieldName = "NGAYSINH";
+            this.colNGAYSINH.GroupFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.GroupFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
             this.colNGAYSINH.Visible = true;
@@ -1014,7 +1021,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.gridControl2;
+            this.layoutControlItem2.Control = this.gridControlStudents;
             this.layoutControlItem2.Location = new System.Drawing.Point(800, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.OptionsTableLayoutItem.ColumnIndex = 1;
@@ -1036,7 +1043,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.gridControl1;
+            this.layoutControlItem3.Control = this.gridControlClass;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(800, 300);
@@ -1281,6 +1288,11 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(880, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // bdsDANGKY
+            // 
+            this.bdsDANGKY.DataMember = "FK_CTLTC_SINHVIEN";
+            this.bdsDANGKY.DataSource = this.bdsSINHVIEN;
+            // 
             // FrmQLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1308,7 +1320,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsV_TCDataSet)).EndInit();
@@ -1327,7 +1339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMSSV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSINHVIEN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -1348,6 +1360,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDANGKY)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1378,7 +1391,7 @@
         private DevExpress.XtraEditors.MemoEdit txtDiaChi;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.RadioGroup rdgGT;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridControlClass;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewClass;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
@@ -1390,7 +1403,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKHOAHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
         private QLDSV_TCDataSetTableAdapters.SINHVIENTableAdapter SINHVIENTableAdapter;
-        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.GridControl gridControlStudents;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewStudents;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
@@ -1438,5 +1451,6 @@
         private System.Windows.Forms.BindingSource bdsLOP;
         private System.Windows.Forms.BindingSource bdsSINHVIEN;
         private DevExpress.XtraEditors.TextEdit txtMaLop;
+        private System.Windows.Forms.BindingSource bdsDANGKY;
     }
 }
