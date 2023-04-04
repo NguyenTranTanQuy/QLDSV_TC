@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars.ViewInfo;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask.Design;
+using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +16,7 @@ using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
-    public partial class FrmQLSV : DevExpress.XtraEditors.XtraForm
+    public partial class FrmQLSV : XtraForm
     {
         private Stack<Services.ProcessStore> processStoreStack = new Stack<Services.ProcessStore>();
         private String flagMode = "";
@@ -30,6 +32,7 @@ namespace QLDSV_TC.Views
 
             processStoreStack.Push(new Services.ProcessStore(flagMode, data["MASV"].ToString(), SV));
         }
+        
         private void fillDataTableSinhVien()
         {
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
@@ -99,25 +102,53 @@ namespace QLDSV_TC.Views
             DataRowView dataSV = (DataRowView)bdsSINHVIEN[positionSelectedSV];
             if (dataSV["MASV"].ToString().Trim() == "")
             {
-                MessageBox.Show("Mã sinh viên không được để trống", "", MessageBoxButtons.OK);
+                MessageBox.Show("Mã sinh viên không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (dataSV["HO"].ToString().Trim() == "")
             {
-                MessageBox.Show("Họ không được thiếu!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Họ không được thiếu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return false;
             }
             if (dataSV["TEN"].ToString().Trim() == "")
             {
-                MessageBox.Show("Tên không được thiếu!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Tên không được thiếu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (dataSV["PHAI"].ToString() == "")
             {
-                MessageBox.Show("Vui Lòng Chọn Phái!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Vui Lòng Chọn Phái!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
+            }
+
+            if(flagMode == "ADDSTUDENT")
+            {
+                string query = " DECLARE @return_value INT" +
+
+                               " EXEC @return_value = [dbo].[SP_CHECKMSSV]" +
+
+                               " N'" + dataSV["MASV"].ToString().Trim() + "'" +
+
+                               " SELECT @return_value";
+
+                int resultMa = Program.CheckPrimaryKey(query);
+                if (resultMa == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối với database. Vui long thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (resultMa == 1)
+                {
+                    MessageBox.Show("Mã Sinh Viên đã tồn tại. Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                if (resultMa == 2)
+                {
+                    MessageBox.Show("Mã Sinh Viên đã tồn tại ở Khoa khác. Mời bạn nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
             }
 
             return true;
@@ -159,18 +190,24 @@ namespace QLDSV_TC.Views
             {
                 this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
                 this.LOPTableAdapter.Fill(this.qldsV_TCDataSet.LOP);
+
+                processStoreStack.Clear();
+                btnRecover.Enabled = false;
             }
         }
 
         private void gridViewClass_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            if (flagMode == "EDITSTUDENT" || flagMode == "ADDSTUDENT")
+            if ((flagMode == "EDITSTUDENT" || flagMode == "ADDSTUDENT") && gridViewClass.FocusedRowHandle != positionSelectedClass)
             {
                 DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialog == DialogResult.No)
                 {
+                    e.Handled = true;
+
                     gridViewClass.FocusedRowHandle = positionSelectedClass;
                     gridViewStudents.FocusedRowHandle = positionSelectedSV;
+
                     return;
                 }
                 else
@@ -181,12 +218,15 @@ namespace QLDSV_TC.Views
                 }
             }
 
-            fillDataTableSinhVien();
+            if (gridViewClass.FocusedRowHandle != positionSelectedClass)
+            {
+                fillDataTableSinhVien();
 
-            classNumberSelected = gridViewClass.GetDataRow(gridViewClass.FocusedRowHandle)["MALOP"].ToString();
+                classNumberSelected = gridViewClass.GetDataRow(gridViewClass.FocusedRowHandle)["MALOP"].ToString();
 
-            btnAddSV.Enabled = cbKhoa.Enabled = true;
-            btnDeleteSV.Enabled = btnEditSV.Enabled = btnWriteSV.Enabled = false;
+                btnAddSV.Enabled = cbKhoa.Enabled = true;
+                btnDeleteSV.Enabled = btnEditSV.Enabled = btnWriteSV.Enabled = false;
+            }
         }
 
         private void gridViewClass_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -200,7 +240,8 @@ namespace QLDSV_TC.Views
             {
                 DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialog == DialogResult.No)
-                {
+                {  
+                    e.Handled = true;
                     gridViewStudents.FocusedRowHandle = positionSelectedSV;
                     return;
                 }
@@ -246,13 +287,24 @@ namespace QLDSV_TC.Views
                 }
             }
 
-            if (gridViewStudents.FocusedColumn.FieldName == "MASV" || gridViewStudents.FocusedColumn.FieldName == "HO" || gridViewStudents.FocusedColumn.FieldName == "TEN")
+            if (gridViewStudents.FocusedColumn.FieldName == "HO" || gridViewStudents.FocusedColumn.FieldName == "TEN")
             {
                 if (e.Value.ToString().Trim().Length == 0)
                 {
                     e.ErrorText = "Không được để trống ô này";
                     e.Valid = false;
                 }
+                else
+                {
+                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+                    e.Value = textInfo.ToTitleCase(e.Value.ToString().ToLower());
+                }
+            }
+
+            if(gridViewStudents.FocusedColumn.FieldName == "DIACHI")
+            {
+                TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+                e.Value = textInfo.ToTitleCase(e.Value.ToString().ToLower());
             }
         }
 
@@ -261,10 +313,11 @@ namespace QLDSV_TC.Views
             defaultValueInputSV();
 
             bdsSINHVIEN.AddNew();
+
             positionSelectedSV = bdsSINHVIEN.Count - 1;
             positionSelectedClass = gridViewClass.FocusedRowHandle;
 
-            btnAddSV.Enabled = cbKhoa.Enabled = false;
+            btnAddSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
             btnWriteSV.Enabled = true;
 
             flagMode = "ADDSTUDENT";
@@ -315,13 +368,12 @@ namespace QLDSV_TC.Views
             positionSelectedSV = bdsSINHVIEN.Position;
             positionSelectedClass = gridViewClass.FocusedRowHandle;
 
-            DataRow data = gridViewStudents.GetFocusedDataRow();
-
             flagMode = "EDITSTUDENT";
+            DataRow data = gridViewStudents.GetFocusedDataRow();
             pushDataToProcessStack(data);
 
             btnWriteSV.Enabled = true;
-            btnDeleteSV.Enabled = btnEditSV.Enabled = cbKhoa.Enabled = false;
+            btnDeleteSV.Enabled = btnEditSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
         }
 
         private void btnWriteSV_Click(object sender, EventArgs e)
@@ -337,7 +389,8 @@ namespace QLDSV_TC.Views
 
                     DataRow row = ((DataRowView)bdsSINHVIEN[bdsSINHVIEN.Position]).Row;
                     this.SINHVIENTableAdapter.Update(row);
-                    if(flagMode == "ADDSTUDENT")
+
+                    if (flagMode == "ADDSTUDENT")
                         processStoreStack.Push(new Services.ProcessStore(flagMode, row["MASV"].ToString()));
                 }
                 catch (Exception ex)
@@ -351,6 +404,98 @@ namespace QLDSV_TC.Views
 
                 btnAddSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = true;
                 btnWriteSV.Enabled = false;
+            }
+        }
+
+        private void btnRecover_Click(object sender, EventArgs e)
+        {
+            if (processStoreStack.Count > 0)
+            {
+                Services.ProcessStore command = processStoreStack.Pop();
+                String MASV = command.primaryKey;
+                SinhVien SV = new SinhVien();
+
+                switch (command.flagMode)
+                {
+                    case "ADDSTUDENT":
+                        int rowIndex = gridViewStudents.LocateByValue("MASV", MASV);
+
+                        try
+                        {
+                            gridViewStudents.DeleteRow(rowIndex);
+                            this.SINHVIENTableAdapter.Update(this.qldsV_TCDataSet.SINHVIEN);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi xóa sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.SINHVIENTableAdapter.Fill(this.qldsV_TCDataSet.SINHVIEN);
+                            return;
+                        }
+                        break;
+
+                    case "DELETESTUDENT":
+                        SV = (SinhVien)command.dataRow;
+                        gridViewClass.FocusedRowHandle = gridViewClass.LocateByValue("MALOP", SV.MaLop);
+
+                        try
+                        {
+                            bdsSINHVIEN.AddNew();
+
+                            gridViewStudents.SetFocusedRowCellValue("MASV", SV.MaSV);
+                            gridViewStudents.SetFocusedRowCellValue("HO", SV.Ho);
+                            gridViewStudents.SetFocusedRowCellValue("TEN", SV.Ten);
+                            gridViewStudents.SetFocusedRowCellValue("PHAI", SV.Phai);
+                            gridViewStudents.SetFocusedRowCellValue("NGAYSINH", SV.NgaySinh);
+                            gridViewStudents.SetFocusedRowCellValue("DIACHI", SV.DiaChi);
+                            gridViewStudents.SetFocusedRowCellValue("MALOP", SV.MaLop);
+                            gridViewStudents.SetFocusedRowCellValue("DANGHIHOC", SV.DangNghiHoc);
+                            gridViewStudents.SetFocusedRowCellValue("PASSWORD", SV.PassWord);
+
+                            bdsSINHVIEN.EndEdit();
+                            this.SINHVIENTableAdapter.Update(this.qldsV_TCDataSet.SINHVIEN);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khôi phục sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.SINHVIENTableAdapter.Fill(this.qldsV_TCDataSet.SINHVIEN);
+                            return;
+                        }
+                        break;
+
+                    default:
+                        SV = (SinhVien)command.dataRow;
+
+                        gridViewClass.FocusedRowHandle = gridViewClass.LocateByValue("MALOP", SV.MaLop);
+                        positionSelectedSV = gridViewStudents.LocateByValue("MASV", MASV);
+                        gridViewStudents.FocusedRowHandle = positionSelectedSV;
+
+                        try
+                        {
+                            gridViewStudents.BeginUpdate();
+                            gridViewStudents.SetRowCellValue(positionSelectedSV, "HO", SV.Ho);
+                            gridViewStudents.SetRowCellValue(positionSelectedSV, "TEN", SV.Ten);
+                            gridViewStudents.SetRowCellValue(positionSelectedSV, "PHAI", SV.Phai);
+                            gridViewStudents.SetRowCellValue(positionSelectedSV, "NGAYSINH", SV.NgaySinh);
+                            gridViewStudents.SetRowCellValue(positionSelectedSV, "DIACHI", SV.DiaChi);
+                            gridViewStudents.SetRowCellValue(positionSelectedSV, "DANGHIHOC", SV.DangNghiHoc);
+                            gridViewStudents.EndUpdate();
+
+                            DataRow row = ((DataRowView)bdsSINHVIEN[positionSelectedSV]).Row;
+                            this.SINHVIENTableAdapter.Update(row);
+
+                            positionSelectedSV = -1;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khôi phục sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.SINHVIENTableAdapter.Fill(this.qldsV_TCDataSet.SINHVIEN);
+                            return;
+                        }
+                        break;
+                }
+
+                if (processStoreStack.Count == 0)
+                    btnRecover.Enabled = false;
             }
         }
 
@@ -374,93 +519,8 @@ namespace QLDSV_TC.Views
 
             reloadDataForm();
 
-            btnAddSV.Enabled = true;
+            btnAddSV.Enabled = cbKhoa.Enabled = true;
             btnWriteSV.Enabled = btnDeleteSV.Enabled = btnEditSV.Enabled = false;
-        }
-
-        private void btnRecover_Click(object sender, EventArgs e)
-        {
-            if (processStoreStack.Count > 0)
-            {
-                Services.ProcessStore command = processStoreStack.Pop();
-                String MASV = command.primaryKey;
-                if (command.flagMode == "ADDSTUDENT")
-                {
-                    int rowIndex = gridViewStudents.LocateByValue("MASV", MASV);
-                    try
-                    {
-                        
-                        gridViewStudents.DeleteRow(rowIndex);
-                        this.SINHVIENTableAdapter.Update(this.qldsV_TCDataSet.SINHVIEN);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi xóa sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.SINHVIENTableAdapter.Fill(this.qldsV_TCDataSet.SINHVIEN);
-                        return;
-                    }
-                }
-                else if(command.flagMode == "DELETESTUDENT")
-                {
-                    try
-                    {
-                        SinhVien SV = (SinhVien)command.dataRow;
-                        bdsSINHVIEN.AddNew();
-                        
-                        gridViewStudents.SetFocusedRowCellValue("MASV", SV.MaSV);
-                        gridViewStudents.SetFocusedRowCellValue("HO", SV.Ho);
-                        gridViewStudents.SetFocusedRowCellValue("TEN", SV.Ten);
-                        gridViewStudents.SetFocusedRowCellValue("PHAI", SV.Phai);
-                        gridViewStudents.SetFocusedRowCellValue("NGAYSINH", SV.NgaySinh);
-                        gridViewStudents.SetFocusedRowCellValue("DIACHI", SV.DiaChi);
-                        gridViewStudents.SetFocusedRowCellValue("MALOP", SV.MaLop);
-                        gridViewStudents.SetFocusedRowCellValue("DANGHIHOC", SV.DangNghiHoc);
-                        gridViewStudents.SetFocusedRowCellValue("PASSWORD", SV.PassWord);
-                        
-                        bdsSINHVIEN.EndEdit();
-                        this.SINHVIENTableAdapter.Update(this.qldsV_TCDataSet.SINHVIEN);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khôi phục sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.SINHVIENTableAdapter.Fill(this.qldsV_TCDataSet.SINHVIEN);
-                        return;
-                    }
-                }
-                else
-                {
-                    positionSelectedSV = gridViewStudents.LocateByValue("MASV", MASV);
-                    SinhVien SV = (SinhVien)command.dataRow;
-                    try
-                    {
-                        gridViewStudents.BeginUpdate();
-                        gridViewStudents.SetRowCellValue(positionSelectedSV,"HO", SV.Ho);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "TEN", SV.Ten);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "PHAI", SV.Phai);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "NGAYSINH", SV.NgaySinh);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "DIACHI", SV.DiaChi);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "MALOP", SV.MaLop);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "DANGHIHOC", SV.DangNghiHoc);
-                        gridViewStudents.SetRowCellValue(positionSelectedSV, "PASSWORD", SV.PassWord);
-                        gridViewStudents.EndUpdate();
-
-                        DataRow row = ((DataRowView)bdsSINHVIEN[positionSelectedSV]).Row;
-                        this.SINHVIENTableAdapter.Update(row);
-                        positionSelectedSV = -1;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khôi phục sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.SINHVIENTableAdapter.Fill(this.qldsV_TCDataSet.SINHVIEN);
-                        return;
-                    }
-                }
-
-                if(processStoreStack.Count == 0)
-                {
-                    btnRecover.Enabled = false;
-                }
-            }
         }
 
         private void btnExitSubForm_Click(object sender, EventArgs e)

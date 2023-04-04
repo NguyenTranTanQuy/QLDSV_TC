@@ -11,6 +11,13 @@ namespace QLDSV_TC.Services
         public String flagMode { get; set; }
         public String primaryKey { get; set; }
         public Object dataRow { get; set; }
+        
+        public ProcessStore() { }
+
+        public ProcessStore(String flagMode)
+        {
+            this.flagMode = flagMode;
+        }
 
         public ProcessStore(String flagMode, String primaryKey)
         {

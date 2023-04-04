@@ -124,6 +124,18 @@ namespace QLDSV_TC
             }
         }
 
+        public static int CheckPrimaryKey(String query)
+        {
+            SqlDataReader dataReader = Program.ExecSqlDataReader(query);
+            if (dataReader == null)
+                return -1;
+
+            dataReader.Read();
+            int result = dataReader.GetInt32(0);
+            dataReader.Close();
+            return result;
+        }
+
         [STAThread]
         static void Main()
         {
