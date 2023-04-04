@@ -53,7 +53,7 @@ namespace QLDSV_TC.Views
                 txtTen.Text = row["TEN"].ToString();
                 txtNgaySinh.Text = row["NGAYSINH"].ToString();
                 txtDiaChi.Text = row["DIACHI"].ToString();
-                txtMaLop.Text = classNumberSelected;
+                txtMaLop.Text = row["MALOP"].ToString();
 
                 if (row["PHAI"].ToString() == "True")
                 {
