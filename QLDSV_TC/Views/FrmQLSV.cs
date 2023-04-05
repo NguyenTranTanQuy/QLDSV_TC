@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars.ViewInfo;
+﻿using DevExpress.Utils.MVVM;
+using DevExpress.XtraBars.ViewInfo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask.Design;
 using DevExpress.XtraPrinting;
@@ -125,9 +126,9 @@ namespace QLDSV_TC.Views
 
             if(flagMode == "ADDSTUDENT")
             {
-                string query = " DECLARE @return_value INT" +
+                String query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECKMSSV]" +
+                               " EXEC @return_value = [dbo].[SP_CHECKMASV]" +
 
                                " N'" + dataSV["MASV"].ToString().Trim() + "'" +
 
@@ -171,7 +172,7 @@ namespace QLDSV_TC.Views
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";
             cbKhoa.SelectedValue = Program.servername;
-            
+
             if (Program.mGroup == "PGV") cbKhoa.Enabled = true;
         }
 
@@ -278,7 +279,7 @@ namespace QLDSV_TC.Views
                 bool match = Regex.IsMatch(e.Value.ToString().ToUpper(), "[NB][0-9][0-9][A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9]");
                 if (!match || e.Value.ToString().Trim().Length != 10)
                 {
-                    e.ErrorText = "Mã sinh viên bạn nhập không đúng định dạng \n Ví dụ: N20DCCN001";
+                    e.ErrorText = "Mã sinh viên bạn nhập không đúng định dạng hoặc độ dài không đủ 10 kí tự \n Ví dụ: N20DCCN001";
                     e.Valid = false;
                 }
                 else

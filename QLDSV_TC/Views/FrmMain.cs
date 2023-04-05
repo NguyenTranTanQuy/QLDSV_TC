@@ -59,5 +59,17 @@ namespace QLDSV_TC
                 Program.frmQLSV.Show();
             }
         }
+
+        private void btnQLLH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.FrmQLLH));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmQLLH = new FrmQLLH();
+                Program.frmQLLH.MdiParent = this;
+                Program.frmQLLH.Show();
+            }
+        }
     }
 }

@@ -529,7 +529,6 @@
             this.gridViewClass.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridViewClass.GridControl = this.gridControlClass;
             this.gridViewClass.Name = "gridViewClass";
-            this.gridViewClass.OptionsBehavior.ReadOnly = true;
             this.gridViewClass.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Fast;
             this.gridViewClass.OptionsView.ShowViewCaption = true;
             this.gridViewClass.RowHeight = 30;
@@ -842,6 +841,7 @@
             // 
             // gridControlStudents
             // 
+            this.gridControlStudents.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
             this.gridControlStudents.DataSource = this.bdsSINHVIEN;
             this.gridControlStudents.Location = new System.Drawing.Point(812, 12);
             this.gridControlStudents.MainView = this.gridViewStudents;

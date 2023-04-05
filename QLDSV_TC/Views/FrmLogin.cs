@@ -154,8 +154,6 @@ namespace QLDSV_TC
                 Program.frmMain.statuslblHoten.Text = "HỌ VÀ TÊN: " + Program.mName;
                 Program.frmMain.statuslblNhom.Text = "NHÓM QUYỀN: " + Program.mGroup;
 
-                MessageBox.Show("Bạn đã đăng nhập thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
                 this.Visible = false;
                 Program.frmMain.Show();
             }

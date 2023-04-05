@@ -323,6 +323,7 @@
             this.btnQLLH.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnQLLH.LargeWidth = 70;
             this.btnQLLH.Name = "btnQLLH";
+            this.btnQLLH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLLH_ItemClick);
             // 
             // btnQLMH
             // 

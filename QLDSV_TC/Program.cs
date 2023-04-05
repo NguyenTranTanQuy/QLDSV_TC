@@ -42,6 +42,7 @@ namespace QLDSV_TC
         public static FrmLogin frmLogin;
         public static FrmMain frmMain;
         public static Views.FrmQLSV frmQLSV;
+        public static Views.FrmQLLH frmQLLH;
 
         public static bool KetNoi()
         {
