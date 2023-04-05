@@ -376,6 +376,7 @@
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Appearance.Options.UseFont = true;
+            this.btnEdit.Enabled = false;
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
             this.btnEdit.Location = new System.Drawing.Point(248, 12);
             this.btnEdit.MaximumSize = new System.Drawing.Size(0, 45);
@@ -390,6 +391,7 @@
             // 
             this.btnDelete.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Enabled = false;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Location = new System.Drawing.Point(484, 12);
             this.btnDelete.MaximumSize = new System.Drawing.Size(0, 45);
@@ -404,6 +406,7 @@
             // 
             this.btnRecover.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecover.Appearance.Options.UseFont = true;
+            this.btnRecover.Enabled = false;
             this.btnRecover.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRecover.ImageOptions.Image")));
             this.btnRecover.Location = new System.Drawing.Point(720, 12);
             this.btnRecover.MaximumSize = new System.Drawing.Size(0, 45);
@@ -412,11 +415,13 @@
             this.btnRecover.StyleController = this.layoutControl1;
             this.btnRecover.TabIndex = 4;
             this.btnRecover.Text = "PHỤC HỒI";
+            this.btnRecover.Click += new System.EventHandler(this.btnRecover_Click);
             // 
             // btnWrite
             // 
             this.btnWrite.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWrite.Appearance.Options.UseFont = true;
+            this.btnWrite.Enabled = false;
             this.btnWrite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWrite.ImageOptions.Image")));
             this.btnWrite.Location = new System.Drawing.Point(956, 12);
             this.btnWrite.MaximumSize = new System.Drawing.Size(0, 45);
@@ -439,6 +444,7 @@
             this.btnReload.StyleController = this.layoutControl1;
             this.btnReload.TabIndex = 6;
             this.btnReload.Text = "LÀM MỚI";
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnExitSubForm
             // 
@@ -452,6 +458,7 @@
             this.btnExitSubForm.StyleController = this.layoutControl1;
             this.btnExitSubForm.TabIndex = 7;
             this.btnExitSubForm.Text = "THOÁT";
+            this.btnExitSubForm.Click += new System.EventHandler(this.btnExitSubForm_Click);
             // 
             // layoutControlGroup1
             // 

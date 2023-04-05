@@ -4,6 +4,10 @@
 
     partial class QLDSV_TCDataSet
     {
+        partial class LOPDataTable
+        {
+        }
+
         partial class SINHVIENDataTable
         {
         }

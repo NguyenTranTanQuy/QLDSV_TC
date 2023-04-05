@@ -358,10 +358,10 @@ namespace QLDSV_TC.Views
                     flagMode = "";
                     return;
                 }
-            }
 
-            btnAddSV.Enabled = btnRecover.Enabled = true;
-            btnDeleteSV.Enabled = btnEditSV.Enabled = false;
+                btnAddSV.Enabled = btnRecover.Enabled = true;
+                btnDeleteSV.Enabled = btnEditSV.Enabled = false;
+            }
         }
 
         private void btnEditSV_Click(object sender, EventArgs e)

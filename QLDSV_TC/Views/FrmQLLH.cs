@@ -1,19 +1,10 @@
-﻿using DevExpress.ChartRangeControlClient.Core;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Mask.Design;
-using DevExpress.XtraEditors.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLDSV_TC.Views
 {
@@ -29,6 +20,15 @@ namespace QLDSV_TC.Views
                 , data["KHOAHOC"].ToString(), data["MAKHOA"].ToString());
 
             processStoreStack.Push(new Services.ProcessStore(flagMode, data["MALOP"].ToString(), lop));
+        }
+
+        private void fillDataTableClass()
+        {
+            this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
+
+            this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.SINHVIENTableAdapter.Fill(this.qLDSV_TCDataSet.SINHVIEN);
         }
 
         private bool checkDataClass()
@@ -82,7 +82,7 @@ namespace QLDSV_TC.Views
                 {
                     MessageBox.Show("Mã lớp đã tồn tại ở khoa khác.\n Mời bạn nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
-                }   
+                }
             }
 
             if (flagMode == "ADDCLASS" || flagMode == "EDITCLASS")
@@ -90,6 +90,8 @@ namespace QLDSV_TC.Views
                 string query = " DECLARE @return_value INT" +
 
                                " EXEC @return_value = [dbo].[SP_CHECKTENLOP]" +
+
+                               " N'" + dataClass["MALOP"].ToString().Trim() + "', " +
 
                                " N'" + dataClass["TENLOP"].ToString().Trim() + "' " +
 
@@ -133,11 +135,7 @@ namespace QLDSV_TC.Views
         {
             this.qLDSV_TCDataSet.EnforceConstraints = false;
 
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
-
-            this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
-            this.SINHVIENTableAdapter.Fill(this.qLDSV_TCDataSet.SINHVIEN);
+            fillDataTableClass();
 
             Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
             cbKhoa.DataSource = Program.bdsDSPM;
@@ -162,25 +160,16 @@ namespace QLDSV_TC.Views
             }
             else
             {
-                this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
-                this.SINHVIENTableAdapter.Fill(this.qLDSV_TCDataSet.SINHVIEN);
-
-                this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
-                this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
+                fillDataTableClass();
 
                 processStoreStack.Clear();
                 btnRecover.Enabled = false;
             }
         }
 
-        private void FrmQLLH_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            cbKhoa.SelectedIndexChanged -= cbKhoa_SelectedIndexChanged;
-        }
-
         private void gridViewLOP_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            if ((flagMode == "EDITSTUDENT" || flagMode == "ADDSTUDENT") && gridViewClass.FocusedRowHandle != positionSelectedClass)
+            if ((flagMode == "EDITCLASS" || flagMode == "ADDCLASS") && gridViewClass.FocusedRowHandle != positionSelectedClass)
             {
                 DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialog == DialogResult.No)
@@ -194,14 +183,18 @@ namespace QLDSV_TC.Views
                     positionSelectedClass = -1;
                 }
             }
-            btnAdd.Enabled = cbKhoa.Enabled = true;
-            btnDelete.Enabled = btnEdit.Enabled = btnWrite.Enabled = false;
+
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = btnEdit.Enabled = true;
+
+            if (Program.mGroup == "PGV")
+                cbKhoa.Enabled = true;
         }
 
         private void gridViewClass_ShowingEditor(object sender, CancelEventArgs e)
         {
             if (bdsLOP.Position != positionSelectedClass
-                || (gridViewClass.FocusedColumn.FieldName == "MALOP" && flagMode.Equals("EDITCLASS"))
+                || (gridViewClass.FocusedColumn.FieldName == "MALOP" || gridViewClass.FocusedColumn.FieldName == "MAKHOA" && flagMode.Equals("EDITCLASS"))
                 || (gridViewClass.FocusedColumn.FieldName == "MAKHOA" && flagMode.Equals("ADDCLASS")))
                 e.Cancel = true;
         }
@@ -255,7 +248,7 @@ namespace QLDSV_TC.Views
         private void btnAdd_Click(object sender, EventArgs e)
         {
             bdsLOP.AddNew();
-            
+
             gridViewClass.SetFocusedRowCellValue("MAKHOA", GetMaKhoa());
 
             positionSelectedClass = bdsLOP.Count - 1;
@@ -300,22 +293,22 @@ namespace QLDSV_TC.Views
 
                     data.Delete();
 
-                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
-                    this.SINHVIENTableAdapter.Update(this.qLDSV_TCDataSet.SINHVIEN);
+                    this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
+                    this.LOPTableAdapter.Update(this.qLDSV_TCDataSet.LOP);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xóa lớp: " + ex.Message, "", MessageBoxButtons.OK);
-                    this.SINHVIENTableAdapter.Fill(this.qLDSV_TCDataSet.SINHVIEN);
+                    this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
                     bdsSINHVIEN.Position = bdsSINHVIEN.Find("MALOP", MALOP);
                     processStoreStack.Pop();
                     flagMode = "";
                     return;
                 }
-            }
 
-            btnAdd.Enabled = btnRecover.Enabled = true;
-            btnDelete.Enabled = btnEdit.Enabled = false;
+                btnAdd.Enabled = btnRecover.Enabled = true;
+                btnDelete.Enabled = btnEdit.Enabled = false;
+            }
         }
 
         private void btnWrite_Click(object sender, EventArgs e)
@@ -347,6 +340,130 @@ namespace QLDSV_TC.Views
                 btnAdd.Enabled = btnRecover.Enabled = cbKhoa.Enabled = true;
                 btnWrite.Enabled = false;
             }
+        }
+
+        private void btnRecover_Click(object sender, EventArgs e)
+        {
+            if (processStoreStack.Count > 0)
+            {
+                Services.ProcessStore command = processStoreStack.Pop();
+                String MALOP = command.primaryKey;
+                Lop lop = new Lop();
+
+                switch (command.flagMode)
+                {
+                    case "ADDCLASS":
+                        int rowIndex = gridViewClass.LocateByValue("MALOP", MALOP);
+
+                        try
+                        {
+                            gridViewClass.DeleteRow(rowIndex);
+                            this.LOPTableAdapter.Update(this.qLDSV_TCDataSet.LOP);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi xóa lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
+                            return;
+                        }
+                        break;
+
+                    case "DELETECLASS":
+                        lop = (Lop)command.dataRow;
+
+                        try
+                        {
+                            bdsLOP.AddNew();
+
+                            gridViewClass.SetFocusedRowCellValue("MALOP", lop.MaLop);
+                            gridViewClass.SetFocusedRowCellValue("TENLOP", lop.TenLop);
+                            gridViewClass.SetFocusedRowCellValue("KHOAHOC", lop.KhoaHoc);
+                            gridViewClass.SetFocusedRowCellValue("MAKHOA", lop.MaKhoa);
+
+                            bdsLOP.EndEdit();
+                            this.LOPTableAdapter.Update(this.qLDSV_TCDataSet.LOP);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khôi phục lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
+                            return;
+                        }
+                        break;
+
+                    default:
+                        lop = (Lop)command.dataRow;
+
+                        positionSelectedClass = gridViewClass.LocateByValue("MALOP", lop.MaLop);
+                        gridViewClass.FocusedRowHandle = positionSelectedClass;
+
+                        try
+                        {
+                            gridViewClass.BeginUpdate();
+                            gridViewClass.SetRowCellValue(positionSelectedClass, "TENLOP", lop.TenLop);
+                            gridViewClass.SetRowCellValue(positionSelectedClass, "KHOAHOC", lop.KhoaHoc);
+                            gridViewClass.EndUpdate();
+
+                            DataRow row = ((DataRowView)bdsLOP[positionSelectedClass]).Row;
+                            this.LOPTableAdapter.Update(row);
+
+                            positionSelectedClass = -1;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khôi phục lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.LOPTableAdapter.Fill(this.qLDSV_TCDataSet.LOP);
+                            return;
+                        }
+                        break;
+                }
+
+                if (processStoreStack.Count == 0)
+                    btnRecover.Enabled = false;
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            if (flagMode == "EDITCLASS" || flagMode == "ADDCLASS")
+            {
+                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialog == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    fillDataTableClass();
+
+                    flagMode = "";
+                    positionSelectedClass = -1;
+                }
+            }
+
+            btnAdd.Enabled = cbKhoa.Enabled = true;
+            btnWrite.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;
+        }
+
+        private void btnExitSubForm_Click(object sender, EventArgs e)
+        {
+            if (flagMode != "EDITCLASS" && flagMode != "ADDCLASS")
+            {
+                this.Close();
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn thoát không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialog == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void FrmQLLH_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            cbKhoa.SelectedIndexChanged -= cbKhoa_SelectedIndexChanged;
         }
     }
 }
