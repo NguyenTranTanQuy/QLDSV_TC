@@ -342,6 +342,7 @@
             this.btnQLMH.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnQLMH.LargeWidth = 70;
             this.btnQLMH.Name = "btnQLMH";
+            this.btnQLMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLMH_ItemClick);
             // 
             // QLLTC
             // 

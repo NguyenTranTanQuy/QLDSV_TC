@@ -106,6 +106,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Services\HandleString.cs" />
     <Compile Include="Services\ProcessStore.cs" />
     <Compile Include="Views\FrmMain.cs">
       <SubType>Form</SubType>
@@ -126,6 +127,12 @@
     </Compile>
     <Compile Include="Views\FrmQLLH.Designer.cs">
       <DependentUpon>FrmQLLH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmQLMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmQLMH.Designer.cs">
+      <DependentUpon>FrmQLMH.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmQLSV.cs">
       <SubType>Form</SubType>
@@ -151,6 +158,9 @@
     </Compile>
     <EmbeddedResource Include="Views\FrmQLLH.resx">
       <DependentUpon>FrmQLLH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmQLMH.resx">
+      <DependentUpon>FrmQLMH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmQLSV.resx">
       <DependentUpon>FrmQLSV.cs</DependentUpon>

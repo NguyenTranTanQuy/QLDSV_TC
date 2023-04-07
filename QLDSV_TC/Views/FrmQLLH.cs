@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
+using QLDSV_TC.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,9 +11,9 @@ using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
-    public partial class FrmQLLH : DevExpress.XtraEditors.XtraForm
+    public partial class FrmQLLH : XtraForm
     {
-        private Stack<Services.ProcessStore> processStoreStack = new Stack<Services.ProcessStore>();
+        private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
         private String flagMode = "";
         private int positionSelectedClass = -1;
 
@@ -169,7 +172,7 @@ namespace QLDSV_TC.Views
 
         private void gridViewLOP_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            if ((flagMode == "EDITCLASS" || flagMode == "ADDCLASS") && gridViewClass.FocusedRowHandle != positionSelectedClass)
+            if ((flagMode == "EDITCLASS" || flagMode == "ADDCLASS") && bdsLOP.Position != positionSelectedClass)
             {
                 DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialog == DialogResult.No)
@@ -184,7 +187,6 @@ namespace QLDSV_TC.Views
                 }
             }
 
-            btnAdd.Enabled = false;
             btnDelete.Enabled = btnEdit.Enabled = true;
 
             if (Program.mGroup == "PGV")
@@ -194,7 +196,7 @@ namespace QLDSV_TC.Views
         private void gridViewClass_ShowingEditor(object sender, CancelEventArgs e)
         {
             if (bdsLOP.Position != positionSelectedClass
-                || (gridViewClass.FocusedColumn.FieldName == "MALOP" || gridViewClass.FocusedColumn.FieldName == "MAKHOA" && flagMode.Equals("EDITCLASS"))
+                || ((gridViewClass.FocusedColumn.FieldName == "MALOP" || gridViewClass.FocusedColumn.FieldName == "MAKHOA") && flagMode.Equals("EDITCLASS"))
                 || (gridViewClass.FocusedColumn.FieldName == "MAKHOA" && flagMode.Equals("ADDCLASS")))
                 e.Cancel = true;
         }
@@ -203,24 +205,12 @@ namespace QLDSV_TC.Views
         {
             if (gridViewClass.FocusedColumn.FieldName == "MALOP")
             {
+                e.Value = HandleString.RemoveAllSpaces(e.Value.ToString());
+
                 bool match = Regex.IsMatch(e.Value.ToString().ToUpper(), "[D][0-9][0-9][A-Z][A-Z][A-Z][A-Z][0-9][0-9]");
-                if (!match || e.Value.ToString().Trim().Length != 9)
+                if (!match || e.Value.ToString().Length != 9)
                 {
                     e.ErrorText = "Mã lớp bạn nhập không hợp lệ hoặc độ dài không đủ 9 kí tự\n Ví dụ: D20CQCN02";
-                    e.Valid = false;
-                }
-                else
-                {
-                    e.Value = e.Value.ToString().ToUpper();
-                }
-            }
-
-            if (gridViewClass.FocusedColumn.FieldName == "KHOAHOC")
-            {
-                bool match = Regex.IsMatch(e.Value.ToString().ToUpper(), "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]");
-                if (!match || e.Value.ToString().Trim().Length < 9)
-                {
-                    e.ErrorText = "Khóa học bạn nhập không hợp lệ \n Ví dụ: 2020-2025";
                     e.Valid = false;
                 }
                 else
@@ -238,10 +228,36 @@ namespace QLDSV_TC.Views
                 }
             }
 
+            if (gridViewClass.FocusedColumn.FieldName == "KHOAHOC")
+            {
+                e.Value = HandleString.RemoveAllSpaces(e.Value.ToString());
+
+                bool match = Regex.IsMatch(e.Value.ToString().ToUpper(), "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]");
+                if (!match || e.Value.ToString().Length < 9)
+                {
+                    e.ErrorText = "Khóa học bạn nhập không hợp lệ \n Ví dụ: 2020-2025";
+                    e.Valid = false;
+                }
+                else
+                {
+                    String [] years = e.Value.ToString().Split('-');
+                    int startYear = int.Parse(years[0]);
+                    int endYear = int.Parse(years[1]);
+
+                    if(startYear > endYear)
+                    {
+                        e.ErrorText = "Khóa học bạn phải có năm bắt đầu nhỏ hơn năm kết thúc";
+                        e.Valid = false;
+                    }
+
+                    e.Value = e.Value.ToString().ToUpper();
+                }
+            }
+
             if (gridViewClass.FocusedColumn.FieldName == "TENLOP")
             {
-                TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                e.Value = textInfo.ToTitleCase(e.Value.ToString().ToLower());
+                e.Value = HandleString.RemoveExtraSpaces(e.Value.ToString());
+                e.Value = HandleString.UpperFirstCharInString(e.Value.ToString().ToLower());
             }
         }
 
@@ -253,7 +269,7 @@ namespace QLDSV_TC.Views
 
             positionSelectedClass = bdsLOP.Count - 1;
 
-            btnAdd.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
+            btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
             btnWrite.Enabled = true;
 
             flagMode = "ADDCLASS";
@@ -269,7 +285,7 @@ namespace QLDSV_TC.Views
             pushDataToProcessStack(data);
 
             btnWrite.Enabled = true;
-            btnDelete.Enabled = btnEdit.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
+            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -434,12 +450,12 @@ namespace QLDSV_TC.Views
                 }
                 else
                 {
-                    fillDataTableClass();
-
                     flagMode = "";
                     positionSelectedClass = -1;
                 }
             }
+
+            fillDataTableClass();
 
             btnAdd.Enabled = cbKhoa.Enabled = true;
             btnWrite.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;

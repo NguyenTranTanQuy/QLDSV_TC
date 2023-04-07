@@ -3,6 +3,7 @@ using DevExpress.XtraBars.ViewInfo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask.Design;
 using DevExpress.XtraPrinting;
+using QLDSV_TC.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -259,7 +260,6 @@ namespace QLDSV_TC.Views
             {
                 getDataFromRowSelected();
 
-                btnAddSV.Enabled = false;
                 btnDeleteSV.Enabled = btnEditSV.Enabled = cbKhoa.Enabled = true;
             }
         }
@@ -276,8 +276,10 @@ namespace QLDSV_TC.Views
         {
             if (gridViewStudents.FocusedColumn.FieldName == "MASV")
             {
+                e.Value = HandleString.RemoveAllSpaces(e.Value.ToString());
+
                 bool match = Regex.IsMatch(e.Value.ToString().ToUpper(), "[NB][0-9][0-9][A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9]");
-                if (!match || e.Value.ToString().Trim().Length != 10)
+                if (!match || e.Value.ToString().Length != 10)
                 {
                     e.ErrorText = "Mã sinh viên bạn nhập không đúng định dạng hoặc độ dài không đủ 10 kí tự \n Ví dụ: N20DCCN001";
                     e.Valid = false;
@@ -290,6 +292,7 @@ namespace QLDSV_TC.Views
 
             if (gridViewStudents.FocusedColumn.FieldName == "HO" || gridViewStudents.FocusedColumn.FieldName == "TEN")
             {
+                e.Value = HandleString.RemoveExtraSpaces(e.Value.ToString());   
                 if (e.Value.ToString().Trim().Length == 0)
                 {
                     e.ErrorText = "Không được để trống ô này";
@@ -297,28 +300,28 @@ namespace QLDSV_TC.Views
                 }
                 else
                 {
-                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                    e.Value = textInfo.ToTitleCase(e.Value.ToString().ToLower());
+                    e.Value = HandleString.UppercaseString(e.Value.ToString());
                 }
             }
 
             if(gridViewStudents.FocusedColumn.FieldName == "DIACHI")
             {
-                TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                e.Value = textInfo.ToTitleCase(e.Value.ToString().ToLower());
+                e.Value = HandleString.RemoveExtraSpaces(e.Value.ToString());
+                e.Value = HandleString.UppercaseString(e.Value.ToString());
             }
         }
 
         private void btnAddSV_Click(object sender, EventArgs e)
         {
+            reloadDataForm();
             defaultValueInputSV();
-
+            
             bdsSINHVIEN.AddNew();
 
             positionSelectedSV = bdsSINHVIEN.Count - 1;
             positionSelectedClass = gridViewClass.FocusedRowHandle;
 
-            btnAddSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
+            btnAddSV.Enabled = btnEditSV.Enabled = btnDeleteSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
             btnWriteSV.Enabled = true;
 
             flagMode = "ADDSTUDENT";
@@ -374,7 +377,7 @@ namespace QLDSV_TC.Views
             pushDataToProcessStack(data);
 
             btnWriteSV.Enabled = true;
-            btnDeleteSV.Enabled = btnEditSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
+            btnAddSV.Enabled = btnDeleteSV.Enabled = btnEditSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
         }
 
         private void btnWriteSV_Click(object sender, EventArgs e)
@@ -511,12 +514,12 @@ namespace QLDSV_TC.Views
                 }
                 else
                 {
-                    fillDataTableSinhVien();
-
                     flagMode = "";
                     positionSelectedSV = -1;
                 }
             }
+
+            fillDataTableSinhVien();
 
             reloadDataForm();
 
