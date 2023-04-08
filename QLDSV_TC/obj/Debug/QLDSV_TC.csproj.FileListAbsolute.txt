@@ -70,3 +70,4 @@ C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\bin\Debug\DevExpress.Xt
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\bin\Debug\DevExpress.XtraVerticalGrid.v22.2.xml
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLLH.resources
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLMH.resources
+C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLLTC.resources

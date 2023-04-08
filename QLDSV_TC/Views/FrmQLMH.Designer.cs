@@ -599,7 +599,7 @@
             this.Controls.Add(this.lblMain);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("FrmQLMH.IconOptions.LargeImage")));
             this.Name = "FrmQLMH";
-            this.Text = "Quản lý môn học";
+            this.Text = "QUẢN LÝ MÔN HỌC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmQLMH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();

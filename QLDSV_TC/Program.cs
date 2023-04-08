@@ -44,6 +44,7 @@ namespace QLDSV_TC
         public static Views.FrmQLSV frmQLSV;
         public static Views.FrmQLLH frmQLLH;
         public static Views.FrmQLMH frmQLMH;
+        public static Views.FrmQLLTC frmQLLTC;
 
         public static bool KetNoi()
         {
@@ -112,7 +113,7 @@ namespace QLDSV_TC
             if (Program.connect.State == ConnectionState.Closed) Program.connect.Open();
             try
             {
-                sqlcmd.ExecuteNonQuery(); //conn.Close()
+                sqlcmd.ExecuteNonQuery();
                 MessageBox.Show("Thao tác thành công!!", "", MessageBoxButtons.OK);
             }
             catch (SqlException ex)

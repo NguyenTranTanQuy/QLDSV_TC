@@ -94,9 +94,9 @@ namespace QLDSV_TC.Views
 
                                " EXEC @return_value = [dbo].[SP_CHECKTENLOP]" +
 
-                               " N'" + dataClass["MALOP"].ToString().Trim() + "', " +
+                               " N'" + dataClass["MALOP"].ToString() + "', " +
 
-                               " N'" + dataClass["TENLOP"].ToString().Trim() + "' " +
+                               " N'" + dataClass["TENLOP"].ToString() + "' " +
 
                                " SELECT @return_value";
 
@@ -121,7 +121,7 @@ namespace QLDSV_TC.Views
             return true;
         }
 
-        public static string GetMaKhoa()
+        private static string GetMaKhoa()
         {
             DataTable dt = Program.ExecSqlDataTable("SELECT MAKHOA FROM KHOA");
             String facultyCode = dt.Rows[0][0].ToString();

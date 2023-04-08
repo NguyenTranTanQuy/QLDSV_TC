@@ -361,6 +361,7 @@
             this.QLLTC.ItemAppearance.Pressed.Options.UseFont = true;
             this.QLLTC.LargeWidth = 70;
             this.QLLTC.Name = "QLLTC";
+            this.QLLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.QLLTC_ItemClick);
             // 
             // btnQLDIEM
             // 

@@ -279,7 +279,7 @@
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(682, 12);
+            this.btnRefresh.Location = new System.Drawing.Point(682, -16);
             this.btnRefresh.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(130, 45);
@@ -293,7 +293,7 @@
             this.btnExitSubForm.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitSubForm.Appearance.Options.UseFont = true;
             this.btnExitSubForm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExitSubForm.ImageOptions.Image")));
-            this.btnExitSubForm.Location = new System.Drawing.Point(816, 12);
+            this.btnExitSubForm.Location = new System.Drawing.Point(816, -16);
             this.btnExitSubForm.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnExitSubForm.Name = "btnExitSubForm";
             this.btnExitSubForm.Size = new System.Drawing.Size(130, 45);
@@ -308,7 +308,7 @@
             this.btnWriteSV.Appearance.Options.UseFont = true;
             this.btnWriteSV.Enabled = false;
             this.btnWriteSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWriteSV.ImageOptions.Image")));
-            this.btnWriteSV.Location = new System.Drawing.Point(548, 12);
+            this.btnWriteSV.Location = new System.Drawing.Point(548, -16);
             this.btnWriteSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnWriteSV.Name = "btnWriteSV";
             this.btnWriteSV.Size = new System.Drawing.Size(130, 45);
@@ -323,7 +323,7 @@
             this.btnRecover.Appearance.Options.UseFont = true;
             this.btnRecover.Enabled = false;
             this.btnRecover.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRecover.ImageOptions.Image")));
-            this.btnRecover.Location = new System.Drawing.Point(414, 12);
+            this.btnRecover.Location = new System.Drawing.Point(414, -16);
             this.btnRecover.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnRecover.Name = "btnRecover";
             this.btnRecover.Size = new System.Drawing.Size(130, 45);
@@ -338,7 +338,7 @@
             this.btnEditSV.Appearance.Options.UseFont = true;
             this.btnEditSV.Enabled = false;
             this.btnEditSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditSV.ImageOptions.Image")));
-            this.btnEditSV.Location = new System.Drawing.Point(280, 12);
+            this.btnEditSV.Location = new System.Drawing.Point(280, -16);
             this.btnEditSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnEditSV.Name = "btnEditSV";
             this.btnEditSV.Size = new System.Drawing.Size(130, 45);
@@ -353,7 +353,7 @@
             this.btnDeleteSV.Appearance.Options.UseFont = true;
             this.btnDeleteSV.Enabled = false;
             this.btnDeleteSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteSV.ImageOptions.Image")));
-            this.btnDeleteSV.Location = new System.Drawing.Point(146, 12);
+            this.btnDeleteSV.Location = new System.Drawing.Point(146, -16);
             this.btnDeleteSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnDeleteSV.Name = "btnDeleteSV";
             this.btnDeleteSV.Size = new System.Drawing.Size(130, 45);
@@ -368,7 +368,7 @@
             this.btnAddSV.Appearance.Options.UseFont = true;
             this.btnAddSV.Enabled = false;
             this.btnAddSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSV.ImageOptions.Image")));
-            this.btnAddSV.Location = new System.Drawing.Point(12, 12);
+            this.btnAddSV.Location = new System.Drawing.Point(12, -16);
             this.btnAddSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnAddSV.Name = "btnAddSV";
             this.btnAddSV.Size = new System.Drawing.Size(130, 45);
@@ -1302,7 +1302,7 @@
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.lblMain);
             this.Name = "FrmQLSV";
-            this.Text = "Quản lý sinh viên";
+            this.Text = "QUẢN LÝ SINH VIÊN";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmQLSV_FormClosed);
             this.Load += new System.EventHandler(this.FrmQLSV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

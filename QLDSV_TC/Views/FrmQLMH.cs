@@ -96,6 +96,31 @@ namespace QLDSV_TC.Views
                 }
             }
 
+            if (flagMode == "ADDSUBJECT" || flagMode == "EDITSUBJECT")
+            {
+                string query = " DECLARE @return_value INT" +
+
+                               " EXEC @return_value = [dbo].[SP_CHECKTENMH]" +
+
+                               " N'" + dataClass["MAMH"].ToString() + "', " +
+
+                               " N'" + dataClass["TENMH"].ToString() + "' " +
+
+                               " SELECT @return_value";
+
+                int resultMa = Program.CheckPrimaryKey(query);
+                if (resultMa == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối với database.\n Vui long thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (resultMa == 1)
+                {
+                    MessageBox.Show("Tên môn học đã tồn tại.\n Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -173,6 +198,8 @@ namespace QLDSV_TC.Views
 
             gridViewSubject.SetFocusedRowCellValue("SOTIET_LT", 0);
             gridViewSubject.SetFocusedRowCellValue("SOTIET_TH", 0);
+
+            this.
 
             positionSelectedSubject = bdsMONHOC.Count - 1;
 

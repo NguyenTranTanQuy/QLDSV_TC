@@ -646,7 +646,7 @@
             this.Controls.Add(this.panelChonKhoa);
             this.Controls.Add(this.lblMain);
             this.Name = "FrmQLLH";
-            this.Text = "Quản lý lớp học";
+            this.Text = "QUẢN LÝ LỚP HỌC";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmQLLH_FormClosed);
             this.Load += new System.EventHandler(this.FrmQLLH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).EndInit();

@@ -150,7 +150,7 @@ namespace QLDSV_TC
                 Program.myReader.Close();
 
                 Program.frmMain = new FrmMain();
-                Program.frmMain.statuslblMa.Text = "MÃ: " + Program.mUserName;
+                Program.frmMain.statuslblMa.Text = "MÃ: " + Program.mUserName.ToUpper();
                 Program.frmMain.statuslblHoten.Text = "HỌ VÀ TÊN: " + Program.mName;
                 Program.frmMain.statuslblNhom.Text = "NHÓM QUYỀN: " + Program.mGroup;
 

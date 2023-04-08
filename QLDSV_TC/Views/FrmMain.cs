@@ -83,5 +83,17 @@ namespace QLDSV_TC
                 Program.frmQLMH.Show();
             }
         }
+
+        private void QLLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.FrmQLLTC));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmQLLTC = new FrmQLLTC();
+                Program.frmQLLTC.MdiParent = this;
+                Program.frmQLLTC.Show();
+            }
+        }
     }
 }

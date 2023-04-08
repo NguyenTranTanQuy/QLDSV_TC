@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils.MVVM;
+﻿using DevExpress.ChartRangeControlClient.Core;
+using DevExpress.Utils.MVVM;
 using DevExpress.XtraBars.ViewInfo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask.Design;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -518,6 +520,9 @@ namespace QLDSV_TC.Views
                     positionSelectedSV = -1;
                 }
             }
+
+            this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
+            this.LOPTableAdapter.Fill(this.qldsV_TCDataSet.LOP);
 
             fillDataTableSinhVien();
 

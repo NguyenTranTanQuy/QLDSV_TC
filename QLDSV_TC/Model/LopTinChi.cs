@@ -26,13 +26,13 @@ namespace QLDSV_TC
 
         public string MaKhoa { set; get; }
 
-        public short SoSVToiThieu { set; get; }
+        public int SoSVToiThieu { set; get; }
 
         public bool HuyLop { set; get; }
 
         public LopTinChi() {}
 
-        public LopTinChi(int maLTC, string nienKhoa, int hocKy, string maMH, int nhom, string maGV, string maKhoa, short soSVToiThieu, bool huyLop)
+        public LopTinChi(int maLTC, string nienKhoa, int hocKy, string maMH, int nhom, string maGV, string maKhoa, int soSVToiThieu, bool huyLop)
         {
             MaLTC = maLTC;
             NienKhoa = nienKhoa;
