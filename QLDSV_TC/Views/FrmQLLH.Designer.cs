@@ -242,6 +242,7 @@
             this.colMALOP.AppearanceHeader.Options.UseForeColor = true;
             this.colMALOP.AppearanceHeader.Options.UseTextOptions = true;
             this.colMALOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMALOP.Caption = "MÃ LỚP";
             this.colMALOP.FieldName = "MALOP";
             this.colMALOP.MinWidth = 25;
             this.colMALOP.Name = "colMALOP";
@@ -261,6 +262,7 @@
             this.colTENLOP.AppearanceHeader.Options.UseForeColor = true;
             this.colTENLOP.AppearanceHeader.Options.UseTextOptions = true;
             this.colTENLOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTENLOP.Caption = "TÊN LỚP";
             this.colTENLOP.FieldName = "TENLOP";
             this.colTENLOP.MinWidth = 25;
             this.colTENLOP.Name = "colTENLOP";
@@ -281,6 +283,7 @@
             this.colKHOAHOC.AppearanceHeader.Options.UseForeColor = true;
             this.colKHOAHOC.AppearanceHeader.Options.UseTextOptions = true;
             this.colKHOAHOC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colKHOAHOC.Caption = "KHÓA HỌC";
             this.colKHOAHOC.FieldName = "KHOAHOC";
             this.colKHOAHOC.MinWidth = 25;
             this.colKHOAHOC.Name = "colKHOAHOC";
@@ -301,6 +304,7 @@
             this.colMAKHOA.AppearanceHeader.Options.UseForeColor = true;
             this.colMAKHOA.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAKHOA.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMAKHOA.Caption = "MÃ KHOA";
             this.colMAKHOA.FieldName = "MAKHOA";
             this.colMAKHOA.MinWidth = 25;
             this.colMAKHOA.Name = "colMAKHOA";

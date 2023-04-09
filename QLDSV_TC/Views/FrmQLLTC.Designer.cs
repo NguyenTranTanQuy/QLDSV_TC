@@ -212,7 +212,7 @@
             // gridControlSubject
             // 
             this.gridControlSubject.DataSource = this.bdsMONHOC;
-            this.gridControlSubject.Location = new System.Drawing.Point(12, 12);
+            this.gridControlSubject.Location = new System.Drawing.Point(12, -91);
             this.gridControlSubject.MainView = this.gridViewSubject;
             this.gridControlSubject.Name = "gridControlSubject";
             this.gridControlSubject.Size = new System.Drawing.Size(1653, 226);
@@ -261,6 +261,7 @@
             this.colMAMH.AppearanceHeader.Options.UseForeColor = true;
             this.colMAMH.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAMH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMAMH.Caption = "MÃ MÔN HỌC";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.MinWidth = 25;
             this.colMAMH.Name = "colMAMH";
@@ -281,6 +282,7 @@
             this.colTENMH.AppearanceHeader.Options.UseForeColor = true;
             this.colTENMH.AppearanceHeader.Options.UseTextOptions = true;
             this.colTENMH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTENMH.Caption = "TÊN MÔN HỌC";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.MinWidth = 25;
             this.colTENMH.Name = "colTENMH";
@@ -301,6 +303,7 @@
             this.colSOTIET_LT.AppearanceHeader.Options.UseForeColor = true;
             this.colSOTIET_LT.AppearanceHeader.Options.UseTextOptions = true;
             this.colSOTIET_LT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSOTIET_LT.Caption = "SỐ TIẾT LÝ THUYẾT";
             this.colSOTIET_LT.FieldName = "SOTIET_LT";
             this.colSOTIET_LT.MinWidth = 25;
             this.colSOTIET_LT.Name = "colSOTIET_LT";
@@ -321,6 +324,7 @@
             this.colSOTIET_TH.AppearanceHeader.Options.UseForeColor = true;
             this.colSOTIET_TH.AppearanceHeader.Options.UseTextOptions = true;
             this.colSOTIET_TH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSOTIET_TH.Caption = "SỐ TIẾT THỰC HÀNH";
             this.colSOTIET_TH.FieldName = "SOTIET_TH";
             this.colSOTIET_TH.MinWidth = 25;
             this.colSOTIET_TH.Name = "colSOTIET_TH";
@@ -331,7 +335,7 @@
             // gridControlCreditClass
             // 
             this.gridControlCreditClass.DataSource = this.bdsLOPTINCHI;
-            this.gridControlCreditClass.Location = new System.Drawing.Point(12, 242);
+            this.gridControlCreditClass.Location = new System.Drawing.Point(12, 139);
             this.gridControlCreditClass.MainView = this.gridViewCreditClass;
             this.gridControlCreditClass.Name = "gridControlCreditClass";
             this.gridControlCreditClass.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -385,12 +389,13 @@
             this.colNIENKHOA.AppearanceHeader.Options.UseForeColor = true;
             this.colNIENKHOA.AppearanceHeader.Options.UseTextOptions = true;
             this.colNIENKHOA.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNIENKHOA.Caption = "NIÊN KHÓA";
             this.colNIENKHOA.FieldName = "NIENKHOA";
             this.colNIENKHOA.MinWidth = 25;
             this.colNIENKHOA.Name = "colNIENKHOA";
             this.colNIENKHOA.Visible = true;
             this.colNIENKHOA.VisibleIndex = 0;
-            this.colNIENKHOA.Width = 147;
+            this.colNIENKHOA.Width = 132;
             // 
             // colHOCKY
             // 
@@ -405,13 +410,14 @@
             this.colHOCKY.AppearanceHeader.Options.UseForeColor = true;
             this.colHOCKY.AppearanceHeader.Options.UseTextOptions = true;
             this.colHOCKY.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colHOCKY.Caption = "HỌC KỲ";
             this.colHOCKY.ColumnEdit = this.cbHOCKY;
             this.colHOCKY.FieldName = "HOCKY";
             this.colHOCKY.MinWidth = 25;
             this.colHOCKY.Name = "colHOCKY";
             this.colHOCKY.Visible = true;
             this.colHOCKY.VisibleIndex = 1;
-            this.colHOCKY.Width = 95;
+            this.colHOCKY.Width = 85;
             // 
             // cbHOCKY
             // 
@@ -441,13 +447,14 @@
             this.colMAMH1.AppearanceHeader.Options.UseForeColor = true;
             this.colMAMH1.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAMH1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMAMH1.Caption = "MÔN HỌC";
             this.colMAMH1.ColumnEdit = this.lookUpEditMH;
             this.colMAMH1.FieldName = "MAMH";
             this.colMAMH1.MinWidth = 25;
             this.colMAMH1.Name = "colMAMH1";
             this.colMAMH1.Visible = true;
             this.colMAMH1.VisibleIndex = 2;
-            this.colMAMH1.Width = 629;
+            this.colMAMH1.Width = 570;
             // 
             // lookUpEditMH
             // 
@@ -469,13 +476,14 @@
             this.colNHOM.AppearanceHeader.Options.UseForeColor = true;
             this.colNHOM.AppearanceHeader.Options.UseTextOptions = true;
             this.colNHOM.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNHOM.Caption = "NHÓM";
             this.colNHOM.ColumnEdit = this.spinEditNHOM;
             this.colNHOM.FieldName = "NHOM";
             this.colNHOM.MinWidth = 25;
             this.colNHOM.Name = "colNHOM";
             this.colNHOM.Visible = true;
             this.colNHOM.VisibleIndex = 3;
-            this.colNHOM.Width = 109;
+            this.colNHOM.Width = 98;
             // 
             // spinEditNHOM
             // 
@@ -509,13 +517,14 @@
             this.colMAGV.AppearanceHeader.Options.UseForeColor = true;
             this.colMAGV.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAGV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMAGV.Caption = "GIẢNG VIÊN";
             this.colMAGV.ColumnEdit = this.lookUpEditGV;
             this.colMAGV.FieldName = "MAGV";
             this.colMAGV.MinWidth = 25;
             this.colMAGV.Name = "colMAGV";
             this.colMAGV.Visible = true;
             this.colMAGV.VisibleIndex = 4;
-            this.colMAGV.Width = 367;
+            this.colMAGV.Width = 332;
             // 
             // lookUpEditGV
             // 
@@ -538,13 +547,14 @@
             this.colSOSVTOITHIEU.AppearanceHeader.Options.UseForeColor = true;
             this.colSOSVTOITHIEU.AppearanceHeader.Options.UseTextOptions = true;
             this.colSOSVTOITHIEU.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSOSVTOITHIEU.Caption = "SỐ SV TỐI THIỂU";
             this.colSOSVTOITHIEU.ColumnEdit = this.spinEditSOSV;
             this.colSOSVTOITHIEU.FieldName = "SOSVTOITHIEU";
             this.colSOSVTOITHIEU.MinWidth = 25;
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
             this.colSOSVTOITHIEU.Visible = true;
             this.colSOSVTOITHIEU.VisibleIndex = 5;
-            this.colSOSVTOITHIEU.Width = 172;
+            this.colSOSVTOITHIEU.Width = 155;
             // 
             // spinEditSOSV
             // 
@@ -578,12 +588,13 @@
             this.colHUYLOP.AppearanceHeader.Options.UseForeColor = true;
             this.colHUYLOP.AppearanceHeader.Options.UseTextOptions = true;
             this.colHUYLOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colHUYLOP.Caption = "HỦY LỚP";
             this.colHUYLOP.FieldName = "HUYLOP";
             this.colHUYLOP.MinWidth = 25;
             this.colHUYLOP.Name = "colHUYLOP";
             this.colHUYLOP.Visible = true;
             this.colHUYLOP.VisibleIndex = 6;
-            this.colHUYLOP.Width = 104;
+            this.colHUYLOP.Width = 101;
             // 
             // cbGV
             // 
@@ -609,7 +620,7 @@
             this.layoutControl1.Controls.Add(this.btnExitSubForm);
             this.layoutControl1.Controls.Add(this.btnReload);
             this.layoutControl1.Controls.Add(this.btnEdit);
-            this.layoutControl1.Location = new System.Drawing.Point(12, 524);
+            this.layoutControl1.Location = new System.Drawing.Point(12, 421);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(1653, 60);

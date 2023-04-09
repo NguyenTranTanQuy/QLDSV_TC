@@ -279,7 +279,7 @@
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(682, -16);
+            this.btnRefresh.Location = new System.Drawing.Point(682, 12);
             this.btnRefresh.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(130, 45);
@@ -293,7 +293,7 @@
             this.btnExitSubForm.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitSubForm.Appearance.Options.UseFont = true;
             this.btnExitSubForm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExitSubForm.ImageOptions.Image")));
-            this.btnExitSubForm.Location = new System.Drawing.Point(816, -16);
+            this.btnExitSubForm.Location = new System.Drawing.Point(816, 12);
             this.btnExitSubForm.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnExitSubForm.Name = "btnExitSubForm";
             this.btnExitSubForm.Size = new System.Drawing.Size(130, 45);
@@ -308,7 +308,7 @@
             this.btnWriteSV.Appearance.Options.UseFont = true;
             this.btnWriteSV.Enabled = false;
             this.btnWriteSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWriteSV.ImageOptions.Image")));
-            this.btnWriteSV.Location = new System.Drawing.Point(548, -16);
+            this.btnWriteSV.Location = new System.Drawing.Point(548, 12);
             this.btnWriteSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnWriteSV.Name = "btnWriteSV";
             this.btnWriteSV.Size = new System.Drawing.Size(130, 45);
@@ -323,7 +323,7 @@
             this.btnRecover.Appearance.Options.UseFont = true;
             this.btnRecover.Enabled = false;
             this.btnRecover.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRecover.ImageOptions.Image")));
-            this.btnRecover.Location = new System.Drawing.Point(414, -16);
+            this.btnRecover.Location = new System.Drawing.Point(414, 12);
             this.btnRecover.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnRecover.Name = "btnRecover";
             this.btnRecover.Size = new System.Drawing.Size(130, 45);
@@ -338,7 +338,7 @@
             this.btnEditSV.Appearance.Options.UseFont = true;
             this.btnEditSV.Enabled = false;
             this.btnEditSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditSV.ImageOptions.Image")));
-            this.btnEditSV.Location = new System.Drawing.Point(280, -16);
+            this.btnEditSV.Location = new System.Drawing.Point(280, 12);
             this.btnEditSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnEditSV.Name = "btnEditSV";
             this.btnEditSV.Size = new System.Drawing.Size(130, 45);
@@ -353,7 +353,7 @@
             this.btnDeleteSV.Appearance.Options.UseFont = true;
             this.btnDeleteSV.Enabled = false;
             this.btnDeleteSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteSV.ImageOptions.Image")));
-            this.btnDeleteSV.Location = new System.Drawing.Point(146, -16);
+            this.btnDeleteSV.Location = new System.Drawing.Point(146, 12);
             this.btnDeleteSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnDeleteSV.Name = "btnDeleteSV";
             this.btnDeleteSV.Size = new System.Drawing.Size(130, 45);
@@ -368,7 +368,7 @@
             this.btnAddSV.Appearance.Options.UseFont = true;
             this.btnAddSV.Enabled = false;
             this.btnAddSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSV.ImageOptions.Image")));
-            this.btnAddSV.Location = new System.Drawing.Point(12, -16);
+            this.btnAddSV.Location = new System.Drawing.Point(12, 12);
             this.btnAddSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnAddSV.Name = "btnAddSV";
             this.btnAddSV.Size = new System.Drawing.Size(130, 45);
@@ -548,6 +548,7 @@
             this.colMALOP.AppearanceHeader.Options.UseForeColor = true;
             this.colMALOP.AppearanceHeader.Options.UseTextOptions = true;
             this.colMALOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMALOP.Caption = "MÃ LỚP";
             this.colMALOP.FieldName = "MALOP";
             this.colMALOP.MinWidth = 25;
             this.colMALOP.Name = "colMALOP";
@@ -569,6 +570,7 @@
             this.colTENLOP.AppearanceHeader.Options.UseForeColor = true;
             this.colTENLOP.AppearanceHeader.Options.UseTextOptions = true;
             this.colTENLOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTENLOP.Caption = "TÊN LỚP";
             this.colTENLOP.FieldName = "TENLOP";
             this.colTENLOP.MinWidth = 25;
             this.colTENLOP.Name = "colTENLOP";
@@ -591,6 +593,7 @@
             this.colKHOAHOC.AppearanceHeader.Options.UseForeColor = true;
             this.colKHOAHOC.AppearanceHeader.Options.UseTextOptions = true;
             this.colKHOAHOC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colKHOAHOC.Caption = "KHÓA HỌC";
             this.colKHOAHOC.FieldName = "KHOAHOC";
             this.colKHOAHOC.MinWidth = 25;
             this.colKHOAHOC.Name = "colKHOAHOC";
@@ -613,6 +616,7 @@
             this.colMAKHOA.AppearanceHeader.Options.UseForeColor = true;
             this.colMAKHOA.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAKHOA.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMAKHOA.Caption = "MÃ KHOA";
             this.colMAKHOA.FieldName = "MAKHOA";
             this.colMAKHOA.MinWidth = 25;
             this.colMAKHOA.Name = "colMAKHOA";
@@ -887,6 +891,7 @@
             this.colMASV.AppearanceHeader.Options.UseFont = true;
             this.colMASV.AppearanceHeader.Options.UseTextOptions = true;
             this.colMASV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMASV.Caption = "MÃ SINH VIÊN";
             this.colMASV.FieldName = "MASV";
             this.colMASV.MinWidth = 25;
             this.colMASV.Name = "colMASV";
@@ -902,6 +907,7 @@
             this.colHO.AppearanceHeader.Options.UseFont = true;
             this.colHO.AppearanceHeader.Options.UseTextOptions = true;
             this.colHO.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colHO.Caption = "HỌ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 25;
             this.colHO.Name = "colHO";
@@ -917,6 +923,7 @@
             this.colTEN.AppearanceHeader.Options.UseFont = true;
             this.colTEN.AppearanceHeader.Options.UseTextOptions = true;
             this.colTEN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTEN.Caption = "TÊN";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 25;
             this.colTEN.Name = "colTEN";
@@ -932,6 +939,7 @@
             this.colPHAI.AppearanceHeader.Options.UseFont = true;
             this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
             this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colPHAI.Caption = "PHÁI";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.MinWidth = 25;
             this.colPHAI.Name = "colPHAI";
@@ -947,6 +955,7 @@
             this.colDIACHI.AppearanceHeader.Options.UseFont = true;
             this.colDIACHI.AppearanceHeader.Options.UseTextOptions = true;
             this.colDIACHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDIACHI.Caption = "ĐỊA CHỈ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -962,6 +971,7 @@
             this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
             this.colNGAYSINH.AppearanceHeader.Options.UseTextOptions = true;
             this.colNGAYSINH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNGAYSINH.Caption = "NGÀY SINH";
             this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colNGAYSINH.FieldName = "NGAYSINH";
@@ -981,6 +991,7 @@
             this.colDANGHIHOC.AppearanceHeader.Options.UseFont = true;
             this.colDANGHIHOC.AppearanceHeader.Options.UseTextOptions = true;
             this.colDANGHIHOC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDANGHIHOC.Caption = "ĐÃ NGHỈ HỌC";
             this.colDANGHIHOC.FieldName = "DANGHIHOC";
             this.colDANGHIHOC.MinWidth = 25;
             this.colDANGHIHOC.Name = "colDANGHIHOC";

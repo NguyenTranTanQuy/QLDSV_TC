@@ -22,8 +22,8 @@ namespace QLDSV_TC
         public static String mLogin;
         public static String mPassword;
 
-        public static String mLoginDN;
-        public static String mPasswordDN;
+        //public static String mLoginDN;
+        //public static String mPasswordDN;
 
         public static String mLoginSV = "";
         public static String mPasswordSV = "";

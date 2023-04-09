@@ -1,18 +1,11 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Repository;
 using QLDSV_TC.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLDSV_TC.Views
 {
@@ -23,6 +16,7 @@ namespace QLDSV_TC.Views
         private String SubjectNumberSelected = "";
         private int positionSelectedSubject = -1;
         private int positionSelectedCreditClass = -1;
+        private int increament = 0;
 
         private void pushDataToProcessStack(DataRow data)
         {
@@ -42,7 +36,7 @@ namespace QLDSV_TC.Views
             this.DANGKYTableAdapter.Fill(this.QLDSV_TCDataSet.DANGKY);
         }
 
-        private void fillComboBoxGV()
+        private void fillComboboxGV()
         {
             string command = "SELECT MAGV, HOTEN = HO + ' ' + TEN FROM GIANGVIEN";
             DataTable data = Program.ExecSqlDataTable(command);
@@ -54,7 +48,7 @@ namespace QLDSV_TC.Views
             lookUpEditGV.ValueMember = "MAGV";
         }
 
-        private void fillComboBoxMH()
+        private void fillComboboxMH()
         {
             string command = "SELECT MAMH, TENMH FROM MONHOC";
             DataTable data = Program.ExecSqlDataTable(command);
@@ -65,6 +59,7 @@ namespace QLDSV_TC.Views
             lookUpEditMH.DisplayMember = "TENMH";
             lookUpEditMH.ValueMember = "MAMH";
         }
+
         private void defaultValueInputCreditClass()
         {
             QLDSV_TCDataSet.LOPTINCHI.HUYLOPColumn.DefaultValue = false;
@@ -108,6 +103,8 @@ namespace QLDSV_TC.Views
             string query = " DECLARE @return_value INT" +
 
                                " EXEC @return_value = [dbo].[SP_CHECKLOPTINCHI]" +
+
+                               " N'" + Convert.ToInt32(dataClass["MALTC"]) + "', " +
 
                                " N'" + dataClass["MAMH"].ToString() + "', " +
 
@@ -158,8 +155,8 @@ namespace QLDSV_TC.Views
             this.MONHOCTableAdapter.Connection.ConnectionString = Program.connectString;
             this.MONHOCTableAdapter.Fill(this.QLDSV_TCDataSet.MONHOC);
 
-            fillComboBoxMH();
-            fillComboBoxGV();
+            fillComboboxMH();
+            fillComboboxGV();
 
             Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
             cbKhoa.DataSource = Program.bdsDSPM;
@@ -299,10 +296,6 @@ namespace QLDSV_TC.Views
 
             bdsLOPTINCHI.AddNew();
 
-            gridViewCreditClass.SetFocusedRowCellValue("HOCKY", 1);
-            gridViewCreditClass.SetFocusedRowCellValue("NHOM", 1);
-            gridViewCreditClass.SetFocusedRowCellValue("SOSVTOITHIEU", 1);
-
             positionSelectedSubject = gridViewSubject.FocusedRowHandle;
             positionSelectedCreditClass = bdsLOPTINCHI.Count - 1;
 
@@ -367,7 +360,96 @@ namespace QLDSV_TC.Views
 
         private void btnRecover_Click(object sender, EventArgs e)
         {
+            if (processStoreStack.Count > 0)
+            {
+                Services.ProcessStore command = processStoreStack.Pop();
+                int MALTC = Convert.ToInt32(command.primaryKey);
+                LopTinChi lopTinChi = new LopTinChi();
 
+                switch (command.flagMode)
+                {
+                    case "ADDCREDITCLASS":
+                        int rowIndex = gridViewCreditClass.LocateByValue("MALTC", MALTC);
+
+                        try
+                        {
+                            gridViewCreditClass.DeleteRow(rowIndex);
+                            this.LOPTINCHITableAdapter.Update(this.QLDSV_TCDataSet.LOPTINCHI);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi xóa lớp tín chỉ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.LOPTINCHITableAdapter.Fill(this.QLDSV_TCDataSet.LOPTINCHI);
+                            return;
+                        }
+                        break;
+
+                    case "DELETECREDITCLASS":
+                        lopTinChi = (LopTinChi)command.dataRow;
+                        gridViewSubject.FocusedRowHandle = gridViewSubject.LocateByValue("MAMH", lopTinChi.MaMH);
+
+                        try
+                        {
+                            bdsLOPTINCHI.AddNew();
+                            gridViewCreditClass.SetFocusedRowCellValue("NIENKHOA", lopTinChi.NienKhoa);
+                            gridViewCreditClass.SetFocusedRowCellValue("HOCKY", lopTinChi.HocKy);
+                            gridViewCreditClass.SetFocusedRowCellValue("MAMH", lopTinChi.MaMH);
+                            gridViewCreditClass.SetFocusedRowCellValue("NHOM", lopTinChi.Nhom);
+                            gridViewCreditClass.SetFocusedRowCellValue("MAGV", lopTinChi.MaGV);
+                            gridViewCreditClass.SetFocusedRowCellValue("MAKHOA", GetMaKhoa());
+                            gridViewCreditClass.SetFocusedRowCellValue("SOSVTOITHIEU", lopTinChi.SoSVToiThieu);
+                            gridViewCreditClass.SetFocusedRowCellValue("HUYLOP", lopTinChi.HuyLop);
+                            bdsLOPTINCHI.EndEdit();
+                            this.LOPTINCHITableAdapter.Update(this.QLDSV_TCDataSet.LOPTINCHI);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khôi phục lớp tín chỉ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.LOPTINCHITableAdapter.Fill(this.QLDSV_TCDataSet.LOPTINCHI);
+                            return;
+                        }
+                        break;
+
+                    default:
+                        lopTinChi = (LopTinChi)command.dataRow;
+
+                        gridViewSubject.FocusedRowHandle = gridViewSubject.LocateByValue("MAMH", lopTinChi.MaMH);
+                        positionSelectedCreditClass = gridViewCreditClass.LocateByValue("MALTC", MALTC);
+                        if(positionSelectedCreditClass < 0)
+                        {
+                            positionSelectedCreditClass = -1;
+                            break;
+                        }
+                        gridViewCreditClass.FocusedRowHandle = positionSelectedCreditClass;
+
+                        try
+                        {
+                            gridViewCreditClass.BeginUpdate();
+                            gridViewCreditClass.SetRowCellValue(positionSelectedCreditClass, "NIENKHOA", lopTinChi.NienKhoa);
+                            gridViewCreditClass.SetRowCellValue(positionSelectedCreditClass, "HOCKY", lopTinChi.HocKy);
+                            gridViewCreditClass.SetRowCellValue(positionSelectedCreditClass, "NHOM", lopTinChi.Nhom);
+                            gridViewCreditClass.SetRowCellValue(positionSelectedCreditClass, "MAGV", lopTinChi.MaGV);
+                            gridViewCreditClass.SetRowCellValue(positionSelectedCreditClass, "SOSVTOITHIEU", lopTinChi.SoSVToiThieu);
+                            gridViewCreditClass.SetRowCellValue(positionSelectedCreditClass, "HUYLOP", lopTinChi.HuyLop);
+                            gridViewCreditClass.EndUpdate();
+
+                            DataRow row = ((DataRowView)bdsLOPTINCHI[positionSelectedCreditClass]).Row;
+                            this.LOPTINCHITableAdapter.Update(row);
+
+                            positionSelectedCreditClass = -1;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khôi phục lớp tín chỉ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.LOPTINCHITableAdapter.Fill(this.QLDSV_TCDataSet.LOPTINCHI);
+                            return;
+                        }
+                        break;
+                }
+
+                if (processStoreStack.Count == 0)
+                    btnRecover.Enabled = false;
+            }
         }
 
         private void btnWrite_Click(object sender, EventArgs e)

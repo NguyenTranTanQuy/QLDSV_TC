@@ -415,6 +415,7 @@
             this.colMAMH.AppearanceHeader.Options.UseForeColor = true;
             this.colMAMH.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAMH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMAMH.Caption = "MÃ MÔN HỌC";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.MinWidth = 25;
             this.colMAMH.Name = "colMAMH";
@@ -435,6 +436,7 @@
             this.colTENMH.AppearanceHeader.Options.UseForeColor = true;
             this.colTENMH.AppearanceHeader.Options.UseTextOptions = true;
             this.colTENMH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTENMH.Caption = "TÊN MÔN HỌC";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.MinWidth = 25;
             this.colTENMH.Name = "colTENMH";
@@ -455,6 +457,7 @@
             this.colSOTIET_LT.AppearanceHeader.Options.UseForeColor = true;
             this.colSOTIET_LT.AppearanceHeader.Options.UseTextOptions = true;
             this.colSOTIET_LT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSOTIET_LT.Caption = "SỐ TIẾT LÝ THUYẾT";
             this.colSOTIET_LT.ColumnEdit = this.cbSoTietLT;
             this.colSOTIET_LT.FieldName = "SOTIET_LT";
             this.colSOTIET_LT.MinWidth = 25;
@@ -498,6 +501,7 @@
             this.colSOTIET_TH.AppearanceHeader.Options.UseForeColor = true;
             this.colSOTIET_TH.AppearanceHeader.Options.UseTextOptions = true;
             this.colSOTIET_TH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSOTIET_TH.Caption = "SỐ TIẾT THỰC HÀNH";
             this.colSOTIET_TH.ColumnEdit = this.cbSoTietTH;
             this.colSOTIET_TH.FieldName = "SOTIET_TH";
             this.colSOTIET_TH.MinWidth = 25;
