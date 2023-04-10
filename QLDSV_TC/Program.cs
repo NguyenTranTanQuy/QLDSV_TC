@@ -45,6 +45,7 @@ namespace QLDSV_TC
         public static Views.FrmQLLH frmQLLH;
         public static Views.FrmQLMH frmQLMH;
         public static Views.FrmQLLTC frmQLLTC;
+        public static Views.FrmQLCD frmQLCD;
 
         public static bool KetNoi()
         {

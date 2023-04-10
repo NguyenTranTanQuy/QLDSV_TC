@@ -380,6 +380,7 @@
             this.btnQLDIEM.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnQLDIEM.LargeWidth = 70;
             this.btnQLDIEM.Name = "btnQLDIEM";
+            this.btnQLDIEM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLDIEM_ItemClick);
             // 
             // btnQLHP
             // 

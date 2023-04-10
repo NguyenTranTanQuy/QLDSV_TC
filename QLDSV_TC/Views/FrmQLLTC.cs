@@ -16,7 +16,6 @@ namespace QLDSV_TC.Views
         private String SubjectNumberSelected = "";
         private int positionSelectedSubject = -1;
         private int positionSelectedCreditClass = -1;
-        private int increament = 0;
 
         private void pushDataToProcessStack(DataRow data)
         {
