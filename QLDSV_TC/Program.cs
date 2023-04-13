@@ -22,8 +22,8 @@ namespace QLDSV_TC
         public static String mLogin;
         public static String mPassword;
 
-        //public static String mLoginDN;
-        //public static String mPasswordDN;
+        public static String mLoginDN;
+        public static String mPasswordDN;
 
         public static String mLoginSV = "";
         public static String mPasswordSV = "";
@@ -31,9 +31,10 @@ namespace QLDSV_TC
         public static String mUserName;
         public static String mName;
         public static String mGroup;
+        public static int mPhongBan;
 
-        public static String remotelogin = "HTKN";
-        public static String remotepassword = "123456";
+        public static String remoteLogin = "HTKN";
+        public static String remotePassword = "123456";
 
         public static String defaultPasswordSV = "123456";
 
@@ -41,11 +42,14 @@ namespace QLDSV_TC
 
         public static FrmLogin frmLogin;
         public static FrmMain frmMain;
+
         public static Views.FrmQLSV frmQLSV;
         public static Views.FrmQLLH frmQLLH;
         public static Views.FrmQLMH frmQLMH;
         public static Views.FrmQLLTC frmQLLTC;
         public static Views.FrmQLCD frmQLCD;
+        public static Views.FrmSVDK frmSVDK;
+        public static Views.FrmQLHP frmQLHP;
 
         public static bool KetNoi()
         {

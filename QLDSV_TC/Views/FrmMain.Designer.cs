@@ -399,6 +399,7 @@
             this.btnQLHP.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnQLHP.LargeWidth = 70;
             this.btnQLHP.Name = "btnQLHP";
+            this.btnQLHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLHP_ItemClick);
             // 
             // btnQLDKLOP
             // 
@@ -417,6 +418,7 @@
             this.btnQLDKLOP.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnQLDKLOP.LargeWidth = 70;
             this.btnQLDKLOP.Name = "btnQLDKLOP";
+            this.btnQLDKLOP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLDKLOP_ItemClick);
             // 
             // skinDropDownButtonItem1
             // 

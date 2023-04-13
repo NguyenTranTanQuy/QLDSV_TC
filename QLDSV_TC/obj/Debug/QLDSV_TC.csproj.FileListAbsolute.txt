@@ -72,3 +72,5 @@ C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.View
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLMH.resources
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLLTC.resources
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLCD.resources
+C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmSVDK.resources
+C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.FrmQLHP.resources

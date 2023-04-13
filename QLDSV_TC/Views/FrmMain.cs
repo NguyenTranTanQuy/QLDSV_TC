@@ -107,5 +107,29 @@ namespace QLDSV_TC
                 Program.frmQLCD.Show();
             }
         }
+
+        private void btnQLDKLOP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.FrmSVDK));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmSVDK = new FrmSVDK();
+                Program.frmSVDK.MdiParent = this;
+                Program.frmSVDK.Show();
+            }
+        }
+
+        private void btnQLHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.FrmQLHP));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmQLHP = new FrmQLHP();
+                Program.frmQLHP.MdiParent = this;
+                Program.frmQLHP.Show();
+            }
+        }
     }
 }

@@ -199,8 +199,6 @@ namespace QLDSV_TC.Views
             gridViewSubject.SetFocusedRowCellValue("SOTIET_LT", 0);
             gridViewSubject.SetFocusedRowCellValue("SOTIET_TH", 0);
 
-            this.
-
             positionSelectedSubject = bdsMONHOC.Count - 1;
 
             btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled = btnRecover.Enabled = false;

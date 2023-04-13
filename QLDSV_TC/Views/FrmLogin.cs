@@ -75,6 +75,7 @@ namespace QLDSV_TC
         {
             if (connectCSDlGoc() == false) return;
             getDSPM();
+
             cbKhoa.SelectedIndex = 1;cbKhoa.SelectedIndex = 0;
 
             txtUsername.Text = "LNKT";
@@ -133,6 +134,10 @@ namespace QLDSV_TC
                 MessageBox.Show("Tài khoản của Sinh viên không được đăng nhập vào phòng kế toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            Program.mPhongBan = cbKhoa.SelectedIndex;
+            Program.mLoginDN = Program.mLogin;
+            Program.mPasswordDN = Program.mPassword;
 
             if (Program.myReader == null) return;
 

@@ -128,6 +128,12 @@
     <Compile Include="Views\FrmQLCD.Designer.cs">
       <DependentUpon>FrmQLCD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmQLHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmQLHP.Designer.cs">
+      <DependentUpon>FrmQLHP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmQLLH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     <Compile Include="Views\FrmQLSV.Designer.cs">
       <DependentUpon>FrmQLSV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmSVDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSVDK.Designer.cs">
+      <DependentUpon>FrmSVDK.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +183,9 @@
     <EmbeddedResource Include="Views\FrmQLCD.resx">
       <DependentUpon>FrmQLCD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmQLHP.resx">
+      <DependentUpon>FrmQLHP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmQLLH.resx">
       <DependentUpon>FrmQLLH.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmQLSV.resx">
       <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSVDK.resx">
+      <DependentUpon>FrmSVDK.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\DataSources\QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter.datasource" />

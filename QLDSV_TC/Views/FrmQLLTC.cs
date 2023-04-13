@@ -172,6 +172,17 @@ namespace QLDSV_TC.Views
                 return;
             Program.servername = cbKhoa.SelectedValue.ToString();
 
+            if (cbKhoa.SelectedIndex != Program.mPhongBan)
+            {
+                Program.mLogin = Program.remoteLogin;
+                Program.mPassword = Program.remotePassword;
+            }
+            else
+            {
+                Program.mLogin = Program.mLoginDN;
+                Program.mPassword = Program.mPasswordDN;
+            }
+
             if (!Program.KetNoi())
             {
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
