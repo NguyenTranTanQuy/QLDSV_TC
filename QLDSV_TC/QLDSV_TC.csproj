@@ -66,6 +66,7 @@
     <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraVerticalGrid.v22.2, Version=22.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -164,6 +165,12 @@
     <Compile Include="Views\FrmSVDK.Designer.cs">
       <DependentUpon>FrmSVDK.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmTTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmTTK.Designer.cs">
+      <DependentUpon>FrmTTK.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSVDK.resx">
       <DependentUpon>FrmSVDK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmTTK.resx">
+      <DependentUpon>FrmTTK.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\DataSources\QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter.datasource" />

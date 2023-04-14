@@ -212,7 +212,7 @@
             // gridControlSubject
             // 
             this.gridControlSubject.DataSource = this.bdsMONHOC;
-            this.gridControlSubject.Location = new System.Drawing.Point(12, -91);
+            this.gridControlSubject.Location = new System.Drawing.Point(12, 12);
             this.gridControlSubject.MainView = this.gridViewSubject;
             this.gridControlSubject.Name = "gridControlSubject";
             this.gridControlSubject.Size = new System.Drawing.Size(1653, 226);
@@ -335,7 +335,7 @@
             // gridControlCreditClass
             // 
             this.gridControlCreditClass.DataSource = this.bdsLOPTINCHI;
-            this.gridControlCreditClass.Location = new System.Drawing.Point(12, 139);
+            this.gridControlCreditClass.Location = new System.Drawing.Point(12, 242);
             this.gridControlCreditClass.MainView = this.gridViewCreditClass;
             this.gridControlCreditClass.Name = "gridControlCreditClass";
             this.gridControlCreditClass.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -532,6 +532,7 @@
             this.lookUpEditGV.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEditGV.Name = "lookUpEditGV";
+            this.lookUpEditGV.NullText = "Vui lòng chọn giảng viên.";
             this.lookUpEditGV.SelectFirstRowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
             // 
             // colSOSVTOITHIEU
@@ -620,7 +621,7 @@
             this.layoutControl1.Controls.Add(this.btnExitSubForm);
             this.layoutControl1.Controls.Add(this.btnReload);
             this.layoutControl1.Controls.Add(this.btnEdit);
-            this.layoutControl1.Location = new System.Drawing.Point(12, 421);
+            this.layoutControl1.Location = new System.Drawing.Point(12, 524);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(1653, 60);

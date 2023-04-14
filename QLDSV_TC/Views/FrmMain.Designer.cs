@@ -89,6 +89,7 @@
             this.statuslblHoten = new System.Windows.Forms.ToolStripStatusLabel();
             this.statuslblNhom = new System.Windows.Forms.ToolStripStatusLabel();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
@@ -266,6 +267,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnQLDIEM);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnQLHP);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnQLDKLOP);
+            this.ribbonPageGroup2.ItemLinks.Add(this.skinDropDownButtonItem2);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "QUẢN LÝ DỮ LIỆU";
             // 
@@ -462,6 +464,7 @@
             this.btnDK.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnDK.LargeWidth = 90;
             this.btnDK.Name = "btnDK";
+            this.btnDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDK_ItemClick);
             // 
             // btnLogout
             // 
@@ -625,10 +628,11 @@
             this.barButtonItem20,
             this.barButtonItem21,
             this.barButtonItem22,
-            this.skinDropDownButtonItem1});
+            this.skinDropDownButtonItem1,
+            this.skinDropDownButtonItem2});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.ribbonControl1.MaxItemId = 40;
+            this.ribbonControl1.MaxItemId = 41;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 701;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -782,6 +786,11 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // skinDropDownButtonItem2
+            // 
+            this.skinDropDownButtonItem2.Id = 40;
+            this.skinDropDownButtonItem2.Name = "skinDropDownButtonItem2";
+            // 
             // FrmMain
             // 
             this.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
@@ -871,5 +880,6 @@
         public System.Windows.Forms.ToolStripStatusLabel statuslblNhom;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem2;
     }
 }
