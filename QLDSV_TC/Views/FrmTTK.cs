@@ -1,17 +1,11 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
-    public partial class FrmTTK : DevExpress.XtraEditors.XtraForm
+    public partial class FrmTTK : XtraForm
     {
         private bool checkFormData()
         {
@@ -77,7 +71,9 @@ namespace QLDSV_TC.Views
 
         private void FrmTTK_Load(object sender, EventArgs e)
         {
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
+            if(Program.mGroup != "PKT")
+                Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
+
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";

@@ -51,11 +51,13 @@
             this.btnQLDIEM = new DevExpress.XtraBars.BarButtonItem();
             this.btnQLHP = new DevExpress.XtraBars.BarButtonItem();
             this.btnQLDKLOP = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnDK = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem4 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barListItem2 = new DevExpress.XtraBars.BarListItem();
             this.barListItem3 = new DevExpress.XtraBars.BarListItem();
@@ -83,13 +85,15 @@
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.skinDropDownButtonItem3 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statuslblMa = new System.Windows.Forms.ToolStripStatusLabel();
             this.statuslblHoten = new System.Windows.Forms.ToolStripStatusLabel();
             this.statuslblNhom = new System.Windows.Forms.ToolStripStatusLabel();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.skinDropDownButtonItem2 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
@@ -267,7 +271,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnQLDIEM);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnQLHP);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnQLDKLOP);
-            this.ribbonPageGroup2.ItemLinks.Add(this.skinDropDownButtonItem2);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "QUẢN LÝ DỮ LIỆU";
             // 
@@ -422,6 +425,11 @@
             this.btnQLDKLOP.Name = "btnQLDKLOP";
             this.btnQLDKLOP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLDKLOP_ItemClick);
             // 
+            // skinDropDownButtonItem2
+            // 
+            this.skinDropDownButtonItem2.Id = 40;
+            this.skinDropDownButtonItem2.Name = "skinDropDownButtonItem2";
+            // 
             // skinDropDownButtonItem1
             // 
             this.skinDropDownButtonItem1.Id = 39;
@@ -444,6 +452,7 @@
             this.ribbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup4.ItemLinks.Add(this.btnDK);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnLogout);
+            this.ribbonPageGroup4.ItemLinks.Add(this.skinDropDownButtonItem4);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "QUẢN LÝ HỆ THỐNG";
             // 
@@ -484,6 +493,11 @@
             this.btnLogout.LargeWidth = 90;
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
+            // skinDropDownButtonItem4
+            // 
+            this.skinDropDownButtonItem4.Id = 44;
+            this.skinDropDownButtonItem4.Name = "skinDropDownButtonItem4";
             // 
             // barButtonItem6
             // 
@@ -629,10 +643,14 @@
             this.barButtonItem21,
             this.barButtonItem22,
             this.skinDropDownButtonItem1,
-            this.skinDropDownButtonItem2});
+            this.skinDropDownButtonItem2,
+            this.skinPaletteRibbonGalleryBarItem1,
+            this.skinRibbonGalleryBarItem1,
+            this.skinDropDownButtonItem3,
+            this.skinDropDownButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.ribbonControl1.MaxItemId = 41;
+            this.ribbonControl1.MaxItemId = 45;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 701;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -734,6 +752,23 @@
             this.barButtonItem10.Id = 26;
             this.barButtonItem10.Name = "barButtonItem10";
             // 
+            // skinPaletteRibbonGalleryBarItem1
+            // 
+            this.skinPaletteRibbonGalleryBarItem1.Caption = "skinPaletteRibbonGalleryBarItem1";
+            this.skinPaletteRibbonGalleryBarItem1.Id = 41;
+            this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 42;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // skinDropDownButtonItem3
+            // 
+            this.skinDropDownButtonItem3.Id = 43;
+            this.skinDropDownButtonItem3.Name = "skinDropDownButtonItem3";
+            // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Name = "galleryDropDown1";
@@ -786,11 +821,6 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // skinDropDownButtonItem2
-            // 
-            this.skinDropDownButtonItem2.Id = 40;
-            this.skinDropDownButtonItem2.Name = "skinDropDownButtonItem2";
-            // 
             // FrmMain
             // 
             this.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
@@ -806,8 +836,9 @@
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "FrmMain";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "Quản lý điểm sinh viên hệ tín chỉ";
+            this.Text = "QUẢN LÝ ĐIỂM SINH VIÊN HỆ TÍN CHỈ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
@@ -881,5 +912,9 @@
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem2;
+        private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem1;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem3;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem4;
     }
 }

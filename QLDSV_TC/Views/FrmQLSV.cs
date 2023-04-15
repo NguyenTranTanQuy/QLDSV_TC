@@ -1,28 +1,17 @@
-﻿using DevExpress.ChartRangeControlClient.Core;
-using DevExpress.Utils.MVVM;
-using DevExpress.XtraBars.ViewInfo;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Mask.Design;
-using DevExpress.XtraPrinting;
+﻿using DevExpress.XtraEditors;
 using QLDSV_TC.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
     public partial class FrmQLSV : XtraForm
     {
-        private Stack<Services.ProcessStore> processStoreStack = new Stack<Services.ProcessStore>();
+        private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
         private String flagMode = "";
         private String classNumberSelected = "";
         private int positionSelectedSV = -1;
@@ -176,7 +165,7 @@ namespace QLDSV_TC.Views
             cbKhoa.ValueMember = "TENSERVER";
             cbKhoa.SelectedValue = Program.servername;
 
-            if (Program.mGroup == "PGV") cbKhoa.Enabled = true;
+            if(Program.mGroup == "PGV") cbKhoa.Enabled = true;
         }
 
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)

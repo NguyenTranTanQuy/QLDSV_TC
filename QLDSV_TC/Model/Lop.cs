@@ -14,7 +14,7 @@ namespace QLDSV_TC
 
         public string TenLop { set; get; }
 
-        public string KhoaHoc;
+        public string KhoaHoc {set; get; }
 
         public string MaKhoa { set; get; }
 

@@ -1,19 +1,11 @@
-﻿using DevExpress.Utils;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars.Ribbon;
 using QLDSV_TC.Views;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC
 {
-    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FrmMain : RibbonForm
     {
         private Form CheckExists(Type ftype)
         {
@@ -30,22 +22,6 @@ namespace QLDSV_TC
         public FrmMain()
         {
             InitializeComponent();
-        }
-
-        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialog == DialogResult.Yes)
-            {
-                foreach (Form frm in this.MdiChildren) {
-                    frm.Close();
-                }
-
-                Program.frmMain.Dispose();
-                Program.frmLogin.Visible = true;
-                Program.bdsDSPM.RemoveFilter();
-                Program.frmLogin.loadData();
-            }
         }
 
         private void btnQLSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -141,6 +117,31 @@ namespace QLDSV_TC
                 Program.frmTTK = new FrmTTK();
                 Program.frmTTK.MdiParent = this;
                 Program.frmTTK.Show();
+            }
+        }
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            DialogResult dialog = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialog == DialogResult.Yes)
+            {
+                foreach (Form frm in this.MdiChildren)
+                {
+                    frm.Close();
+                }
+
+                Program.frmMain.Dispose();
+                Program.frmLogin.Visible = true;
+                Program.bdsDSPM.RemoveFilter();
+                Program.frmLogin.loadData();
+
+                e.Cancel = false;
             }
         }
     }

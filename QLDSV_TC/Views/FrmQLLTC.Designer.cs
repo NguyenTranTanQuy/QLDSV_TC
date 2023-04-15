@@ -452,8 +452,6 @@
             this.colMAMH1.FieldName = "MAMH";
             this.colMAMH1.MinWidth = 25;
             this.colMAMH1.Name = "colMAMH1";
-            this.colMAMH1.Visible = true;
-            this.colMAMH1.VisibleIndex = 2;
             this.colMAMH1.Width = 570;
             // 
             // lookUpEditMH
@@ -482,7 +480,7 @@
             this.colNHOM.MinWidth = 25;
             this.colNHOM.Name = "colNHOM";
             this.colNHOM.Visible = true;
-            this.colNHOM.VisibleIndex = 3;
+            this.colNHOM.VisibleIndex = 2;
             this.colNHOM.Width = 98;
             // 
             // spinEditNHOM
@@ -523,7 +521,7 @@
             this.colMAGV.MinWidth = 25;
             this.colMAGV.Name = "colMAGV";
             this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 4;
+            this.colMAGV.VisibleIndex = 3;
             this.colMAGV.Width = 332;
             // 
             // lookUpEditGV
@@ -554,7 +552,7 @@
             this.colSOSVTOITHIEU.MinWidth = 25;
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
             this.colSOSVTOITHIEU.Visible = true;
-            this.colSOSVTOITHIEU.VisibleIndex = 5;
+            this.colSOSVTOITHIEU.VisibleIndex = 4;
             this.colSOSVTOITHIEU.Width = 155;
             // 
             // spinEditSOSV
@@ -594,7 +592,7 @@
             this.colHUYLOP.MinWidth = 25;
             this.colHUYLOP.Name = "colHUYLOP";
             this.colHUYLOP.Visible = true;
-            this.colHUYLOP.VisibleIndex = 6;
+            this.colHUYLOP.VisibleIndex = 5;
             this.colHUYLOP.Width = 101;
             // 
             // cbGV

@@ -4,17 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
-    public partial class FrmQLMH : DevExpress.XtraEditors.XtraForm
+    public partial class FrmQLMH : XtraForm
     {
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
         private String flagMode = "";

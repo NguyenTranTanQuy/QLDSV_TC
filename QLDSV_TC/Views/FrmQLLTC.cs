@@ -14,6 +14,7 @@ namespace QLDSV_TC.Views
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
         private String flagMode = "";
         private String SubjectNumberSelected = "";
+        private String facultyCode = "";
         private int positionSelectedSubject = -1;
         private int positionSelectedCreditClass = -1;
 
@@ -47,23 +48,11 @@ namespace QLDSV_TC.Views
             lookUpEditGV.ValueMember = "MAGV";
         }
 
-        private void fillComboboxMH()
-        {
-            string command = "SELECT MAMH, TENMH FROM MONHOC";
-            DataTable data = Program.ExecSqlDataTable(command);
-            BindingSource bdsMH = new BindingSource();
-            bdsMH.DataSource = data;
-
-            lookUpEditMH.DataSource = bdsMH;
-            lookUpEditMH.DisplayMember = "TENMH";
-            lookUpEditMH.ValueMember = "MAMH";
-        }
-
         private void defaultValueInputCreditClass()
         {
             QLDSV_TCDataSet.LOPTINCHI.HUYLOPColumn.DefaultValue = false;
             QLDSV_TCDataSet.LOPTINCHI.MAMHColumn.DefaultValue = SubjectNumberSelected;
-            QLDSV_TCDataSet.LOPTINCHI.MAKHOAColumn.DefaultValue = GetMaKhoa();
+            QLDSV_TCDataSet.LOPTINCHI.MAKHOAColumn.DefaultValue = facultyCode;
         }
 
         private bool checkDataCreditClass()
@@ -154,7 +143,6 @@ namespace QLDSV_TC.Views
             this.MONHOCTableAdapter.Connection.ConnectionString = Program.connectString;
             this.MONHOCTableAdapter.Fill(this.QLDSV_TCDataSet.MONHOC);
 
-            fillComboboxMH();
             fillComboboxGV();
 
             Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
@@ -162,6 +150,8 @@ namespace QLDSV_TC.Views
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";
             cbKhoa.SelectedValue = Program.servername;
+
+            facultyCode = GetMaKhoa();
 
             if (Program.mGroup == "PGV") cbKhoa.Enabled = true;
         }
@@ -191,6 +181,8 @@ namespace QLDSV_TC.Views
             else
             {
                 fillDataTableCreditClass();
+
+                facultyCode = GetMaKhoa();
 
                 processStoreStack.Clear();
                 btnRecover.Enabled = false;
@@ -406,7 +398,7 @@ namespace QLDSV_TC.Views
                             gridViewCreditClass.SetFocusedRowCellValue("MAMH", lopTinChi.MaMH);
                             gridViewCreditClass.SetFocusedRowCellValue("NHOM", lopTinChi.Nhom);
                             gridViewCreditClass.SetFocusedRowCellValue("MAGV", lopTinChi.MaGV);
-                            gridViewCreditClass.SetFocusedRowCellValue("MAKHOA", GetMaKhoa());
+                            gridViewCreditClass.SetFocusedRowCellValue("MAKHOA", lopTinChi.MaKhoa);
                             gridViewCreditClass.SetFocusedRowCellValue("SOSVTOITHIEU", lopTinChi.SoSVToiThieu);
                             gridViewCreditClass.SetFocusedRowCellValue("HUYLOP", lopTinChi.HuyLop);
                             bdsLOPTINCHI.EndEdit();

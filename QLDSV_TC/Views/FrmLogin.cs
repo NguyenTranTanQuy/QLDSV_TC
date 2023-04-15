@@ -1,20 +1,13 @@
-﻿using DevExpress.Data;
-using DevExpress.Internal.WinApi;
+﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLDSV_TC
 {
-    public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
+    public partial class FrmLogin : XtraForm
     {
         private SqlConnection conn_publisher = new SqlConnection();
 
@@ -51,6 +44,25 @@ namespace QLDSV_TC
                 cbKhoa.ValueMember = "TENSERVER";
         }
 
+        private bool checkData()
+        {
+            if(txtUsername.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Tài khoản không được để trống", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUsername.Focus();
+                return false;
+            }
+
+            if(txtPassword.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Mật khẩu không được để trống", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Focus();
+                return false;
+            }
+
+            return true;
+        }
+        
         public void loadData()
         {
             cbKhoa.SelectedItem = Program.mGroup;
@@ -96,76 +108,73 @@ namespace QLDSV_TC
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            String username = txtUsername.Text;
-            String password = txtPassword.Text;
-
-            if (username.Trim().Length == 0 || password.Trim().Length == 0)
+            if (checkData())
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không được để trống", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                String username = txtUsername.Text;
+                String password = txtPassword.Text;
 
-            if (chkIsStudent.Checked && !cbKhoa.Text.ToString().Equals("Phòng kế toán"))
-            {
-                Program.mLogin = "SINHVIEN";
-                Program.mPassword = "123456";
-
-                Program.mLoginSV = username;
-                Program.mPasswordSV = password;
-
-                if (Program.KetNoi() == false) return;
-
-                String sql = "EXEC SP_SV_DANGNHAP '" + Program.mLoginSV + "','" + Program.mPasswordSV + "'";
-                Program.myReader = Program.ExecSqlDataReader(sql);
-            }
-            else if (!chkIsStudent.Checked)
-            {
-                Program.mLogin = username;
-                Program.mPassword = password;
-
-
-                if (Program.KetNoi() == false) return;
-
-                String sql = "EXEC SP_DANGNHAP '" + Program.mLogin + "'";
-                Program.myReader = Program.ExecSqlDataReader(sql);
-            }
-            else
-            {
-                MessageBox.Show("Tài khoản của Sinh viên không được đăng nhập vào phòng kế toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Program.mPhongBan = cbKhoa.SelectedIndex;
-            Program.mLoginDN = Program.mLogin;
-            Program.mPasswordDN = Program.mPassword;
-
-            if (Program.myReader == null) return;
-
-            Program.myReader.Read();
-            try
-            {
-                Program.mUserName = Program.myReader.GetString(0);
-                if (Convert.IsDBNull(Program.mUserName))
+                if (chkIsStudent.Checked && !cbKhoa.Text.ToString().Equals("Phòng kế toán"))
                 {
-                    MessageBox.Show("Login không có quyền truy cập dữ liệu", "", MessageBoxButtons.OK);
+                    Program.mLogin = "SINHVIEN";
+                    Program.mPassword = "123456";
+
+                    Program.mLoginSV = username;
+                    Program.mPasswordSV = password;
+
+                    if (Program.KetNoi() == false) return;
+
+                    String sql = "EXEC SP_SV_DANGNHAP '" + Program.mLoginSV + "','" + Program.mPasswordSV + "'";
+                    Program.myReader = Program.ExecSqlDataReader(sql);
+                }
+                else if (!chkIsStudent.Checked)
+                {
+                    Program.mLogin = username;
+                    Program.mPassword = password;
+
+
+                    if (Program.KetNoi() == false) return;
+
+                    String sql = "EXEC SP_DANGNHAP '" + Program.mLogin + "'";
+                    Program.myReader = Program.ExecSqlDataReader(sql);
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản của Sinh viên không được đăng nhập vào phòng kế toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                Program.mName = Program.myReader.GetString(1);
-                Program.mGroup = Program.myReader.GetString(2);
-                Program.myReader.Close();
 
-                Program.frmMain = new FrmMain();
-                Program.frmMain.statuslblMa.Text = "MÃ: " + Program.mUserName.ToUpper();
-                Program.frmMain.statuslblHoten.Text = "HỌ VÀ TÊN: " + Program.mName;
-                Program.frmMain.statuslblNhom.Text = "NHÓM QUYỀN: " + Program.mGroup;
+                Program.mPhongBan = cbKhoa.SelectedIndex;
+                Program.mLoginDN = Program.mLogin;
+                Program.mPasswordDN = Program.mPassword;
 
-                this.Visible = false;
-                Program.frmMain.Show();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không hợp lệ \n Vui lòng kiểm tra lại!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (Program.myReader == null) return;
+
+                Program.myReader.Read();
+                try
+                {
+                    Program.mUserName = Program.myReader.GetString(0);
+                    if (Convert.IsDBNull(Program.mUserName))
+                    {
+                        MessageBox.Show("Login không có quyền truy cập dữ liệu", "", MessageBoxButtons.OK);
+                        return;
+                    }
+                    Program.mName = Program.myReader.GetString(1);
+                    Program.mGroup = Program.myReader.GetString(2);
+                    Program.myReader.Close();
+
+                    Program.frmMain = new FrmMain();
+                    Program.frmMain.statuslblMa.Text = "MÃ: " + Program.mUserName.ToUpper();
+                    Program.frmMain.statuslblHoten.Text = "HỌ VÀ TÊN: " + Program.mName;
+                    Program.frmMain.statuslblNhom.Text = "NHÓM QUYỀN: " + Program.mGroup;
+
+                    this.Visible = false;
+                    Program.frmMain.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không hợp lệ \n Vui lòng kiểm tra lại!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
         }
 

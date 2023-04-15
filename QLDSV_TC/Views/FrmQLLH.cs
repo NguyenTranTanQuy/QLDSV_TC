@@ -1,11 +1,9 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraPrinting;
 using QLDSV_TC.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -21,6 +19,9 @@ namespace QLDSV_TC.Views
         {
             Lop lop = new Lop(data["MALOP"].ToString(), data["TENLOP"].ToString()
                 , data["KHOAHOC"].ToString(), data["MAKHOA"].ToString());
+
+            MessageBox.Show(data["MALOP"].ToString() + " " + data["TENLOP"].ToString()
+                + " " + data["KHOAHOC"].ToString() + " " + data["MAKHOA"].ToString());
 
             processStoreStack.Push(new Services.ProcessStore(flagMode, data["MALOP"].ToString(), lop));
         }
@@ -347,8 +348,6 @@ namespace QLDSV_TC.Views
                     bdsLOP.EndEdit();
                     bdsLOP.ResetCurrentItem();
 
-                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
-
                     DataRow row = ((DataRowView)bdsLOP[bdsLOP.Position]).Row;
                     this.LOPTableAdapter.Update(row);
 
@@ -420,6 +419,8 @@ namespace QLDSV_TC.Views
 
                     default:
                         lop = (Lop)command.dataRow;
+
+                        MessageBox.Show(lop.MaLop + " " + lop.TenLop + " " + lop.KhoaHoc + " " + lop.MaKhoa);
 
                         positionSelectedClass = gridViewClass.LocateByValue("MALOP", lop.MaLop);
                         gridViewClass.FocusedRowHandle = positionSelectedClass;
