@@ -52,6 +52,8 @@ namespace QLDSV_TC
         public static Views.FrmQLHP frmQLHP;
         public static Views.FrmTTK frmTTK;
 
+        public static int hocPhi = 550000;
+
         public static bool KetNoi()
         {
             if (Program.connect.State == ConnectionState.Open) Program.connect.Close();

@@ -39,11 +39,18 @@
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.txtHOTENGV = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMAGV = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMALTC = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cbNHOM = new System.Windows.Forms.ComboBox();
             this.cbHOCKY = new System.Windows.Forms.ComboBox();
             this.cbMONHOC = new System.Windows.Forms.ComboBox();
-            this.cbNIENKHOA = new System.Windows.Forms.ComboBox();
             this.btnExitSubForm = new DevExpress.XtraEditors.SimpleButton();
+            this.cbNIENKHOA = new System.Windows.Forms.ComboBox();
             this.btnWriteScore = new DevExpress.XtraEditors.SimpleButton();
             this.btnStart = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -68,13 +75,6 @@
             this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
             this.lblMain = new DevExpress.XtraEditors.LabelControl();
             this.DANGKYTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMALTC = new DevExpress.XtraEditors.TextEdit();
-            this.txtMAGV = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txtHOTENGV = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).BeginInit();
             this.panelChonKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -83,6 +83,11 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHOTENGV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMALTC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
@@ -93,11 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDANGKY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMALTC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHOTENGV.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChonKhoa
@@ -176,6 +176,81 @@
             this.panelControl2.Size = new System.Drawing.Size(1670, 114);
             this.panelControl2.TabIndex = 0;
             // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.txtHOTENGV);
+            this.panelControl3.Controls.Add(this.labelControl6);
+            this.panelControl3.Controls.Add(this.txtMAGV);
+            this.panelControl3.Controls.Add(this.labelControl5);
+            this.panelControl3.Controls.Add(this.txtMALTC);
+            this.panelControl3.Controls.Add(this.labelControl4);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl3.Location = new System.Drawing.Point(1186, 2);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(482, 110);
+            this.panelControl3.TabIndex = 54;
+            // 
+            // txtHOTENGV
+            // 
+            this.txtHOTENGV.Location = new System.Drawing.Point(131, 71);
+            this.txtHOTENGV.Name = "txtHOTENGV";
+            this.txtHOTENGV.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHOTENGV.Properties.Appearance.Options.UseFont = true;
+            this.txtHOTENGV.Properties.ReadOnly = true;
+            this.txtHOTENGV.Size = new System.Drawing.Size(332, 26);
+            this.txtHOTENGV.TabIndex = 5;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(15, 74);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(110, 20);
+            this.labelControl6.TabIndex = 4;
+            this.labelControl6.Text = "Họ tên GV:";
+            // 
+            // txtMAGV
+            // 
+            this.txtMAGV.Location = new System.Drawing.Point(131, 44);
+            this.txtMAGV.Name = "txtMAGV";
+            this.txtMAGV.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAGV.Properties.Appearance.Options.UseFont = true;
+            this.txtMAGV.Properties.ReadOnly = true;
+            this.txtMAGV.Size = new System.Drawing.Size(332, 26);
+            this.txtMAGV.TabIndex = 3;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(15, 47);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(66, 20);
+            this.labelControl5.TabIndex = 2;
+            this.labelControl5.Text = "Mã GV:";
+            // 
+            // txtMALTC
+            // 
+            this.txtMALTC.Location = new System.Drawing.Point(131, 17);
+            this.txtMALTC.Name = "txtMALTC";
+            this.txtMALTC.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMALTC.Properties.Appearance.Options.UseFont = true;
+            this.txtMALTC.Properties.ReadOnly = true;
+            this.txtMALTC.Size = new System.Drawing.Size(332, 26);
+            this.txtMALTC.TabIndex = 1;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(15, 20);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(77, 20);
+            this.labelControl4.TabIndex = 0;
+            this.labelControl4.Text = "Mã LTC:";
+            // 
             // cbNHOM
             // 
             this.cbNHOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -219,18 +294,6 @@
             this.cbMONHOC.TabIndex = 51;
             this.cbMONHOC.SelectedIndexChanged += new System.EventHandler(this.cbMONHOC_SelectedIndexChanged);
             // 
-            // cbNIENKHOA
-            // 
-            this.cbNIENKHOA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNIENKHOA.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNIENKHOA.FormattingEnabled = true;
-            this.cbNIENKHOA.ItemHeight = 21;
-            this.cbNIENKHOA.Location = new System.Drawing.Point(147, 19);
-            this.cbNIENKHOA.Name = "cbNIENKHOA";
-            this.cbNIENKHOA.Size = new System.Drawing.Size(202, 29);
-            this.cbNIENKHOA.TabIndex = 2;
-            this.cbNIENKHOA.SelectedIndexChanged += new System.EventHandler(this.cbNIENKHOA_SelectedIndexChanged);
-            // 
             // btnExitSubForm
             // 
             this.btnExitSubForm.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,6 +305,18 @@
             this.btnExitSubForm.TabIndex = 50;
             this.btnExitSubForm.Text = "THOÁT";
             this.btnExitSubForm.Click += new System.EventHandler(this.btnExitSubForm_Click);
+            // 
+            // cbNIENKHOA
+            // 
+            this.cbNIENKHOA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNIENKHOA.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNIENKHOA.FormattingEnabled = true;
+            this.cbNIENKHOA.ItemHeight = 21;
+            this.cbNIENKHOA.Location = new System.Drawing.Point(147, 19);
+            this.cbNIENKHOA.Name = "cbNIENKHOA";
+            this.cbNIENKHOA.Size = new System.Drawing.Size(202, 29);
+            this.cbNIENKHOA.TabIndex = 2;
+            this.cbNIENKHOA.SelectedIndexChanged += new System.EventHandler(this.cbNIENKHOA_SelectedIndexChanged);
             // 
             // btnWriteScore
             // 
@@ -624,81 +699,6 @@
             // 
             this.DANGKYTableAdapter.ClearBeforeFill = true;
             // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.txtHOTENGV);
-            this.panelControl3.Controls.Add(this.labelControl6);
-            this.panelControl3.Controls.Add(this.txtMAGV);
-            this.panelControl3.Controls.Add(this.labelControl5);
-            this.panelControl3.Controls.Add(this.txtMALTC);
-            this.panelControl3.Controls.Add(this.labelControl4);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(1186, 2);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(482, 110);
-            this.panelControl3.TabIndex = 54;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(15, 20);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(77, 20);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Mã LTC:";
-            // 
-            // txtMALTC
-            // 
-            this.txtMALTC.Location = new System.Drawing.Point(131, 17);
-            this.txtMALTC.Name = "txtMALTC";
-            this.txtMALTC.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMALTC.Properties.Appearance.Options.UseFont = true;
-            this.txtMALTC.Properties.ReadOnly = true;
-            this.txtMALTC.Size = new System.Drawing.Size(332, 26);
-            this.txtMALTC.TabIndex = 1;
-            // 
-            // txtMAGV
-            // 
-            this.txtMAGV.Location = new System.Drawing.Point(131, 44);
-            this.txtMAGV.Name = "txtMAGV";
-            this.txtMAGV.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMAGV.Properties.Appearance.Options.UseFont = true;
-            this.txtMAGV.Properties.ReadOnly = true;
-            this.txtMAGV.Size = new System.Drawing.Size(332, 26);
-            this.txtMAGV.TabIndex = 3;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(15, 47);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(66, 20);
-            this.labelControl5.TabIndex = 2;
-            this.labelControl5.Text = "Mã GV:";
-            // 
-            // txtHOTENGV
-            // 
-            this.txtHOTENGV.Location = new System.Drawing.Point(131, 71);
-            this.txtHOTENGV.Name = "txtHOTENGV";
-            this.txtHOTENGV.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHOTENGV.Properties.Appearance.Options.UseFont = true;
-            this.txtHOTENGV.Properties.ReadOnly = true;
-            this.txtHOTENGV.Size = new System.Drawing.Size(332, 26);
-            this.txtHOTENGV.TabIndex = 5;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(15, 74);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(110, 20);
-            this.labelControl6.TabIndex = 4;
-            this.labelControl6.Text = "Họ tên GV:";
-            // 
             // FrmQLCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -721,6 +721,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHOTENGV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMALTC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
@@ -731,12 +737,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDANGKY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMALTC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMAGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHOTENGV.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -778,11 +778,11 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit3;
         private DevExpress.XtraGrid.Columns.GridColumn colDIEM_TK;
         private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.TextEdit txtHOTENGV;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtMAGV;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txtMALTC;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit txtHOTENGV;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }
