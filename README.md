@@ -1,11 +1,11 @@
-#### Đề tài: Quản lý điểm sinh viên hệ tín chỉ
-#### Môn học: Cơ sở dữ liệu phân tán
-#### Ngôn ngữ sử dụng: C#, DevExpress(lưu ý: khi cài devexpress thì cần tải phù hợp với phiên bản visual studio đang sử dụng để không bị xung đột)
-#### Phần mềm tích hợp phát triển ứng dụng (IDE): Visual Studio 2019
-#### Cơ sở dữ liệu: MS SQL SERVER 2019
-#### Giáo viên hướng dẫn: Lưu Nguyễn Kỳ Thư
+#### - Đề tài: Quản lý điểm sinh viên hệ tín chỉ
+#### - Môn học: Cơ sở dữ liệu phân tán
+#### - Ngôn ngữ sử dụng: C#, DevExpress(lưu ý: khi cài devexpress thì cần tải phù hợp với phiên bản visual studio đang sử dụng để không bị xung đột)
+#### - Phần mềm tích hợp phát triển ứng dụng (IDE): Visual Studio 2019
+#### - Cơ sở dữ liệu: MS SQL SERVER 2019
+#### - Giáo viên hướng dẫn: Lưu Nguyễn Kỳ Thư
 
-#### Những công việc cần làm trong đồ án này là:
+##### Những công việc cần làm trong đồ án này là:
 ~~~
 Yêu cầu: Giả sử  trường có 2 khoa: công nghệ thông tin (CNTT),  và viễn thông (VT)
 1.	Phân tán cơ sở dữ liệu QLDSV_HTC ra làm 3 mảnh với điều kiện sau: 
