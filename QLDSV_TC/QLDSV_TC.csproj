@@ -115,6 +115,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLDSV_TCDataSet1.cs">
+      <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLDSV_TCDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Services\HandleString.cs" />
     <Compile Include="Services\ProcessStore.cs" />
     <Compile Include="Views\FrmMain.cs">
@@ -240,6 +248,17 @@
     </None>
     <None Include="QLDSV_TCDataSet.xss">
       <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSV_TCDataSet1.xsc">
+      <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSV_TCDataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSV_TCDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QLDSV_TCDataSet1.xss">
+      <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

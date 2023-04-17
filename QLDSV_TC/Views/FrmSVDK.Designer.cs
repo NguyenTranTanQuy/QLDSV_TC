@@ -133,7 +133,7 @@
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 60);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
-            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(841, 433, 812, 500);
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(571, 386, 812, 500);
             this.dataLayoutControl1.Root = this.Root;
             this.dataLayoutControl1.Size = new System.Drawing.Size(1698, 600);
             this.dataLayoutControl1.TabIndex = 9;

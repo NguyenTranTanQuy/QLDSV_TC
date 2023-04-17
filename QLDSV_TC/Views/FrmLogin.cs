@@ -90,9 +90,9 @@ namespace QLDSV_TC
 
             cbKhoa.SelectedIndex = 1;cbKhoa.SelectedIndex = 0;
 
-            txtUsername.Text = "N15DCCN001";
+            txtUsername.Text = "HTT";
             txtPassword.Text = "123456";
-            chkIsStudent.Checked = true;
+            cbKhoa.SelectedIndex = 2;
         }
 
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
