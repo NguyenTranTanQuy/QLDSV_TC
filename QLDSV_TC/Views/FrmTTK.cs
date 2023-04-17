@@ -146,7 +146,7 @@ namespace QLDSV_TC.Views
             {
                 String login = txtUsername.Text.Trim();
                 String password = txtPassword.Text.Trim();
-                String user = cbGV.SelectedValue.ToString();
+                String user = cbGV.SelectedValue.ToString().Trim();
                 String role = rdgGroup.EditValue.ToString();
 
                 String query = " DECLARE @return_value INT" +

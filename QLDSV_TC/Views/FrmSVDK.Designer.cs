@@ -180,7 +180,9 @@
             this.gridViewRegister.Name = "gridViewRegister";
             this.gridViewRegister.OptionsBehavior.Editable = false;
             this.gridViewRegister.OptionsBehavior.ReadOnly = true;
+            this.gridViewRegister.OptionsView.ShowFooter = true;
             this.gridViewRegister.RowHeight = 30;
+            this.gridViewRegister.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewRegister_RowClick);
             // 
             // colMAMH1
             // 
@@ -283,12 +285,16 @@
             this.colSOTIET_TH.FieldName = "SOTIET_TH";
             this.colSOTIET_TH.MinWidth = 25;
             this.colSOTIET_TH.Name = "colSOTIET_TH";
+            this.colSOTIET_TH.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "SOTIET_TH", "Số môn đã đăng ký: {0} môn")});
             this.colSOTIET_TH.Visible = true;
             this.colSOTIET_TH.VisibleIndex = 4;
             this.colSOTIET_TH.Width = 241;
             // 
             // colSTC
             // 
+            this.colSTC.AppearanceCell.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSTC.AppearanceCell.Options.UseFont = true;
             this.colSTC.AppearanceHeader.BackColor = System.Drawing.Color.Cyan;
             this.colSTC.AppearanceHeader.BorderColor = System.Drawing.Color.Black;
             this.colSTC.AppearanceHeader.Font = new System.Drawing.Font("SF Mono", 11F, System.Drawing.FontStyle.Bold);
@@ -304,6 +310,8 @@
             this.colSTC.FieldName = "STC";
             this.colSTC.MinWidth = 25;
             this.colSTC.Name = "colSTC";
+            this.colSTC.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STC", "Tổng số tín chỉ: {0:0.#}")});
             this.colSTC.Visible = true;
             this.colSTC.VisibleIndex = 5;
             this.colSTC.Width = 241;
@@ -322,9 +330,13 @@
             this.colHOCPHI.AppearanceHeader.Options.UseTextOptions = true;
             this.colHOCPHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colHOCPHI.Caption = "Học phí";
+            this.colHOCPHI.DisplayFormat.FormatString = "n0";
+            this.colHOCPHI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colHOCPHI.FieldName = "HOCPHI";
             this.colHOCPHI.MinWidth = 25;
             this.colHOCPHI.Name = "colHOCPHI";
+            this.colHOCPHI.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "HOCPHI", "Tổng học phí: {0:n0} VNĐ")});
             this.colHOCPHI.Visible = true;
             this.colHOCPHI.VisibleIndex = 6;
             this.colHOCPHI.Width = 258;
@@ -652,6 +664,7 @@
             this.btnRemoveRegister.Size = new System.Drawing.Size(182, 64);
             this.btnRemoveRegister.TabIndex = 1;
             this.btnRemoveRegister.Text = "HỦY ĐĂNG KÝ";
+            this.btnRemoveRegister.Click += new System.EventHandler(this.btnRemoveRegister_Click);
             // 
             // btnRegister
             // 
@@ -664,6 +677,7 @@
             this.btnRegister.Size = new System.Drawing.Size(182, 64);
             this.btnRegister.TabIndex = 0;
             this.btnRegister.Text = "ĐĂNG KÝ";
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // Root
             // 

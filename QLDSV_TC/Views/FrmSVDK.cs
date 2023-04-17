@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Data;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,10 +66,8 @@ namespace QLDSV_TC.Views
             }
 
             if(this.gridViewCreditClass.RowCount == 0)
-            {
                 btnRegister.Enabled = false;
-                btnRemoveRegister.Enabled = false;
-            }
+            btnRemoveRegister.Enabled = false;
         }
 
         private void fillTableRegisterStudent()
@@ -82,6 +82,7 @@ namespace QLDSV_TC.Views
             {
                 MessageBox.Show(ex.Message);
             }
+            btnRemoveRegister.Enabled = false;
         }
 
         public FrmSVDK()
@@ -117,6 +118,80 @@ namespace QLDSV_TC.Views
         private void gridViewCreditClass_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             btnRegister.Enabled = true;
+        }
+
+        private void gridViewRegister_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            btnRemoveRegister.Enabled = true;
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            if (Program.connect.State == ConnectionState.Closed) Program.connect.Open();
+
+            String maLTC = gridViewCreditClass.GetRowCellValue(gridViewCreditClass.FocusedRowHandle, "MALTC").ToString();
+            String maMH = gridViewCreditClass.GetRowCellValue(gridViewCreditClass.FocusedRowHandle, "MAMH").ToString();
+
+            String spString = "SP_DKY_LOPTINCHI";
+            SqlCommand command = Program.connect.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = spString;
+            command.Parameters.Add("@MALTC", SqlDbType.Int).Value = maLTC;
+            command.Parameters.Add("@NIENKHOA", SqlDbType.NChar).Value = cbNIENKHOA.Text;
+            command.Parameters.Add("@HOCKY", SqlDbType.Int).Value = Convert.ToInt32(cbHOCKY.Text);
+            command.Parameters.Add("@MAMH", SqlDbType.NChar).Value = maMH;
+            command.Parameters.Add("@MASV", SqlDbType.NChar).Value = Program.mUserName;
+            command.Parameters.Add("@CHIPHI", SqlDbType.Int).Value = Program.hocPhi;
+
+            try
+            {
+                command.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.connect.Close();
+            }
+
+            fillTableRegisterStudent();
+        }
+
+        private void btnRemoveRegister_Click(object sender, EventArgs e)
+        {
+            if (Program.connect.State == ConnectionState.Closed) Program.connect.Open();
+
+            String maLTC = gridViewRegister.GetRowCellValue(gridViewRegister.FocusedRowHandle, "MALTC").ToString();
+            String maMH = gridViewRegister.GetRowCellValue(gridViewRegister.FocusedRowHandle, "MAMH").ToString();
+
+            String spString = "SP_DELETE_DKY_SV";
+            SqlCommand command = Program.connect.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = spString;
+            command.Parameters.Add("@MALTC", SqlDbType.Int).Value = maLTC;
+            command.Parameters.Add("@NIENKHOA", SqlDbType.NChar).Value = cbNIENKHOA.Text;
+            command.Parameters.Add("@HOCKY", SqlDbType.Int).Value = Convert.ToInt32(cbHOCKY.Text);
+            command.Parameters.Add("@MASV", SqlDbType.NChar).Value = Program.mUserName;
+            command.Parameters.Add("@CHIPHI", SqlDbType.Int).Value = Program.hocPhi;
+
+            try
+            {
+                command.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi hủy đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.connect.Close();
+            }
+
+            fillTableRegisterStudent();
         }
     }
 }
