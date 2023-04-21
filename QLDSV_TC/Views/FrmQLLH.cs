@@ -20,9 +20,6 @@ namespace QLDSV_TC.Views
             Lop lop = new Lop(data["MALOP"].ToString(), data["TENLOP"].ToString()
                 , data["KHOAHOC"].ToString(), data["MAKHOA"].ToString());
 
-            MessageBox.Show(data["MALOP"].ToString() + " " + data["TENLOP"].ToString()
-                + " " + data["KHOAHOC"].ToString() + " " + data["MAKHOA"].ToString());
-
             processStoreStack.Push(new Services.ProcessStore(flagMode, data["MALOP"].ToString(), lop));
         }
 

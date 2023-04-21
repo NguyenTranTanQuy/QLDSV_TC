@@ -19,9 +19,30 @@ namespace QLDSV_TC
             return null;
         }
 
+        private void PhanQuyen()
+        {
+            String role = Program.mGroup;
+            if(role == "PGV" || role == "KHOA")
+            {
+                btnQLSV.Enabled = btnQLLH.Enabled = btnQLMH.Enabled = 
+                QLLTC.Enabled = btnQLDIEM.Enabled = btnDK.Enabled = true;
+            } else if (role == "PKT")
+            {
+                btnQLHP.Enabled = btnDK.Enabled = true;
+            } else
+            {
+                btnQLDKLOP.Enabled = true;
+            }
+        }
+
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            PhanQuyen();
         }
 
         private void btnQLSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

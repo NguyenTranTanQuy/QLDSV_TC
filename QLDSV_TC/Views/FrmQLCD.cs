@@ -32,7 +32,10 @@ namespace QLDSV_TC.Views
             else
             {
                 btnWriteScore.Enabled = false;
-                btnStart.Enabled = cbKhoa.Enabled = true;
+                btnStart.Enabled = true;
+
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
             }
         }
 
@@ -204,12 +207,15 @@ namespace QLDSV_TC.Views
             gridViewScore.OptionsBehavior.Editable = false;
 
             btnWriteScore.Enabled = false;
-            btnStart.Enabled = cbKhoa.Enabled = true;
+            btnStart.Enabled = true;
+
+            if (Program.mGroup == "PGV")
+                cbKhoa.Enabled = true;
         }
 
         private void btnExitSubForm_Click(object sender, EventArgs e)
         {
-            if (btnWriteScore.Enabled == true)
+            if (btnWriteScore.Enabled == false)
             {
                 this.Close();
             }

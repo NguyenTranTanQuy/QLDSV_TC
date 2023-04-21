@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 using QLDSV_TC.Services;
 using System;
 using System.Collections.Generic;
@@ -85,7 +86,7 @@ namespace QLDSV_TC.Views
             qldsV_TCDataSet.SINHVIEN.PASSWORDColumn.DefaultValue = Program.defaultPasswordSV;
             qldsV_TCDataSet.SINHVIEN.MALOPColumn.DefaultValue = classNumberSelected;
 
-            DevExpress.XtraEditors.Repository.RepositoryItemDateEdit dateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            RepositoryItemDateEdit dateEdit = new RepositoryItemDateEdit();
             dateEdit.MaxValue = DateTime.Now.AddYears(-18);
             colNGAYSINH.ColumnEdit = dateEdit;
         }
@@ -98,12 +99,14 @@ namespace QLDSV_TC.Views
                 MessageBox.Show("Mã sinh viên không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            
             if (dataSV["HO"].ToString().Trim() == "")
             {
                 MessageBox.Show("Họ không được thiếu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return false;
             }
+            
             if (dataSV["TEN"].ToString().Trim() == "")
             {
                 MessageBox.Show("Tên không được thiếu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -228,7 +231,10 @@ namespace QLDSV_TC.Views
 
                 classNumberSelected = gridViewClass.GetDataRow(gridViewClass.FocusedRowHandle)["MALOP"].ToString();
 
-                btnAddSV.Enabled = cbKhoa.Enabled = true;
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
+
+                btnAddSV.Enabled = true;
                 btnDeleteSV.Enabled = btnEditSV.Enabled = btnWriteSV.Enabled = false;
             }
         }

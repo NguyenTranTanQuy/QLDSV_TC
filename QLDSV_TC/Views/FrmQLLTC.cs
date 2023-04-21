@@ -217,7 +217,10 @@ namespace QLDSV_TC.Views
 
                 SubjectNumberSelected = gridViewSubject.GetDataRow(gridViewSubject.FocusedRowHandle)["MAMH"].ToString();
 
-                btnAdd.Enabled = cbKhoa.Enabled = true;
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
+
+                btnAdd.Enabled = true;
                 btnDelete.Enabled = btnEdit.Enabled = btnWrite.Enabled = false;
             }
         }

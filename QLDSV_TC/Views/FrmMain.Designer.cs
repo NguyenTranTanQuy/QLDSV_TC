@@ -277,6 +277,7 @@
             // btnQLSV
             // 
             this.btnQLSV.Caption = "SINH VIÊN";
+            this.btnQLSV.Enabled = false;
             this.btnQLSV.Hint = "Quản lý sinh viên";
             this.btnQLSV.Id = 23;
             this.btnQLSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQLSV.ImageOptions.Image")));
@@ -306,6 +307,7 @@
             // btnQLLH
             // 
             this.btnQLLH.Caption = "LỚP HỌC";
+            this.btnQLLH.Enabled = false;
             this.btnQLLH.Hint = "Quản lý lớp học";
             this.btnQLLH.Id = 24;
             this.btnQLLH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQLLH.ImageOptions.Image")));
@@ -333,6 +335,7 @@
             // btnQLMH
             // 
             this.btnQLMH.Caption = "MÔN HỌC";
+            this.btnQLMH.Enabled = false;
             this.btnQLMH.Hint = "Quản lý môn học";
             this.btnQLMH.Id = 25;
             this.btnQLMH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQLMH.ImageOptions.Image")));
@@ -352,6 +355,7 @@
             // QLLTC
             // 
             this.QLLTC.Caption = "LỚP TÍN CHỈ";
+            this.QLLTC.Enabled = false;
             this.QLLTC.Hint = "Quản lý lớp tín chỉ";
             this.QLLTC.Id = 27;
             this.QLLTC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("QLLTC.ImageOptions.Image")));
@@ -371,6 +375,7 @@
             // btnQLDIEM
             // 
             this.btnQLDIEM.Caption = "ĐIỂM";
+            this.btnQLDIEM.Enabled = false;
             this.btnQLDIEM.Hint = "Quản lý điểm";
             this.btnQLDIEM.Id = 28;
             this.btnQLDIEM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQLDIEM.ImageOptions.Image")));
@@ -390,6 +395,7 @@
             // btnQLHP
             // 
             this.btnQLHP.Caption = "HỌC PHÍ";
+            this.btnQLHP.Enabled = false;
             this.btnQLHP.Hint = "Quản lý học phí";
             this.btnQLHP.Id = 29;
             this.btnQLHP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQLHP.ImageOptions.Image")));
@@ -409,6 +415,7 @@
             // btnQLDKLOP
             // 
             this.btnQLDKLOP.Caption = "ĐĂNG KÝ LỚP";
+            this.btnQLDKLOP.Enabled = false;
             this.btnQLDKLOP.Hint = "Quản lý đăng ký lớp tín chỉ";
             this.btnQLDKLOP.Id = 30;
             this.btnQLDKLOP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnQLDKLOP.ImageOptions.Image")));
@@ -459,6 +466,7 @@
             // btnDK
             // 
             this.btnDK.Caption = "ĐĂNG KÝ";
+            this.btnDK.Enabled = false;
             this.btnDK.Hint = "Đăng ký tài khoản";
             this.btnDK.Id = 32;
             this.btnDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDK.ImageOptions.Image")));
@@ -839,6 +847,7 @@
             this.Text = "QUẢN LÝ ĐIỂM SINH VIÊN HỆ TÍN CHỈ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
