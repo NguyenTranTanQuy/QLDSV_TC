@@ -62,9 +62,11 @@ namespace QLDSV_TC.Views
             {
                 string query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECKMALOP]" +
+                               " EXEC @return_value = [dbo].[SP_CHECK]" +
 
-                               " N'" + dataClass["MALOP"].ToString().Trim() + "' " +
+                               " N'" + dataClass["MALOP"].ToString().Trim() + "', " +
+
+                               " 'LOP'" +
 
                                " SELECT @return_value";
 
@@ -90,11 +92,13 @@ namespace QLDSV_TC.Views
             {
                 string query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECKTENLOP]" +
+                               " EXEC @return_value = [dbo].[SP_CHECKTEN]" +
 
                                " N'" + dataClass["MALOP"].ToString() + "', " +
 
-                               " N'" + dataClass["TENLOP"].ToString() + "' " +
+                               " N'" + dataClass["TENLOP"].ToString() + "', " +
+
+                               " 'LOP'" +
 
                                " SELECT @return_value";
 
@@ -107,11 +111,6 @@ namespace QLDSV_TC.Views
                 if (resultMa == 1)
                 {
                     MessageBox.Show("Tên lớp đã tồn tại.\n Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                if (resultMa == 2)
-                {
-                    MessageBox.Show("Tên lớp đã tồn tại ở khoa khác.\n Mời bạn nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -338,6 +337,8 @@ namespace QLDSV_TC.Views
 
         private void btnWrite_Click(object sender, EventArgs e)
         {
+            if (Program.KetNoi() == false) return;
+
             if (checkDataClass())
             {
                 try
@@ -404,6 +405,7 @@ namespace QLDSV_TC.Views
                             gridViewClass.SetFocusedRowCellValue("MAKHOA", lop.MaKhoa);
 
                             bdsLOP.EndEdit();
+
                             this.LOPTableAdapter.Update(this.qLDSV_TCDataSet.LOP);
                         }
                         catch (Exception ex)
@@ -424,13 +426,12 @@ namespace QLDSV_TC.Views
 
                         try
                         {
-                            gridViewClass.BeginUpdate();
-                            gridViewClass.SetRowCellValue(positionSelectedClass, "TENLOP", lop.TenLop);
-                            gridViewClass.SetRowCellValue(positionSelectedClass, "KHOAHOC", lop.KhoaHoc);
-                            gridViewClass.EndUpdate();
+                            gridViewClass.SetFocusedRowCellValue("TENLOP", lop.TenLop);
+                            gridViewClass.SetFocusedRowCellValue("KHOAHOC", lop.KhoaHoc);
 
-                            DataRow row = ((DataRowView)bdsLOP[positionSelectedClass]).Row;
-                            this.LOPTableAdapter.Update(row);
+                            bdsLOP.EndEdit();
+
+                            this.LOPTableAdapter.Update(this.qLDSV_TCDataSet.LOP);
 
                             positionSelectedClass = -1;
                         }

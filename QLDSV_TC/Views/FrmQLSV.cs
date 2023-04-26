@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using QLDSV_TC.Services;
 using System;
@@ -121,11 +122,13 @@ namespace QLDSV_TC.Views
 
             if(flagMode == "ADDSTUDENT")
             {
-                String query = " DECLARE @return_value INT" +
+                string query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECKMASV]" +
+                               " EXEC @return_value = [dbo].[SP_CHECKMA]" +
 
-                               " N'" + dataSV["MASV"].ToString().Trim() + "'" +
+                               " N'" + dataSV["MASV"].ToString().Trim() + "', " +
+
+                               " N'SINHVIEN'" +
 
                                " SELECT @return_value";
 
@@ -138,11 +141,6 @@ namespace QLDSV_TC.Views
                 if (resultMa == 1)
                 {
                     MessageBox.Show("Mã Sinh Viên đã tồn tại. Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                if (resultMa == 2)
-                {
-                    MessageBox.Show("Mã Sinh Viên đã tồn tại ở Khoa khác. Mời bạn nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -390,6 +388,8 @@ namespace QLDSV_TC.Views
 
         private void btnWriteSV_Click(object sender, EventArgs e)
         {
+            if (Program.KetNoi() == false) return;
+
             if (checkDataSV())
             {
                 try
@@ -403,7 +403,10 @@ namespace QLDSV_TC.Views
                     this.SINHVIENTableAdapter.Update(row);
 
                     if (flagMode == "ADDSTUDENT")
-                        processStoreStack.Push(new Services.ProcessStore(flagMode, row["MASV"].ToString()));
+                    {
+                        DataRow data = gridViewStudents.GetFocusedDataRow();
+                        pushDataToProcessStack(data);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -426,10 +429,12 @@ namespace QLDSV_TC.Views
                 Services.ProcessStore command = processStoreStack.Pop();
                 String MASV = command.primaryKey;
                 SinhVien SV = new SinhVien();
+                SV = (SinhVien)command.dataRow;
 
                 switch (command.flagMode)
                 {
                     case "ADDSTUDENT":
+                        gridViewClass.FocusedRowHandle = gridViewClass.LocateByValue("MALOP", SV.MaLop);
                         int rowIndex = gridViewStudents.LocateByValue("MASV", MASV);
 
                         try
@@ -446,7 +451,6 @@ namespace QLDSV_TC.Views
                         break;
 
                     case "DELETESTUDENT":
-                        SV = (SinhVien)command.dataRow;
                         gridViewClass.FocusedRowHandle = gridViewClass.LocateByValue("MALOP", SV.MaLop);
 
                         try
@@ -475,25 +479,21 @@ namespace QLDSV_TC.Views
                         break;
 
                     default:
-                        SV = (SinhVien)command.dataRow;
-
                         gridViewClass.FocusedRowHandle = gridViewClass.LocateByValue("MALOP", SV.MaLop);
                         positionSelectedSV = gridViewStudents.LocateByValue("MASV", MASV);
                         gridViewStudents.FocusedRowHandle = positionSelectedSV;
 
                         try
                         {
-                            gridViewStudents.BeginUpdate();
                             gridViewStudents.SetRowCellValue(positionSelectedSV, "HO", SV.Ho);
                             gridViewStudents.SetRowCellValue(positionSelectedSV, "TEN", SV.Ten);
                             gridViewStudents.SetRowCellValue(positionSelectedSV, "PHAI", SV.Phai);
                             gridViewStudents.SetRowCellValue(positionSelectedSV, "NGAYSINH", SV.NgaySinh);
                             gridViewStudents.SetRowCellValue(positionSelectedSV, "DIACHI", SV.DiaChi);
                             gridViewStudents.SetRowCellValue(positionSelectedSV, "DANGHIHOC", SV.DangNghiHoc);
-                            gridViewStudents.EndUpdate();
 
-                            DataRow row = ((DataRowView)bdsSINHVIEN[positionSelectedSV]).Row;
-                            this.SINHVIENTableAdapter.Update(row);
+                            bdsSINHVIEN.EndEdit();
+                            this.SINHVIENTableAdapter.Update(this.qldsV_TCDataSet.SINHVIEN);
 
                             positionSelectedSV = -1;
                         }

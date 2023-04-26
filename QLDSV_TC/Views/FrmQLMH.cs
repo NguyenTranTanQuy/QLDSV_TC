@@ -72,9 +72,11 @@ namespace QLDSV_TC.Views
             {
                 string query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECKMAMH]" +
+                               " EXEC @return_value = [dbo].[SP_CHECKMA]" +
 
-                               " N'" + dataClass["MAMH"].ToString().Trim() + "' " +
+                               " N'" + dataClass["MAMH"].ToString().Trim() + "', " +
+
+                               " N'MONHOC'" +
 
                                " SELECT @return_value";
 
@@ -95,11 +97,13 @@ namespace QLDSV_TC.Views
             {
                 string query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECKTENMH]" +
+                               " EXEC @return_value = [dbo].[SP_CHECKTEN]" +
 
-                               " N'" + dataClass["MAMH"].ToString() + "', " +
+                               " N'" + dataClass["MAMH"].ToString().Trim() + "', " +
 
-                               " N'" + dataClass["TENMH"].ToString() + "' " +
+                               " N'" + dataClass["TENMH"].ToString().Trim() + "', " +
+
+                               " 'MONHOC'" +
 
                                " SELECT @return_value";
 
@@ -313,14 +317,12 @@ namespace QLDSV_TC.Views
 
                         try
                         {
-                            gridViewSubject.BeginUpdate();
                             gridViewSubject.SetRowCellValue(positionSelectedSubject, "TENMH", monHoc.TenMH);
                             gridViewSubject.SetRowCellValue(positionSelectedSubject, "SOTIET_LT", monHoc.SoTietLyThuyet);
                             gridViewSubject.SetRowCellValue(positionSelectedSubject, "SOTIET_TH", monHoc.SoTietThucHanh);
-                            gridViewSubject.EndUpdate();
 
-                            DataRow row = ((DataRowView)bdsMONHOC[positionSelectedSubject]).Row;
-                            this.MONHOCTableAdapter.Update(row);
+                            bdsMONHOC.EndEdit();
+                            this.MONHOCTableAdapter.Update(this.QLDSV_TCDataSet.MONHOC);
 
                             positionSelectedSubject = -1;
                         }
@@ -340,6 +342,8 @@ namespace QLDSV_TC.Views
 
         private void btnWrite_Click(object sender, EventArgs e)
         {
+            if (Program.KetNoi() == false) return; 
+
             if (checkDataSubject())
             {
                 try
