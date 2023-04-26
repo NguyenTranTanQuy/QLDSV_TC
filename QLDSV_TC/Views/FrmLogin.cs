@@ -32,7 +32,7 @@ namespace QLDSV_TC
 
                 if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
 
-                String cmd = "SELECT * FROM dbo.V_DS_PHANMANH";
+                String cmd = "SELECT * FROM V_DS_PHANMANH";
                 SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
                 da.Fill(dt);
 
@@ -89,9 +89,9 @@ namespace QLDSV_TC
 
             cbKhoa.SelectedIndex = 1;cbKhoa.SelectedIndex = 0;
 
-            txtUsername.Text = "HTT";
+            txtUsername.Text = "LNKT";
             txtPassword.Text = "123456";
-            cbKhoa.SelectedIndex = 2;
+            cbKhoa.SelectedIndex = 0;
         }
 
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace QLDSV_TC
 
                     if (Program.KetNoi() == false) return;
 
-                    String sql = "EXEC SP_SV_DANGNHAP '" + Program.mLoginSV + "','" + Program.mPasswordSV + "'";
+                    String sql = "EXEC SP_SV_DANGNHAP '" + Program.mLogin + "','" + Program.mLoginSV + "','" + Program.mPasswordSV + "'";
                     Program.myReader = Program.ExecSqlDataReader(sql);
                 }
                 else if (!chkIsStudent.Checked)
