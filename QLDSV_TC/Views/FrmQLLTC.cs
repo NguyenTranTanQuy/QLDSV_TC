@@ -15,6 +15,7 @@ namespace QLDSV_TC.Views
         private String flagMode = "";
         private String SubjectNumberSelected = "";
         private String facultyCode = "";
+        private String oldPrimarykey = "";
         private int positionSelectedSubject = -1;
         private int positionSelectedCreditClass = -1;
 
@@ -87,6 +88,9 @@ namespace QLDSV_TC.Views
                 MessageBox.Show("Số sinh viên tối thiểu phải lớn hơn 0 và không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
+            if (oldPrimarykey == dataClass["NIENKHOA"].ToString() + dataClass["HOCKY"].ToString() + dataClass["NHOM"].ToString())
+                return true;
 
             string query = " DECLARE @return_value INT" +
 
@@ -246,7 +250,12 @@ namespace QLDSV_TC.Views
             }
 
             if (bdsLOPTINCHI.Position != positionSelectedCreditClass)
-                btnDelete.Enabled = btnEdit.Enabled = cbKhoa.Enabled = true;
+            {
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
+
+                btnDelete.Enabled = btnEdit.Enabled = true;
+            }
         }
 
         private void gridViewCreditClass_ShowingEditor(object sender, CancelEventArgs e)
@@ -316,7 +325,9 @@ namespace QLDSV_TC.Views
             positionSelectedSubject = gridViewSubject.FocusedRowHandle;
 
             flagMode = "EDITCREDITCLASS";
+
             DataRow data = gridViewCreditClass.GetFocusedDataRow();
+            oldPrimarykey = data["NIENKHOA"].ToString() + data["HOCKY"].ToString() + data["NHOM"].ToString();
             pushDataToProcessStack(data);
 
             btnWrite.Enabled = true;
@@ -483,7 +494,10 @@ namespace QLDSV_TC.Views
                 flagMode = "";
                 positionSelectedCreditClass = -1;
 
-                btnAdd.Enabled = btnRecover.Enabled = cbKhoa.Enabled = true;
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
+
+                btnAdd.Enabled = btnRecover.Enabled = true;
                 btnWrite.Enabled = false;
             }
         }
@@ -500,13 +514,19 @@ namespace QLDSV_TC.Views
                 else
                 {
                     flagMode = "";
+                    oldPrimarykey = "";
+                    SubjectNumberSelected = "";
+                    positionSelectedCreditClass = -1;
                     positionSelectedCreditClass = -1;
                 }
             }
 
             fillDataTableCreditClass();
 
-            btnAdd.Enabled = cbKhoa.Enabled = true;
+            if (Program.mGroup == "PGV")
+                cbKhoa.Enabled = true;
+
+            btnAdd.Enabled = true;
             btnWrite.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;
         }
 

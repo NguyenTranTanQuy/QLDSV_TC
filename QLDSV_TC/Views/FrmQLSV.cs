@@ -1,5 +1,4 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using QLDSV_TC.Services;
 using System;
@@ -266,7 +265,10 @@ namespace QLDSV_TC.Views
             {
                 getDataFromRowSelected();
 
-                btnDeleteSV.Enabled = btnEditSV.Enabled = cbKhoa.Enabled = true;
+                btnDeleteSV.Enabled = btnEditSV.Enabled;
+
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
             }
         }
 
@@ -417,7 +419,10 @@ namespace QLDSV_TC.Views
                 flagMode = "";
                 positionSelectedSV = -1;
 
-                btnAddSV.Enabled = btnRecover.Enabled = cbKhoa.Enabled = true;
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
+
+                btnAddSV.Enabled = btnRecover.Enabled;
                 btnWriteSV.Enabled = false;
             }
         }
@@ -534,7 +539,10 @@ namespace QLDSV_TC.Views
 
             reloadDataForm();
 
-            btnAddSV.Enabled = cbKhoa.Enabled = true;
+            if (Program.mGroup == "PGV")
+                cbKhoa.Enabled = true;
+
+            btnAddSV.Enabled = true;
             btnWriteSV.Enabled = btnDeleteSV.Enabled = btnEditSV.Enabled = false;
         }
 

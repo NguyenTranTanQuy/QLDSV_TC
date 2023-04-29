@@ -495,11 +495,7 @@
             this.repositoryItemSpinEdit1.AutoHeight = false;
             this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.repositoryItemSpinEdit1.IsFloatValue = false;
             this.repositoryItemSpinEdit1.MaskSettings.Set("mask", "n2");
             this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
             10,

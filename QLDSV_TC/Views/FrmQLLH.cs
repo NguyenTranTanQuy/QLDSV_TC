@@ -14,6 +14,7 @@ namespace QLDSV_TC.Views
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
         private String flagMode = "";
         private int positionSelectedClass = -1;
+        private String oldClassName = "";
 
         private void pushDataToProcessStack(DataRow data)
         {
@@ -62,7 +63,7 @@ namespace QLDSV_TC.Views
             {
                 string query = " DECLARE @return_value INT" +
 
-                               " EXEC @return_value = [dbo].[SP_CHECK]" +
+                               " EXEC @return_value = [dbo].[SP_CHECKMA]" +
 
                                " N'" + dataClass["MALOP"].ToString().Trim() + "', " +
 
@@ -90,6 +91,13 @@ namespace QLDSV_TC.Views
 
             if (flagMode == "ADDCLASS" || flagMode == "EDITCLASS")
             {
+                if (flagMode == "EDITCLASS")
+                    if (oldClassName == dataClass["TENLOP"].ToString())
+                    {
+                        oldClassName = "";
+                        return true;
+                    }
+
                 string query = " DECLARE @return_value INT" +
 
                                " EXEC @return_value = [dbo].[SP_CHECKTEN]" +
@@ -290,6 +298,7 @@ namespace QLDSV_TC.Views
             flagMode = "EDITCLASS";
 
             DataRow data = gridViewClass.GetFocusedDataRow();
+            oldClassName = data["TENLOP"].ToString();
             pushDataToProcessStack(data);
 
             btnWrite.Enabled = true;
@@ -361,7 +370,10 @@ namespace QLDSV_TC.Views
                 flagMode = "";
                 positionSelectedClass = -1;
 
-                btnAdd.Enabled = btnRecover.Enabled = cbKhoa.Enabled = true;
+                if (Program.mGroup == "PGV")
+                    cbKhoa.Enabled = true;
+
+                btnAdd.Enabled = btnRecover.Enabled = true;
                 btnWrite.Enabled = false;
             }
         }
@@ -419,8 +431,6 @@ namespace QLDSV_TC.Views
                     default:
                         lop = (Lop)command.dataRow;
 
-                        MessageBox.Show(lop.MaLop + " " + lop.TenLop + " " + lop.KhoaHoc + " " + lop.MaKhoa);
-
                         positionSelectedClass = gridViewClass.LocateByValue("MALOP", lop.MaLop);
                         gridViewClass.FocusedRowHandle = positionSelectedClass;
 
@@ -462,12 +472,16 @@ namespace QLDSV_TC.Views
                 {
                     flagMode = "";
                     positionSelectedClass = -1;
+                    oldClassName = "";
                 }
             }
 
             fillDataTableClass();
 
-            btnAdd.Enabled = cbKhoa.Enabled = true;
+            if (Program.mGroup == "PGV")
+                cbKhoa.Enabled = true;
+
+            btnAdd.Enabled = true;
             btnWrite.Enabled = btnDelete.Enabled = btnEdit.Enabled = false;
         }
 

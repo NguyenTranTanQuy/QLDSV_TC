@@ -14,6 +14,7 @@ namespace QLDSV_TC.Views
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
         private String flagMode = "";
         private int positionSelectedSubject = -1;
+        private String oldSubjectName = "";
 
         public FrmQLMH()
         {
@@ -95,6 +96,12 @@ namespace QLDSV_TC.Views
 
             if (flagMode == "ADDSUBJECT" || flagMode == "EDITSUBJECT")
             {
+                if (oldSubjectName == dataClass["TENMH"].ToString())
+                {
+                    oldSubjectName = "";
+                    return true;
+                }
+
                 string query = " DECLARE @return_value INT" +
 
                                " EXEC @return_value = [dbo].[SP_CHECKTEN]" +
@@ -213,6 +220,7 @@ namespace QLDSV_TC.Views
             flagMode = "EDITSUBJECT";
 
             DataRow data = gridViewSubject.GetFocusedDataRow();
+            oldSubjectName = data["TENMH"].ToString();
             pushDataToProcessStack(data);
 
             btnWrite.Enabled = true;
@@ -386,6 +394,7 @@ namespace QLDSV_TC.Views
                 {
                     flagMode = "";
                     positionSelectedSubject = -1;
+                    oldSubjectName = "";
                 }
             }
 
