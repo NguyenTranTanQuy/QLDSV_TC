@@ -139,6 +139,12 @@
     <Compile Include="Reports\XrptListCreditClass.Designer.cs">
       <DependentUpon>XrptListCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\XrptScoresCreditClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XrptScoresCreditClass.Designer.cs">
+      <DependentUpon>XrptScoresCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\XrptStudentsListCreditClass.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -215,6 +221,12 @@
     <Compile Include="Views\RpfListCreditClass.Designer.cs">
       <DependentUpon>RpfListCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RpfScoresCreditClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RpfScoresCreditClass.Designer.cs">
+      <DependentUpon>RpfScoresCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RpfStudentsListCreditClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +235,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\XrptListCreditClass.resx">
       <DependentUpon>XrptListCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XrptScoresCreditClass.resx">
+      <DependentUpon>XrptScoresCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\XrptStudentsListCreditClass.resx">
       <DependentUpon>XrptStudentsListCreditClass.cs</DependentUpon>
@@ -269,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RpfListCreditClass.resx">
       <DependentUpon>RpfListCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RpfScoresCreditClass.resx">
+      <DependentUpon>RpfScoresCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RpfStudentsListCreditClass.resx">
       <DependentUpon>RpfStudentsListCreditClass.cs</DependentUpon>

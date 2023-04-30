@@ -54,6 +54,7 @@ namespace QLDSV_TC
 
         public static Views.RpfStudentsListCreditClass rpfStudentsListCreditClass;
         public static Views.RpfListCreditClass rpfListCreditClass;
+        public static Views.RpfScoresCreditClass rpfScoresCreditClass;
 
         public static int hocPhi = 550000;
 

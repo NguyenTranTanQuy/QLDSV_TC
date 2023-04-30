@@ -192,6 +192,7 @@
             this.btnINBANGDIEM.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnINBANGDIEM.LargeWidth = 120;
             this.btnINBANGDIEM.Name = "btnINBANGDIEM";
+            this.btnINBANGDIEM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnINBANGDIEM_ItemClick);
             // 
             // btnINPHIEUDIEMCANHAN
             // 
@@ -610,7 +611,7 @@
             // ribbonControl1
             // 
             this.ribbonControl1.ApplicationButtonDropDownControl = this.applicationMenu1;
-            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(64, 62, 64, 62);
+            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(80, 77, 80, 77);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
@@ -659,10 +660,10 @@
             this.skinDropDownButtonItem3,
             this.skinDropDownButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.ribbonControl1.MaxItemId = 45;
             this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.OptionsMenuMinWidth = 701;
+            this.ribbonControl1.OptionsMenuMinWidth = 876;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2,
             this.ribbonPage3,

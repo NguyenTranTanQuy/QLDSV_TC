@@ -1,6 +1,6 @@
 ﻿namespace QLDSV_TC.Views
 {
-    partial class RpfStudentsListCreditClass
+    partial class RpfScoresCreditClass
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RpfStudentsListCreditClass));
-            this.lblMain = new DevExpress.XtraEditors.LabelControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RpfScoresCreditClass));
             this.panelChonKhoa = new DevExpress.XtraEditors.PanelControl();
             this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
-            this.bdsMONHOC = new System.Windows.Forms.BindingSource(this.components);
-            this.MONHOCTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter();
+            this.lblMain = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.nmNHOM = new System.Windows.Forms.NumericUpDown();
@@ -47,15 +44,56 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
+            this.bdsMONHOC = new System.Windows.Forms.BindingSource(this.components);
+            this.MONHOCTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).BeginInit();
             this.panelChonKhoa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNHOM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkMONHOC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelChonKhoa
+            // 
+            this.panelChonKhoa.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelChonKhoa.Controls.Add(this.cbKhoa);
+            this.panelChonKhoa.Controls.Add(this.label3);
+            this.panelChonKhoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelChonKhoa.Location = new System.Drawing.Point(0, 81);
+            this.panelChonKhoa.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.panelChonKhoa.Name = "panelChonKhoa";
+            this.panelChonKhoa.Size = new System.Drawing.Size(728, 52);
+            this.panelChonKhoa.TabIndex = 32;
+            // 
+            // cbKhoa
+            // 
+            this.cbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKhoa.Enabled = false;
+            this.cbKhoa.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKhoa.FormattingEnabled = true;
+            this.cbKhoa.ItemHeight = 21;
+            this.cbKhoa.Location = new System.Drawing.Point(192, 13);
+            this.cbKhoa.Margin = new System.Windows.Forms.Padding(6);
+            this.cbKhoa.Name = "cbKhoa";
+            this.cbKhoa.Size = new System.Drawing.Size(436, 29);
+            this.cbKhoa.TabIndex = 1;
+            this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(60, 14);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "KHOA:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblMain
             // 
@@ -71,64 +109,12 @@
             this.lblMain.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
             this.lblMain.LineVisible = true;
             this.lblMain.Location = new System.Drawing.Point(0, 0);
-            this.lblMain.Margin = new System.Windows.Forms.Padding(5);
+            this.lblMain.Margin = new System.Windows.Forms.Padding(6);
             this.lblMain.Name = "lblMain";
-            this.lblMain.Padding = new System.Windows.Forms.Padding(25, 12, 25, 12);
-            this.lblMain.Size = new System.Drawing.Size(729, 126);
-            this.lblMain.TabIndex = 8;
-            this.lblMain.Text = "IN DANH SÁCH SINH VIÊN LỚP TÍN CHỈ";
-            // 
-            // panelChonKhoa
-            // 
-            this.panelChonKhoa.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelChonKhoa.Controls.Add(this.cbKhoa);
-            this.panelChonKhoa.Controls.Add(this.label3);
-            this.panelChonKhoa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelChonKhoa.Location = new System.Drawing.Point(0, 126);
-            this.panelChonKhoa.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.panelChonKhoa.Name = "panelChonKhoa";
-            this.panelChonKhoa.Size = new System.Drawing.Size(729, 53);
-            this.panelChonKhoa.TabIndex = 28;
-            // 
-            // cbKhoa
-            // 
-            this.cbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbKhoa.Enabled = false;
-            this.cbKhoa.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbKhoa.FormattingEnabled = true;
-            this.cbKhoa.ItemHeight = 21;
-            this.cbKhoa.Location = new System.Drawing.Point(192, 10);
-            this.cbKhoa.Margin = new System.Windows.Forms.Padding(5);
-            this.cbKhoa.Name = "cbKhoa";
-            this.cbKhoa.Size = new System.Drawing.Size(443, 29);
-            this.cbKhoa.TabIndex = 1;
-            this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(74, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "KHOA:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // QLDSV_TCDataSet
-            // 
-            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
-            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsMONHOC
-            // 
-            this.bdsMONHOC.DataMember = "MONHOC";
-            this.bdsMONHOC.DataSource = this.QLDSV_TCDataSet;
-            // 
-            // MONHOCTableAdapter
-            // 
-            this.MONHOCTableAdapter.ClearBeforeFill = true;
+            this.lblMain.Padding = new System.Windows.Forms.Padding(31, 15, 31, 15);
+            this.lblMain.Size = new System.Drawing.Size(728, 81);
+            this.lblMain.TabIndex = 31;
+            this.lblMain.Text = "BẢNG ĐIỂM LỚP TÍN CHỈ";
             // 
             // panelControl1
             // 
@@ -142,11 +128,11 @@
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.labelControl7);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 179);
+            this.panelControl1.Location = new System.Drawing.Point(0, 133);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(729, 357);
-            this.panelControl1.TabIndex = 29;
+            this.panelControl1.Size = new System.Drawing.Size(728, 342);
+            this.panelControl1.TabIndex = 33;
             // 
             // btnPreview
             // 
@@ -271,40 +257,51 @@
             this.labelControl7.TabIndex = 68;
             this.labelControl7.Text = "NIÊN KHÓA:";
             // 
-            // RpfStudentsListCreditClass
+            // QLDSV_TCDataSet
+            // 
+            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
+            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bdsMONHOC
+            // 
+            this.bdsMONHOC.DataMember = "MONHOC";
+            this.bdsMONHOC.DataSource = this.QLDSV_TCDataSet;
+            // 
+            // MONHOCTableAdapter
+            // 
+            this.MONHOCTableAdapter.ClearBeforeFill = true;
+            // 
+            // RpfScoresCreditClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 536);
+            this.ClientSize = new System.Drawing.Size(728, 475);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelChonKhoa);
             this.Controls.Add(this.lblMain);
-            this.Name = "RpfStudentsListCreditClass";
-            this.Text = "DSSV LỚP TÍN CHỈ";
-            this.Load += new System.EventHandler(this.RpfStudentsListCreditClass_Load);
+            this.Name = "RpfScoresCreditClass";
+            this.Text = "BẢNG ĐIỂM LTC";
+            this.Load += new System.EventHandler(this.RpfScoresCreditClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).EndInit();
             this.panelChonKhoa.ResumeLayout(false);
             this.panelChonKhoa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNHOM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkMONHOC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl lblMain;
         private DevExpress.XtraEditors.PanelControl panelChonKhoa;
         private System.Windows.Forms.ComboBox cbKhoa;
         private System.Windows.Forms.Label label3;
-        private QLDSV_TCDataSet QLDSV_TCDataSet;
-        private System.Windows.Forms.BindingSource bdsMONHOC;
-        private QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter MONHOCTableAdapter;
+        private DevExpress.XtraEditors.LabelControl lblMain;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnPreview;
         private System.Windows.Forms.NumericUpDown nmNHOM;
@@ -315,5 +312,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private QLDSV_TCDataSet QLDSV_TCDataSet;
+        private System.Windows.Forms.BindingSource bdsMONHOC;
+        private QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter MONHOCTableAdapter;
     }
 }

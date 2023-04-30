@@ -165,6 +165,18 @@ namespace QLDSV_TC
             }
         }
 
+        private void btnINBANGDIEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.RpfScoresCreditClass));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.rpfScoresCreditClass = new RpfScoresCreditClass();
+                Program.rpfScoresCreditClass.MdiParent = this;
+                Program.rpfScoresCreditClass.Show();
+            }
+        }
+
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
