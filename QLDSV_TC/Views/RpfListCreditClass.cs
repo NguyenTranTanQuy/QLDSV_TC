@@ -1,11 +1,18 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
-    public partial class RpfStudentsListCreditClass : XtraForm
+    public partial class RpfListCreditClass : XtraForm
     {
         private void fillComboboxNienKhoa()
         {
@@ -17,38 +24,28 @@ namespace QLDSV_TC.Views
 
         private bool checkData()
         {
-            if(cbNIENKHOA.Text == "")
+            if (cbNIENKHOA.Text == "")
             {
                 MessageBox.Show("Niên khóa không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
-            }
-
-            if(cbHOCKY.Text == "")
-            {
-                MessageBox.Show("Học kỳ không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (lkMONHOC.EditValue == null)
+            if (cbHOCKY.Text == "")
             {
-                MessageBox.Show("Môn học không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Học kỳ không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             return true;
         }
 
-        public RpfStudentsListCreditClass()
+        public RpfListCreditClass()
         {
             InitializeComponent();
         }
 
-        private void RpfStudentsListCreditClass_Load(object sender, EventArgs e)
+        private void RpfListCreditClass_Load(object sender, EventArgs e)
         {
-            this.QLDSV_TCDataSet.EnforceConstraints = false;
-
-            this.MONHOCTableAdapter.Fill(this.QLDSV_TCDataSet.MONHOC);
-
             fillComboboxNienKhoa();
 
             Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
@@ -59,9 +56,6 @@ namespace QLDSV_TC.Views
 
             if (Program.mGroup == "PGV")
                 cbKhoa.Enabled = true;
-
-            lkMONHOC.Properties.Columns["SOTIET_LT"].Visible = false;
-            lkMONHOC.Properties.Columns["SOTIET_TH"].Visible = false;
         }
 
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,18 +92,12 @@ namespace QLDSV_TC.Views
             {
                 string schoolYear = cbNIENKHOA.Text;
                 int semester = Convert.ToInt32(this.cbHOCKY.Text);
-                string subjectName = lkMONHOC.Text;
-                string subjectCode = lkMONHOC.EditValue.ToString();
-                int group = Convert.ToInt32(nmNHOM.Value);
 
-                Reports.XrptStudentsListCreditClass xrpt = new Reports.XrptStudentsListCreditClass(schoolYear, semester, subjectCode, group);
-
+                Reports.XrptListCreditClass xrpt = new Reports.XrptListCreditClass(schoolYear, semester);
 
                 xrpt.xrlblFaculty.Text = cbKhoa.Text;
                 xrpt.xrlblSchoolYear.Text = schoolYear;
                 xrpt.xrlblSemester.Text = semester.ToString();
-                xrpt.xrlblSubject.Text = subjectName;
-                xrpt.xrlblGroup.Text = group.ToString();
 
                 ReportPrintTool printTool = new ReportPrintTool(xrpt);
                 printTool.ShowPreviewDialog();

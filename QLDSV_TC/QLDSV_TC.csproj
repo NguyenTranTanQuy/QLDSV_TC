@@ -133,6 +133,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\XrptListCreditClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XrptListCreditClass.Designer.cs">
+      <DependentUpon>XrptListCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\XrptStudentsListCreditClass.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -203,12 +209,21 @@
     <Compile Include="Views\FrmTTK.Designer.cs">
       <DependentUpon>FrmTTK.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RpfListCreditClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RpfListCreditClass.Designer.cs">
+      <DependentUpon>RpfListCreditClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RpfStudentsListCreditClass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\RpfStudentsListCreditClass.Designer.cs">
       <DependentUpon>RpfStudentsListCreditClass.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\XrptListCreditClass.resx">
+      <DependentUpon>XrptListCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\XrptStudentsListCreditClass.resx">
       <DependentUpon>XrptStudentsListCreditClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmTTK.resx">
       <DependentUpon>FrmTTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RpfListCreditClass.resx">
+      <DependentUpon>RpfListCreditClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RpfStudentsListCreditClass.resx">
       <DependentUpon>RpfStudentsListCreditClass.cs</DependentUpon>
