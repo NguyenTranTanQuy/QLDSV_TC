@@ -141,6 +141,18 @@ namespace QLDSV_TC
             }
         }
 
+        private void btnINDSLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.RpfStudentsListCreditClass));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.rpfStudentsListCreditClass = new RpfStudentsListCreditClass();
+                Program.rpfStudentsListCreditClass.MdiParent = this;
+                Program.rpfStudentsListCreditClass.Show();
+            }
+        }
+
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();

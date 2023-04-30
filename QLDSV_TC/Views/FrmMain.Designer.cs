@@ -36,12 +36,12 @@
             this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnINDSLTC = new DevExpress.XtraBars.BarButtonItem();
+            this.btnINDSSVDK = new DevExpress.XtraBars.BarButtonItem();
+            this.btnINBANGDIEM = new DevExpress.XtraBars.BarButtonItem();
+            this.btnINPHIEUDIEMCANHAN = new DevExpress.XtraBars.BarButtonItem();
+            this.btnINDSHOCPHILOP = new DevExpress.XtraBars.BarButtonItem();
+            this.btnINBANDIEMTK = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnQLSV = new DevExpress.XtraBars.BarButtonItem();
@@ -128,125 +128,126 @@
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem17);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem18);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem19);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem20);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem21);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem22);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnINDSLTC);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnINDSSVDK);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnINBANGDIEM);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnINPHIEUDIEMCANHAN);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnINDSHOCPHILOP);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnINBANDIEMTK);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "QUẢN LÝ BÁO CÁO";
             // 
-            // barButtonItem17
+            // btnINDSLTC
             // 
-            this.barButtonItem17.Caption = "DS LỚP TÍN CHỈ";
-            this.barButtonItem17.Hint = "In mẫu báo cáo danh sách lớp tín chỉ";
-            this.barButtonItem17.Id = 33;
-            this.barButtonItem17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.Image")));
-            this.barButtonItem17.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.LargeImage")));
-            this.barButtonItem17.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem17.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem17.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem17.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem17.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem17.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem17.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem17.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem17.LargeWidth = 100;
-            this.barButtonItem17.Name = "barButtonItem17";
+            this.btnINDSLTC.Caption = "DS LỚP TÍN CHỈ";
+            this.btnINDSLTC.Hint = "In mẫu báo cáo danh sách lớp tín chỉ";
+            this.btnINDSLTC.Id = 33;
+            this.btnINDSLTC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.Image")));
+            this.btnINDSLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.LargeImage")));
+            this.btnINDSLTC.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSLTC.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnINDSLTC.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSLTC.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnINDSLTC.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSLTC.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnINDSLTC.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSLTC.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnINDSLTC.LargeWidth = 100;
+            this.btnINDSLTC.Name = "btnINDSLTC";
+            this.btnINDSLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnINDSLTC_ItemClick);
             // 
-            // barButtonItem18
+            // btnINDSSVDK
             // 
-            this.barButtonItem18.Caption = "DSSV ĐĂNG KÝ LỚP TÍN CHỈ";
-            this.barButtonItem18.Hint = "In danh sách sinh viên đăng ký lớp tín chỉ";
-            this.barButtonItem18.Id = 34;
-            this.barButtonItem18.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem18.ImageOptions.Image")));
-            this.barButtonItem18.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem18.ImageOptions.LargeImage")));
-            this.barButtonItem18.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem18.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem18.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem18.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem18.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem18.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem18.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem18.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem18.LargeWidth = 110;
-            this.barButtonItem18.Name = "barButtonItem18";
+            this.btnINDSSVDK.Caption = "DSSV ĐĂNG KÝ LỚP TÍN CHỈ";
+            this.btnINDSSVDK.Hint = "In danh sách sinh viên đăng ký lớp tín chỉ";
+            this.btnINDSSVDK.Id = 34;
+            this.btnINDSSVDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem18.ImageOptions.Image")));
+            this.btnINDSSVDK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem18.ImageOptions.LargeImage")));
+            this.btnINDSSVDK.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSSVDK.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnINDSSVDK.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSSVDK.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnINDSSVDK.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSSVDK.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnINDSSVDK.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSSVDK.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnINDSSVDK.LargeWidth = 110;
+            this.btnINDSSVDK.Name = "btnINDSSVDK";
             // 
-            // barButtonItem19
+            // btnINBANGDIEM
             // 
-            this.barButtonItem19.Caption = "BẢNG ĐIỂM MÔN HỌC LỚP TÍN CHỈ";
-            this.barButtonItem19.Hint = "In bảng điểm môn học của 1 lớp tín chỉ";
-            this.barButtonItem19.Id = 35;
-            this.barButtonItem19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.Image")));
-            this.barButtonItem19.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.LargeImage")));
-            this.barButtonItem19.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem19.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem19.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem19.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem19.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem19.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem19.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem19.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem19.LargeWidth = 120;
-            this.barButtonItem19.Name = "barButtonItem19";
+            this.btnINBANGDIEM.Caption = "BẢNG ĐIỂM MÔN HỌC LỚP TÍN CHỈ";
+            this.btnINBANGDIEM.Hint = "In bảng điểm môn học của 1 lớp tín chỉ";
+            this.btnINBANGDIEM.Id = 35;
+            this.btnINBANGDIEM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.Image")));
+            this.btnINBANGDIEM.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.LargeImage")));
+            this.btnINBANGDIEM.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANGDIEM.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnINBANGDIEM.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANGDIEM.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnINBANGDIEM.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANGDIEM.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnINBANGDIEM.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANGDIEM.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnINBANGDIEM.LargeWidth = 120;
+            this.btnINBANGDIEM.Name = "btnINBANGDIEM";
             // 
-            // barButtonItem20
+            // btnINPHIEUDIEMCANHAN
             // 
-            this.barButtonItem20.Caption = "PHIẾU ĐIỂM";
-            this.barButtonItem20.Hint = "In phiếu điểm của một sinh viên theo mã sinh viên";
-            this.barButtonItem20.Id = 36;
-            this.barButtonItem20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.Image")));
-            this.barButtonItem20.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.LargeImage")));
-            this.barButtonItem20.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem20.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem20.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem20.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem20.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem20.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem20.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem20.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem20.LargeWidth = 100;
-            this.barButtonItem20.Name = "barButtonItem20";
-            this.barButtonItem20.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            this.btnINPHIEUDIEMCANHAN.Caption = "PHIẾU ĐIỂM";
+            this.btnINPHIEUDIEMCANHAN.Hint = "In phiếu điểm của một sinh viên theo mã sinh viên";
+            this.btnINPHIEUDIEMCANHAN.Id = 36;
+            this.btnINPHIEUDIEMCANHAN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.Image")));
+            this.btnINPHIEUDIEMCANHAN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.LargeImage")));
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINPHIEUDIEMCANHAN.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnINPHIEUDIEMCANHAN.LargeWidth = 100;
+            this.btnINPHIEUDIEMCANHAN.Name = "btnINPHIEUDIEMCANHAN";
+            this.btnINPHIEUDIEMCANHAN.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
             // 
-            // barButtonItem21
+            // btnINDSHOCPHILOP
             // 
-            this.barButtonItem21.Caption = "IN DS ĐÓNG HỌC PHÍ CỦA LỚP";
-            this.barButtonItem21.Hint = "In danh sách đóng học phí của lớp ";
-            this.barButtonItem21.Id = 37;
-            this.barButtonItem21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem21.ImageOptions.Image")));
-            this.barButtonItem21.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem21.ImageOptions.LargeImage")));
-            this.barButtonItem21.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem21.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem21.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem21.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem21.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem21.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem21.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem21.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem21.LargeWidth = 110;
-            this.barButtonItem21.Name = "barButtonItem21";
-            this.barButtonItem21.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnINDSHOCPHILOP.Caption = "IN DS ĐÓNG HỌC PHÍ CỦA LỚP";
+            this.btnINDSHOCPHILOP.Hint = "In danh sách đóng học phí của lớp ";
+            this.btnINDSHOCPHILOP.Id = 37;
+            this.btnINDSHOCPHILOP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem21.ImageOptions.Image")));
+            this.btnINDSHOCPHILOP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem21.ImageOptions.LargeImage")));
+            this.btnINDSHOCPHILOP.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSHOCPHILOP.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnINDSHOCPHILOP.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSHOCPHILOP.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnINDSHOCPHILOP.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSHOCPHILOP.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnINDSHOCPHILOP.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINDSHOCPHILOP.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnINDSHOCPHILOP.LargeWidth = 110;
+            this.btnINDSHOCPHILOP.Name = "btnINDSHOCPHILOP";
+            this.btnINDSHOCPHILOP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // barButtonItem22
+            // btnINBANDIEMTK
             // 
-            this.barButtonItem22.Caption = "BẢNG ĐIỂM TỔNG KẾT";
-            this.barButtonItem22.Hint = "In bảng điểm tổng kết của 1 lớp dựa vào mã lớp";
-            this.barButtonItem22.Id = 38;
-            this.barButtonItem22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.Image")));
-            this.barButtonItem22.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.LargeImage")));
-            this.barButtonItem22.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem22.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem22.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem22.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem22.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem22.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem22.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
-            this.barButtonItem22.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem22.LargeWidth = 100;
-            this.barButtonItem22.Name = "barButtonItem22";
-            this.barButtonItem22.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnINBANDIEMTK.Caption = "BẢNG ĐIỂM TỔNG KẾT";
+            this.btnINBANDIEMTK.Hint = "In bảng điểm tổng kết của 1 lớp dựa vào mã lớp";
+            this.btnINBANDIEMTK.Id = 38;
+            this.btnINBANDIEMTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.Image")));
+            this.btnINBANDIEMTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.LargeImage")));
+            this.btnINBANDIEMTK.ItemAppearance.Disabled.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANDIEMTK.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnINBANDIEMTK.ItemAppearance.Hovered.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANDIEMTK.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnINBANDIEMTK.ItemAppearance.Normal.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANDIEMTK.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnINBANDIEMTK.ItemAppearance.Pressed.Font = new System.Drawing.Font("SF Mono", 8.25F);
+            this.btnINBANDIEMTK.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnINBANDIEMTK.LargeWidth = 100;
+            this.btnINBANDIEMTK.Name = "btnINBANDIEMTK";
+            this.btnINBANDIEMTK.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // ribbonPage2
             // 
@@ -644,12 +645,12 @@
             this.btnQLDKLOP,
             this.btnLogout,
             this.btnDK,
-            this.barButtonItem17,
-            this.barButtonItem18,
-            this.barButtonItem19,
-            this.barButtonItem20,
-            this.barButtonItem21,
-            this.barButtonItem22,
+            this.btnINDSLTC,
+            this.btnINDSSVDK,
+            this.btnINBANGDIEM,
+            this.btnINPHIEUDIEMCANHAN,
+            this.btnINDSHOCPHILOP,
+            this.btnINBANDIEMTK,
             this.skinDropDownButtonItem1,
             this.skinDropDownButtonItem2,
             this.skinPaletteRibbonGalleryBarItem1,
@@ -908,12 +909,12 @@
         private DevExpress.XtraBars.BarButtonItem btnQLDKLOP;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarButtonItem btnDK;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem18;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
+        private DevExpress.XtraBars.BarButtonItem btnINDSLTC;
+        private DevExpress.XtraBars.BarButtonItem btnINDSSVDK;
+        private DevExpress.XtraBars.BarButtonItem btnINBANGDIEM;
+        private DevExpress.XtraBars.BarButtonItem btnINPHIEUDIEMCANHAN;
+        private DevExpress.XtraBars.BarButtonItem btnINDSHOCPHILOP;
+        private DevExpress.XtraBars.BarButtonItem btnINBANDIEMTK;
         private System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel statuslblMa;
         public System.Windows.Forms.ToolStripStatusLabel statuslblHoten;
