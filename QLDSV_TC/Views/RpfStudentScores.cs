@@ -30,6 +30,35 @@ namespace QLDSV_TC.Views
             InitializeComponent();
         }
 
+        private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbKhoa.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
+            Program.servername = cbKhoa.SelectedValue.ToString();
+
+            if (cbKhoa.SelectedIndex != Program.mPhongBan)
+            {
+                Program.mLogin = Program.remoteLogin;
+                Program.mPassword = Program.remotePassword;
+            }
+            else
+            {
+                Program.mLogin = Program.mLoginDN;
+                Program.mPassword = Program.mPasswordDN;
+            }
+
+            if (!Program.KetNoi())
+            {
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
+                this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
+            }
+        }
+
         private void RpfStudentScores_Load(object sender, EventArgs e)
         {
             this.QLDSV_TCDataSet.EnforceConstraints = false;

@@ -22,5 +22,10 @@ namespace QLDSV_TC.Views
         {
 
         }
+
+        private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

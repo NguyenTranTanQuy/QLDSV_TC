@@ -139,6 +139,12 @@
     <Compile Include="Reports\XrptListCreditClass.Designer.cs">
       <DependentUpon>XrptListCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\XrptListPayTuitionOfClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XrptListPayTuitionOfClass.Designer.cs">
+      <DependentUpon>XrptListPayTuitionOfClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\XrptScoresCreditClass.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -157,6 +163,7 @@
     <Compile Include="Reports\XrptStudentsListCreditClass.Designer.cs">
       <DependentUpon>XrptStudentsListCreditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ConvertCurrencyToWords.cs" />
     <Compile Include="Services\HandleString.cs" />
     <Compile Include="Services\ProcessStore.cs" />
     <Compile Include="Views\FrmMain.cs">
@@ -260,6 +267,9 @@
     <EmbeddedResource Include="Reports\XrptListCreditClass.resx">
       <DependentUpon>XrptListCreditClass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XrptListPayTuitionOfClass.resx">
+      <DependentUpon>XrptListPayTuitionOfClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\XrptScoresCreditClass.resx">
       <DependentUpon>XrptScoresCreditClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RpfListCreditClass.resx">
       <DependentUpon>RpfListCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RpfListPayTuitionOfClass.resx">
+      <DependentUpon>RpfListPayTuitionOfClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RpfScoresCreditClass.resx">
       <DependentUpon>RpfScoresCreditClass.cs</DependentUpon>

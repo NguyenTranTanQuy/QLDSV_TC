@@ -132,6 +132,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.btnPreview);
             this.panelControl1.Controls.Add(this.nmNHOM);
             this.panelControl1.Controls.Add(this.lkMONHOC);

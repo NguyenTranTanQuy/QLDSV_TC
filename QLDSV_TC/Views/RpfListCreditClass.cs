@@ -80,10 +80,6 @@ namespace QLDSV_TC.Views
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
                 return;
             }
-            else
-            {
-                fillComboboxNienKhoa();
-            }
         }
 
         private void btnPreview_Click(object sender, EventArgs e)

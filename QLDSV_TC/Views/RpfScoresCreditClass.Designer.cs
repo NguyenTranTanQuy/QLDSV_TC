@@ -38,14 +38,14 @@
             this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.nmNHOM = new System.Windows.Forms.NumericUpDown();
             this.lkMONHOC = new DevExpress.XtraEditors.LookUpEdit();
+            this.bdsMONHOC = new System.Windows.Forms.BindingSource(this.components);
+            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
             this.cbHOCKY = new System.Windows.Forms.ComboBox();
             this.cbNIENKHOA = new System.Windows.Forms.ComboBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
-            this.bdsMONHOC = new System.Windows.Forms.BindingSource(this.components);
             this.MONHOCTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).BeginInit();
             this.panelChonKhoa.SuspendLayout();
@@ -53,8 +53,8 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNHOM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkMONHOC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChonKhoa
@@ -118,6 +118,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.btnPreview);
             this.panelControl1.Controls.Add(this.nmNHOM);
             this.panelControl1.Controls.Add(this.lkMONHOC);
@@ -185,6 +186,16 @@
             this.lkMONHOC.Properties.ValueMember = "MAMH";
             this.lkMONHOC.Size = new System.Drawing.Size(443, 28);
             this.lkMONHOC.TabIndex = 73;
+            // 
+            // bdsMONHOC
+            // 
+            this.bdsMONHOC.DataMember = "MONHOC";
+            this.bdsMONHOC.DataSource = this.QLDSV_TCDataSet;
+            // 
+            // QLDSV_TCDataSet
+            // 
+            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
+            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cbHOCKY
             // 
@@ -257,16 +268,6 @@
             this.labelControl7.TabIndex = 68;
             this.labelControl7.Text = "NIÊN KHÓA:";
             // 
-            // QLDSV_TCDataSet
-            // 
-            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
-            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsMONHOC
-            // 
-            this.bdsMONHOC.DataMember = "MONHOC";
-            this.bdsMONHOC.DataSource = this.QLDSV_TCDataSet;
-            // 
             // MONHOCTableAdapter
             // 
             this.MONHOCTableAdapter.ClearBeforeFill = true;
@@ -290,8 +291,8 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNHOM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkMONHOC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMONHOC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
