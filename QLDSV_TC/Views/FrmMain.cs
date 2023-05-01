@@ -177,6 +177,42 @@ namespace QLDSV_TC
             }
         }
 
+        private void btnINPHIEUDIEMCANHAN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.RpfStudentScores));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.rpfStudentScores = new RpfStudentScores();
+                Program.rpfStudentScores.MdiParent = this;
+                Program.rpfStudentScores.Show();
+            }
+        }
+
+        private void btnINDSHOCPHILOP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.RpfListPayTuitionOfClass));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.rpfListPayTuitionOfClass = new RpfListPayTuitionOfClass();
+                Program.rpfListPayTuitionOfClass.MdiParent = this;
+                Program.rpfListPayTuitionOfClass.Show();
+            }
+        }
+
+        private void btnINBANDIEMTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = CheckExists(typeof(Views.RpfFinalScoresOfClass));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.rpfFinalScoresOfClass = new RpfFinalScoresOfClass();
+                Program.rpfFinalScoresOfClass.MdiParent = this;
+                Program.rpfFinalScoresOfClass.Show();
+            }
+        }
+
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();

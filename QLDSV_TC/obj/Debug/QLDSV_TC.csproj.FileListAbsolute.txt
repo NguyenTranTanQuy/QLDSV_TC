@@ -101,3 +101,6 @@ C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.View
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Reports.XrptListCreditClass.resources
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Reports.XrptScoresCreditClass.resources
 C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.RpfScoresCreditClass.resources
+C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Reports.XrptStudentScores.resources
+C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.RpfFinalScoresOfClass.resources
+C:\Users\ADMIN\Desktop\CSDL Phân Tán\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Views.RpfStudentScores.resources

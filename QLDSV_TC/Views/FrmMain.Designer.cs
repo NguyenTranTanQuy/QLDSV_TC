@@ -212,6 +212,7 @@
             this.btnINPHIEUDIEMCANHAN.LargeWidth = 100;
             this.btnINPHIEUDIEMCANHAN.Name = "btnINPHIEUDIEMCANHAN";
             this.btnINPHIEUDIEMCANHAN.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            this.btnINPHIEUDIEMCANHAN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnINPHIEUDIEMCANHAN_ItemClick);
             // 
             // btnINDSHOCPHILOP
             // 
@@ -231,6 +232,7 @@
             this.btnINDSHOCPHILOP.LargeWidth = 110;
             this.btnINDSHOCPHILOP.Name = "btnINDSHOCPHILOP";
             this.btnINDSHOCPHILOP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnINDSHOCPHILOP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnINDSHOCPHILOP_ItemClick);
             // 
             // btnINBANDIEMTK
             // 
@@ -250,6 +252,7 @@
             this.btnINBANDIEMTK.LargeWidth = 100;
             this.btnINBANDIEMTK.Name = "btnINBANDIEMTK";
             this.btnINBANDIEMTK.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnINBANDIEMTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnINBANDIEMTK_ItemClick);
             // 
             // ribbonPage2
             // 

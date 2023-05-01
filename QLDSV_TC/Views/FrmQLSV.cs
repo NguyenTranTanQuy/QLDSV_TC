@@ -266,7 +266,7 @@ namespace QLDSV_TC.Views
             {
                 getDataFromRowSelected();
 
-                btnDeleteSV.Enabled = btnEditSV.Enabled;
+                btnDeleteSV.Enabled = btnEditSV.Enabled = true;
 
                 if (Program.mGroup == "PGV")
                     cbKhoa.Enabled = true;
@@ -423,7 +423,7 @@ namespace QLDSV_TC.Views
                 if (Program.mGroup == "PGV")
                     cbKhoa.Enabled = true;
 
-                btnAddSV.Enabled = btnRecover.Enabled;
+                btnAddSV.Enabled = btnRecover.Enabled = true;
                 btnWriteSV.Enabled = false;
             }
         }
