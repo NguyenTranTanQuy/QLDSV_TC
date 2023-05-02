@@ -133,6 +133,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\XrptFinalScoresOfClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XrptFinalScoresOfClass.Designer.cs">
+      <DependentUpon>XrptFinalScoresOfClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\XrptListCreditClass.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     <Compile Include="Views\RpfStudentsListCreditClass.Designer.cs">
       <DependentUpon>RpfStudentsListCreditClass.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\XrptFinalScoresOfClass.resx">
+      <DependentUpon>XrptFinalScoresOfClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\XrptListCreditClass.resx">
       <DependentUpon>XrptListCreditClass.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RpfFinalScoresOfClass));
             this.panelChonKhoa = new DevExpress.XtraEditors.PanelControl();
             this.cbKhoa = new System.Windows.Forms.ComboBox();
@@ -35,12 +36,18 @@
             this.lblMain = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
-            this.cbLOP = new System.Windows.Forms.ComboBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.lkLOP = new DevExpress.XtraEditors.LookUpEdit();
+            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
+            this.bdsLOP = new System.Windows.Forms.BindingSource(this.components);
+            this.LOPTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).BeginInit();
             this.panelChonKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkLOP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChonKhoa
@@ -105,8 +112,8 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.lkLOP);
             this.panelControl1.Controls.Add(this.btnPreview);
-            this.panelControl1.Controls.Add(this.cbLOP);
             this.panelControl1.Controls.Add(this.labelControl7);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 184);
@@ -128,28 +135,51 @@
             this.btnPreview.Text = "XEM BẢN THẢO";
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
-            // cbLOP
-            // 
-            this.cbLOP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLOP.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLOP.FormattingEnabled = true;
-            this.cbLOP.ItemHeight = 21;
-            this.cbLOP.Location = new System.Drawing.Point(244, 32);
-            this.cbLOP.Margin = new System.Windows.Forms.Padding(5);
-            this.cbLOP.Name = "cbLOP";
-            this.cbLOP.Size = new System.Drawing.Size(436, 29);
-            this.cbLOP.TabIndex = 66;
-            // 
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(116, 35);
+            this.labelControl7.Location = new System.Drawing.Point(116, 36);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(10);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(44, 21);
             this.labelControl7.TabIndex = 67;
             this.labelControl7.Text = "LỚP:";
+            // 
+            // lkLOP
+            // 
+            this.lkLOP.Location = new System.Drawing.Point(244, 32);
+            this.lkLOP.Margin = new System.Windows.Forms.Padding(6);
+            this.lkLOP.Name = "lkLOP";
+            this.lkLOP.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkLOP.Properties.Appearance.Options.UseFont = true;
+            this.lkLOP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkLOP.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MALOP", "MALOP", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENLOP", "TENLOP", 100, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("KHOAHOC", "KHOAHOC", 68, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "MAKHOA", 61, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lkLOP.Properties.DataSource = this.bdsLOP;
+            this.lkLOP.Properties.DisplayMember = "MALOP";
+            this.lkLOP.Properties.NullText = "Chọn lớp học";
+            this.lkLOP.Properties.ValueMember = "MALOP";
+            this.lkLOP.Size = new System.Drawing.Size(436, 28);
+            this.lkLOP.TabIndex = 78;
+            // 
+            // QLDSV_TCDataSet
+            // 
+            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
+            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bdsLOP
+            // 
+            this.bdsLOP.DataMember = "LOP";
+            this.bdsLOP.DataSource = this.QLDSV_TCDataSet;
+            // 
+            // LOPTableAdapter
+            // 
+            this.LOPTableAdapter.ClearBeforeFill = true;
             // 
             // RpfFinalScoresOfClass
             // 
@@ -161,12 +191,16 @@
             this.Controls.Add(this.lblMain);
             this.Name = "RpfFinalScoresOfClass";
             this.Text = "BẢNG ĐIỂM TỔNG KẾT";
+            this.Load += new System.EventHandler(this.RpfFinalScoresOfClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).EndInit();
             this.panelChonKhoa.ResumeLayout(false);
             this.panelChonKhoa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkLOP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,7 +213,10 @@
         private DevExpress.XtraEditors.LabelControl lblMain;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnPreview;
-        private System.Windows.Forms.ComboBox cbLOP;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LookUpEdit lkLOP;
+        private QLDSV_TCDataSet QLDSV_TCDataSet;
+        private System.Windows.Forms.BindingSource bdsLOP;
+        private QLDSV_TCDataSetTableAdapters.LOPTableAdapter LOPTableAdapter;
     }
 }
