@@ -232,6 +232,8 @@
             // 
             // gridViewSubject
             // 
+            this.gridViewSubject.Appearance.GroupPanel.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewSubject.Appearance.GroupPanel.Options.UseFont = true;
             this.gridViewSubject.Appearance.Row.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridViewSubject.Appearance.Row.Options.UseFont = true;
             this.gridViewSubject.ColumnPanelRowHeight = 40;
@@ -242,6 +244,7 @@
             this.colSOTIET_TH});
             this.gridViewSubject.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridViewSubject.GridControl = this.gridControlSubject;
+            this.gridViewSubject.GroupPanelText = "DANH SÁCH MÔN HỌC";
             this.gridViewSubject.Name = "gridViewSubject";
             this.gridViewSubject.OptionsBehavior.Editable = false;
             this.gridViewSubject.OptionsBehavior.ReadOnly = true;
@@ -358,6 +361,8 @@
             // 
             // gridViewCreditClass
             // 
+            this.gridViewCreditClass.Appearance.GroupPanel.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewCreditClass.Appearance.GroupPanel.Options.UseFont = true;
             this.gridViewCreditClass.Appearance.Row.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridViewCreditClass.Appearance.Row.Options.UseFont = true;
             this.gridViewCreditClass.ColumnPanelRowHeight = 40;
@@ -370,6 +375,7 @@
             this.colSOSVTOITHIEU,
             this.colHUYLOP});
             this.gridViewCreditClass.GridControl = this.gridControlCreditClass;
+            this.gridViewCreditClass.GroupPanelText = "DANH SÁCH LỚP TÍN CHỈ CỦA MÔN HỌC";
             this.gridViewCreditClass.Name = "gridViewCreditClass";
             this.gridViewCreditClass.RowHeight = 30;
             this.gridViewCreditClass.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewCreditClass_RowClick);

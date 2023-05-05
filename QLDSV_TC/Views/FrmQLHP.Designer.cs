@@ -42,6 +42,7 @@
             this.gridViewDetailTuition = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNGAYDONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOTIENDONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.spinEditSOTIENDONG = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridControlTuition = new DevExpress.XtraGrid.GridControl();
             this.SPGETHOCPHISVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewTuition = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -73,13 +74,13 @@
             this.SP_GETHOCPHI_SVTableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.SP_GETHOCPHI_SVTableAdapter();
             this.SINHVIENTableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.SINHVIENTableAdapter();
             this.SP_GETCTHOCPHITableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.SP_GETCTHOCPHITableAdapter();
-            this.spinEditSOTIENDONG = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetailTuition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPGETCTHOCPHIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetailTuition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditSOTIENDONG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTuition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPGETHOCPHISVBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTuition)).BeginInit();
@@ -96,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditSOTIENDONG)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMain
@@ -221,6 +221,30 @@
             this.colSOTIENDONG.Visible = true;
             this.colSOTIENDONG.VisibleIndex = 1;
             this.colSOTIENDONG.Width = 94;
+            // 
+            // spinEditSOTIENDONG
+            // 
+            this.spinEditSOTIENDONG.AutoHeight = false;
+            this.spinEditSOTIENDONG.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEditSOTIENDONG.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.spinEditSOTIENDONG.IsFloatValue = false;
+            this.spinEditSOTIENDONG.MaskSettings.Set("mask", "N00");
+            this.spinEditSOTIENDONG.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.spinEditSOTIENDONG.MinValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.spinEditSOTIENDONG.Name = "spinEditSOTIENDONG";
             // 
             // gridControlTuition
             // 
@@ -623,30 +647,6 @@
             // 
             this.SP_GETCTHOCPHITableAdapter.ClearBeforeFill = true;
             // 
-            // spinEditSOTIENDONG
-            // 
-            this.spinEditSOTIENDONG.AutoHeight = false;
-            this.spinEditSOTIENDONG.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEditSOTIENDONG.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.spinEditSOTIENDONG.IsFloatValue = false;
-            this.spinEditSOTIENDONG.MaskSettings.Set("mask", "N00");
-            this.spinEditSOTIENDONG.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.spinEditSOTIENDONG.MinValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.spinEditSOTIENDONG.Name = "spinEditSOTIENDONG";
-            // 
             // FrmQLHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -663,6 +663,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SPGETCTHOCPHIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetailTuition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditSOTIENDONG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTuition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPGETHOCPHISVBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTuition)).EndInit();
@@ -680,7 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditSOTIENDONG)).EndInit();
             this.ResumeLayout(false);
 
         }

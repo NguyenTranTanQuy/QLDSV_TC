@@ -105,6 +105,8 @@
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -167,6 +169,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSINHVIEN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStudents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -279,7 +283,7 @@
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(682, 12);
+            this.btnRefresh.Location = new System.Drawing.Point(682, 4);
             this.btnRefresh.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(130, 45);
@@ -293,7 +297,7 @@
             this.btnExitSubForm.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitSubForm.Appearance.Options.UseFont = true;
             this.btnExitSubForm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExitSubForm.ImageOptions.Image")));
-            this.btnExitSubForm.Location = new System.Drawing.Point(816, 12);
+            this.btnExitSubForm.Location = new System.Drawing.Point(816, 4);
             this.btnExitSubForm.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnExitSubForm.Name = "btnExitSubForm";
             this.btnExitSubForm.Size = new System.Drawing.Size(130, 45);
@@ -308,7 +312,7 @@
             this.btnWriteSV.Appearance.Options.UseFont = true;
             this.btnWriteSV.Enabled = false;
             this.btnWriteSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWriteSV.ImageOptions.Image")));
-            this.btnWriteSV.Location = new System.Drawing.Point(548, 12);
+            this.btnWriteSV.Location = new System.Drawing.Point(548, 4);
             this.btnWriteSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnWriteSV.Name = "btnWriteSV";
             this.btnWriteSV.Size = new System.Drawing.Size(130, 45);
@@ -323,7 +327,7 @@
             this.btnRecover.Appearance.Options.UseFont = true;
             this.btnRecover.Enabled = false;
             this.btnRecover.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRecover.ImageOptions.Image")));
-            this.btnRecover.Location = new System.Drawing.Point(414, 12);
+            this.btnRecover.Location = new System.Drawing.Point(414, 4);
             this.btnRecover.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnRecover.Name = "btnRecover";
             this.btnRecover.Size = new System.Drawing.Size(130, 45);
@@ -338,7 +342,7 @@
             this.btnEditSV.Appearance.Options.UseFont = true;
             this.btnEditSV.Enabled = false;
             this.btnEditSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditSV.ImageOptions.Image")));
-            this.btnEditSV.Location = new System.Drawing.Point(280, 12);
+            this.btnEditSV.Location = new System.Drawing.Point(280, 4);
             this.btnEditSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnEditSV.Name = "btnEditSV";
             this.btnEditSV.Size = new System.Drawing.Size(130, 45);
@@ -353,7 +357,7 @@
             this.btnDeleteSV.Appearance.Options.UseFont = true;
             this.btnDeleteSV.Enabled = false;
             this.btnDeleteSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteSV.ImageOptions.Image")));
-            this.btnDeleteSV.Location = new System.Drawing.Point(146, 12);
+            this.btnDeleteSV.Location = new System.Drawing.Point(146, 4);
             this.btnDeleteSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnDeleteSV.Name = "btnDeleteSV";
             this.btnDeleteSV.Size = new System.Drawing.Size(130, 45);
@@ -368,7 +372,7 @@
             this.btnAddSV.Appearance.Options.UseFont = true;
             this.btnAddSV.Enabled = false;
             this.btnAddSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSV.ImageOptions.Image")));
-            this.btnAddSV.Location = new System.Drawing.Point(12, 12);
+            this.btnAddSV.Location = new System.Drawing.Point(12, 4);
             this.btnAddSV.MinimumSize = new System.Drawing.Size(100, 45);
             this.btnAddSV.Name = "btnAddSV";
             this.btnAddSV.Size = new System.Drawing.Size(130, 45);
@@ -518,6 +522,8 @@
             // 
             // gridViewClass
             // 
+            this.gridViewClass.Appearance.GroupPanel.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewClass.Appearance.GroupPanel.Options.UseFont = true;
             this.gridViewClass.Appearance.Row.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridViewClass.Appearance.Row.Options.UseFont = true;
             this.gridViewClass.ColumnPanelRowHeight = 40;
@@ -528,6 +534,7 @@
             this.colMAKHOA});
             this.gridViewClass.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridViewClass.GridControl = this.gridControlClass;
+            this.gridViewClass.GroupPanelText = "DANH SÁCH LỚP HỌC";
             this.gridViewClass.Name = "gridViewClass";
             this.gridViewClass.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Fast;
             this.gridViewClass.OptionsView.ShowViewCaption = true;
@@ -850,6 +857,9 @@
             this.gridControlStudents.Location = new System.Drawing.Point(812, 12);
             this.gridControlStudents.MainView = this.gridViewStudents;
             this.gridControlStudents.Name = "gridControlStudents";
+            this.gridControlStudents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBox1,
+            this.repositoryItemComboBox2});
             this.gridControlStudents.Size = new System.Drawing.Size(962, 431);
             this.gridControlStudents.TabIndex = 5;
             this.gridControlStudents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -862,6 +872,8 @@
             // 
             // gridViewStudents
             // 
+            this.gridViewStudents.Appearance.GroupPanel.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewStudents.Appearance.GroupPanel.Options.UseFont = true;
             this.gridViewStudents.Appearance.Row.Font = new System.Drawing.Font("SF Mono", 10.2F);
             this.gridViewStudents.Appearance.Row.Options.UseFont = true;
             this.gridViewStudents.ColumnPanelRowHeight = 40;
@@ -875,6 +887,7 @@
             this.colDANGHIHOC});
             this.gridViewStudents.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridViewStudents.GridControl = this.gridControlStudents;
+            this.gridViewStudents.GroupPanelText = "DANH SÁCH SINH VIÊN";
             this.gridViewStudents.Name = "gridViewStudents";
             this.gridViewStudents.OptionsNavigation.AutoFocusNewRow = true;
             this.gridViewStudents.OptionsView.ShowViewCaption = true;
@@ -897,7 +910,7 @@
             this.colMASV.Name = "colMASV";
             this.colMASV.Visible = true;
             this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 140;
+            this.colMASV.Width = 138;
             // 
             // colHO
             // 
@@ -913,7 +926,7 @@
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 120;
+            this.colHO.Width = 138;
             // 
             // colTEN
             // 
@@ -929,7 +942,7 @@
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 74;
+            this.colTEN.Width = 91;
             // 
             // colPHAI
             // 
@@ -939,13 +952,13 @@
             this.colPHAI.AppearanceHeader.Options.UseFont = true;
             this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
             this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colPHAI.Caption = "PHÁI";
+            this.colPHAI.Caption = "PHÁI (X=Nữ)";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.MinWidth = 25;
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 3;
-            this.colPHAI.Width = 40;
+            this.colPHAI.Width = 159;
             // 
             // colDIACHI
             // 
@@ -961,7 +974,7 @@
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 4;
-            this.colDIACHI.Width = 81;
+            this.colDIACHI.Width = 174;
             // 
             // colNGAYSINH
             // 
@@ -981,7 +994,7 @@
             this.colNGAYSINH.Name = "colNGAYSINH";
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 5;
-            this.colNGAYSINH.Width = 81;
+            this.colNGAYSINH.Width = 117;
             // 
             // colDANGHIHOC
             // 
@@ -995,9 +1008,27 @@
             this.colDANGHIHOC.FieldName = "DANGHIHOC";
             this.colDANGHIHOC.MinWidth = 25;
             this.colDANGHIHOC.Name = "colDANGHIHOC";
+            this.colDANGHIHOC.OptionsColumn.FixedWidth = true;
             this.colDANGHIHOC.Visible = true;
             this.colDANGHIHOC.VisibleIndex = 6;
-            this.colDANGHIHOC.Width = 81;
+            this.colDANGHIHOC.Width = 115;
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
             // 
             // Root
             // 
@@ -1353,6 +1384,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSINHVIEN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStudents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -1463,5 +1496,7 @@
         private System.Windows.Forms.BindingSource bdsSINHVIEN;
         private DevExpress.XtraEditors.TextEdit txtMaLop;
         private System.Windows.Forms.BindingSource bdsDANGKY;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
     }
 }

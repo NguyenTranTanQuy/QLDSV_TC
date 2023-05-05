@@ -28,13 +28,13 @@ namespace QLDSV_TC
 
         public GiangVien(string maGV, string ho, string ten, string hocVi, string hocHam, string chuyenMon, string maKhoa)
         {
-            MaGV = maGV;
-            Ho = ho;
-            Ten = ten;
-            HocVi = hocVi;
-            HocHam = hocHam;
-            ChuyenMon = chuyenMon;
-            MaKhoa = maKhoa;
+            this.MaGV = maGV;
+            this.Ho = ho;
+            this.Ten = ten;
+            this.HocVi = hocVi;
+            this.HocHam = hocHam;
+            this.ChuyenMon = chuyenMon;
+            this.MaKhoa = maKhoa;
         }
     }
 }

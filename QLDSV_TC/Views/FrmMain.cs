@@ -25,13 +25,15 @@ namespace QLDSV_TC
             if(role == "PGV" || role == "KHOA")
             {
                 btnQLSV.Enabled = btnQLLH.Enabled = btnQLMH.Enabled = 
-                QLLTC.Enabled = btnQLDIEM.Enabled = btnDK.Enabled = true;
+                QLLTC.Enabled = btnQLDIEM.Enabled = btnDK.Enabled =
+                btnINDSLTC.Enabled = btnINDSSVDK.Enabled = btnINPHIEUDIEMCANHAN.Enabled = 
+                btnINBANGDIEM.Enabled = btnINBANDIEMTK.Enabled = true;
             } else if (role == "PKT")
             {
-                btnQLHP.Enabled = btnDK.Enabled = true;
+                btnQLHP.Enabled = btnDK.Enabled = btnINDSHOCPHILOP.Enabled = true;
             } else
             {
-                btnQLDKLOP.Enabled = true;
+                btnQLDKLOP.Enabled = btnINPHIEUDIEMCANHAN.Enabled = true;
             }
         }
 

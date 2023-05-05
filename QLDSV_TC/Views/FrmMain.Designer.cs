@@ -140,6 +140,7 @@
             // btnINDSLTC
             // 
             this.btnINDSLTC.Caption = "DS LỚP TÍN CHỈ";
+            this.btnINDSLTC.Enabled = false;
             this.btnINDSLTC.Hint = "In mẫu báo cáo danh sách lớp tín chỉ";
             this.btnINDSLTC.Id = 33;
             this.btnINDSLTC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINDSLTC.ImageOptions.Image")));
@@ -159,6 +160,7 @@
             // btnINDSSVDK
             // 
             this.btnINDSSVDK.Caption = "DSSV ĐĂNG KÝ LỚP TÍN CHỈ";
+            this.btnINDSSVDK.Enabled = false;
             this.btnINDSSVDK.Hint = "In danh sách sinh viên đăng ký lớp tín chỉ";
             this.btnINDSSVDK.Id = 34;
             this.btnINDSSVDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINDSSVDK.ImageOptions.Image")));
@@ -178,6 +180,7 @@
             // btnINBANGDIEM
             // 
             this.btnINBANGDIEM.Caption = "BẢNG ĐIỂM MÔN HỌC LỚP TÍN CHỈ";
+            this.btnINBANGDIEM.Enabled = false;
             this.btnINBANGDIEM.Hint = "In bảng điểm môn học của 1 lớp tín chỉ";
             this.btnINBANGDIEM.Id = 35;
             this.btnINBANGDIEM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINBANGDIEM.ImageOptions.Image")));
@@ -197,6 +200,7 @@
             // btnINPHIEUDIEMCANHAN
             // 
             this.btnINPHIEUDIEMCANHAN.Caption = "PHIẾU ĐIỂM";
+            this.btnINPHIEUDIEMCANHAN.Enabled = false;
             this.btnINPHIEUDIEMCANHAN.Hint = "In phiếu điểm của một sinh viên theo mã sinh viên";
             this.btnINPHIEUDIEMCANHAN.Id = 36;
             this.btnINPHIEUDIEMCANHAN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINPHIEUDIEMCANHAN.ImageOptions.Image")));
@@ -217,6 +221,7 @@
             // btnINDSHOCPHILOP
             // 
             this.btnINDSHOCPHILOP.Caption = "IN DS ĐÓNG HỌC PHÍ CỦA LỚP";
+            this.btnINDSHOCPHILOP.Enabled = false;
             this.btnINDSHOCPHILOP.Hint = "In danh sách đóng học phí của lớp ";
             this.btnINDSHOCPHILOP.Id = 37;
             this.btnINDSHOCPHILOP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINDSHOCPHILOP.ImageOptions.Image")));
@@ -237,6 +242,7 @@
             // btnINBANDIEMTK
             // 
             this.btnINBANDIEMTK.Caption = "BẢNG ĐIỂM TỔNG KẾT";
+            this.btnINBANDIEMTK.Enabled = false;
             this.btnINBANDIEMTK.Hint = "In bảng điểm tổng kết của 1 lớp dựa vào mã lớp";
             this.btnINBANDIEMTK.Id = 38;
             this.btnINBANDIEMTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINBANDIEMTK.ImageOptions.Image")));
@@ -465,7 +471,6 @@
             this.ribbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup4.ItemLinks.Add(this.btnDK);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnLogout);
-            this.ribbonPageGroup4.ItemLinks.Add(this.skinDropDownButtonItem4);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "QUẢN LÝ HỆ THỐNG";
             // 

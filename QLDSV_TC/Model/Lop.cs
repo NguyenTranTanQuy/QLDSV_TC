@@ -22,10 +22,10 @@ namespace QLDSV_TC
 
         public Lop(string maLop, string tenLop, string khoaHoc, string maKhoa)
         {
-            MaLop = maLop;
-            TenLop = tenLop;
-            KhoaHoc = khoaHoc;
-            MaKhoa = maKhoa;
+            this.MaLop = maLop;
+            this.TenLop = tenLop;
+            this.KhoaHoc = khoaHoc;
+            this.MaKhoa = maKhoa;
         }
     }
 }

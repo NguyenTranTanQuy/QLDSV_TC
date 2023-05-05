@@ -400,6 +400,8 @@
             // 
             // gridViewScore
             // 
+            this.gridViewScore.Appearance.GroupPanel.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewScore.Appearance.GroupPanel.Options.UseFont = true;
             this.gridViewScore.Appearance.Row.Font = new System.Drawing.Font("SF Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridViewScore.Appearance.Row.Options.UseFont = true;
             this.gridViewScore.ColumnPanelRowHeight = 40;
@@ -412,6 +414,7 @@
             this.colDIEM_TK});
             this.gridViewScore.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridViewScore.GridControl = this.gridControlScore;
+            this.gridViewScore.GroupPanelText = "BẢNG ĐIỂM LỚP TÍN CHỈ";
             this.gridViewScore.Name = "gridViewScore";
             this.gridViewScore.RowHeight = 30;
             this.gridViewScore.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridViewScore_ShowingEditor);

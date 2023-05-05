@@ -34,15 +34,15 @@ namespace QLDSV_TC
 
         public LopTinChi(int maLTC, string nienKhoa, int hocKy, string maMH, int nhom, string maGV, string maKhoa, int soSVToiThieu, bool huyLop)
         {
-            MaLTC = maLTC;
-            NienKhoa = nienKhoa;
-            HocKy = hocKy;
-            MaMH = maMH;
-            Nhom = nhom;
-            MaGV = maGV;
-            MaKhoa = maKhoa;
-            SoSVToiThieu = soSVToiThieu;
-            HuyLop = huyLop;
+            this.MaLTC = maLTC;
+            this.NienKhoa = nienKhoa;
+            this.HocKy = hocKy;
+            this.MaMH = maMH;
+            this.Nhom = nhom;
+            this.MaGV = maGV;
+            this.MaKhoa = maKhoa;
+            this.SoSVToiThieu = soSVToiThieu;
+            this.HuyLop = huyLop;
         }
     }
 }

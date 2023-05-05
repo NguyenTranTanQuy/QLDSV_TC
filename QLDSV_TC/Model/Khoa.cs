@@ -18,8 +18,8 @@ namespace QLDSV_TC
 
         public Khoa(string maKhoa, string tenKhoa)
         {
-            MaKhoa = maKhoa;
-            TenKhoa = tenKhoa;
+            this.MaKhoa = maKhoa;
+            this.TenKhoa = tenKhoa;
         }
     }
 }

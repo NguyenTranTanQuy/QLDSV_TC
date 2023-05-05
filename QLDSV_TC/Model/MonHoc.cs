@@ -22,10 +22,10 @@ namespace QLDSV_TC
 
         public MonHoc(string maMH, string tenMH, int soTietLyThuyet, int soTietThucHanh)
         {
-            MaMH = maMH;
-            TenMH = tenMH;
-            SoTietLyThuyet = soTietLyThuyet;
-            SoTietThucHanh = soTietThucHanh;
+            this.MaMH = maMH;
+            this.TenMH = tenMH;
+            this.SoTietLyThuyet = soTietLyThuyet;
+            this.SoTietThucHanh = soTietThucHanh;
         }
     }
 }

@@ -22,11 +22,11 @@ namespace QLDSV_TC
 
         public ChiTietDongHocPhi(string maSV, string nienKhoa, int hocKy, String ngayDong, int soTienDong)
         {
-            MaSV = maSV;
-            NienKhoa = nienKhoa;
-            HocKy = hocKy;
-            NgayDong = ngayDong;
-            SoTienDong = soTienDong;
+            this.MaSV = maSV;
+            this.NienKhoa = nienKhoa;
+            this.HocKy = hocKy;
+            this.NgayDong = ngayDong;
+            this.SoTienDong = soTienDong;
         }
     }
 }

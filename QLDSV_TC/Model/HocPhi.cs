@@ -20,10 +20,10 @@ namespace QLDSV_TC
 
         public HocPhi(string maSV, string nienKhoa, int hocKy, int hocphi)
         {
-            MaSV = maSV;
-            NienKhoa = nienKhoa;
-            HocKy = hocKy;
-            hocPhi = hocphi;
+            this.MaSV = maSV;
+            this.NienKhoa = nienKhoa;
+            this.HocKy = hocKy;
+            this.hocPhi = hocphi;
         }
     }
 }

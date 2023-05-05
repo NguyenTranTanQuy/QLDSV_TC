@@ -24,12 +24,12 @@ namespace QLDSV_TC
 
         public DangKy(int maLTC, string maSV, int diemChuyenCan, float diemGiuaKy, float diemCuoiKy, bool huyDangKy)
         {
-            MaLTC = maLTC;
-            MaSV = maSV;
-            DiemChuyenCan = diemChuyenCan;
-            DiemGiuaKy = diemGiuaKy;
-            DiemCuoiKy = diemCuoiKy;
-            HuyDangKy = huyDangKy;
+            this.MaLTC = maLTC;
+            this.MaSV = maSV;
+            this.DiemChuyenCan = diemChuyenCan;
+            this.DiemGiuaKy = diemGiuaKy;
+            this.DiemCuoiKy = diemCuoiKy;
+            this.HuyDangKy = huyDangKy;
         }
     }
 }

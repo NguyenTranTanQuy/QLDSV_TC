@@ -35,19 +35,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblMain = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lkLOP = new DevExpress.XtraEditors.LookUpEdit();
+            this.bdsLOP = new System.Windows.Forms.BindingSource(this.components);
+            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
             this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.lkLOP = new DevExpress.XtraEditors.LookUpEdit();
-            this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
-            this.bdsLOP = new System.Windows.Forms.BindingSource(this.components);
             this.LOPTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.panelChonKhoa)).BeginInit();
             this.panelChonKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkLOP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChonKhoa
@@ -122,6 +122,37 @@
             this.panelControl1.Size = new System.Drawing.Size(728, 166);
             this.panelControl1.TabIndex = 33;
             // 
+            // lkLOP
+            // 
+            this.lkLOP.Location = new System.Drawing.Point(116, 32);
+            this.lkLOP.Margin = new System.Windows.Forms.Padding(6);
+            this.lkLOP.Name = "lkLOP";
+            this.lkLOP.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkLOP.Properties.Appearance.Options.UseFont = true;
+            this.lkLOP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkLOP.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MALOP", "MALOP", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENLOP", "TENLOP", 100, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("KHOAHOC", "KHOAHOC", 68, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "MAKHOA", 61, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lkLOP.Properties.DataSource = this.bdsLOP;
+            this.lkLOP.Properties.DisplayMember = "MALOP";
+            this.lkLOP.Properties.NullText = "Chọn lớp học";
+            this.lkLOP.Properties.ValueMember = "MALOP";
+            this.lkLOP.Size = new System.Drawing.Size(564, 28);
+            this.lkLOP.TabIndex = 78;
+            // 
+            // bdsLOP
+            // 
+            this.bdsLOP.DataMember = "LOP";
+            this.bdsLOP.DataSource = this.QLDSV_TCDataSet;
+            // 
+            // QLDSV_TCDataSet
+            // 
+            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
+            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btnPreview
             // 
             this.btnPreview.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,43 +170,12 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(116, 36);
+            this.labelControl7.Location = new System.Drawing.Point(57, 35);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(10);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(44, 21);
             this.labelControl7.TabIndex = 67;
             this.labelControl7.Text = "LỚP:";
-            // 
-            // lkLOP
-            // 
-            this.lkLOP.Location = new System.Drawing.Point(244, 32);
-            this.lkLOP.Margin = new System.Windows.Forms.Padding(6);
-            this.lkLOP.Name = "lkLOP";
-            this.lkLOP.Properties.Appearance.Font = new System.Drawing.Font("SF Mono", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lkLOP.Properties.Appearance.Options.UseFont = true;
-            this.lkLOP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkLOP.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MALOP", "MALOP", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENLOP", "TENLOP", 100, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("KHOAHOC", "KHOAHOC", 68, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAKHOA", "MAKHOA", 61, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lkLOP.Properties.DataSource = this.bdsLOP;
-            this.lkLOP.Properties.DisplayMember = "MALOP";
-            this.lkLOP.Properties.NullText = "Chọn lớp học";
-            this.lkLOP.Properties.ValueMember = "MALOP";
-            this.lkLOP.Size = new System.Drawing.Size(436, 28);
-            this.lkLOP.TabIndex = 78;
-            // 
-            // QLDSV_TCDataSet
-            // 
-            this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
-            this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsLOP
-            // 
-            this.bdsLOP.DataMember = "LOP";
-            this.bdsLOP.DataSource = this.QLDSV_TCDataSet;
             // 
             // LOPTableAdapter
             // 
@@ -199,8 +199,8 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkLOP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

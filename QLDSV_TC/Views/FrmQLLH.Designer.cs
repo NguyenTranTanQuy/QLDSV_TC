@@ -211,6 +211,8 @@
             // 
             // gridViewClass
             // 
+            this.gridViewClass.Appearance.GroupPanel.Font = new System.Drawing.Font("SF Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewClass.Appearance.GroupPanel.Options.UseFont = true;
             this.gridViewClass.Appearance.Row.Font = new System.Drawing.Font("SF Mono", 10.2F);
             this.gridViewClass.Appearance.Row.Options.UseFont = true;
             this.gridViewClass.ColumnPanelRowHeight = 40;
@@ -221,6 +223,7 @@
             this.colMAKHOA});
             this.gridViewClass.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridViewClass.GridControl = this.gridControlLOP;
+            this.gridViewClass.GroupPanelText = "DANH SÁCH LỚP HỌC";
             this.gridViewClass.Name = "gridViewClass";
             this.gridViewClass.OptionsNavigation.AutoFocusNewRow = true;
             this.gridViewClass.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Fast;
