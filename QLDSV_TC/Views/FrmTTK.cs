@@ -71,9 +71,6 @@ namespace QLDSV_TC.Views
 
         private void FrmTTK_Load(object sender, EventArgs e)
         {
-            if(Program.mGroup != "PKT")
-                Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
-
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";

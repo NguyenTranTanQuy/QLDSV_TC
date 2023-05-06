@@ -1,14 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
@@ -46,9 +39,8 @@ namespace QLDSV_TC.Views
             return true;
         }
 
-        private String getFacultyName(String facultyCode)
+        private string getFacultyName(string facultyCode)
         {
-            String facultyName = "";
             string query = "SELECT TENKHOA FROM KHOA WHERE MAKHOA = '" + facultyCode + "'";
             SqlDataReader result = Program.ExecSqlDataReader(query);
 
@@ -58,9 +50,13 @@ namespace QLDSV_TC.Views
                 result.Close();
                 return null;
             }
+
+            string facultyName;
+
             result.Read();
             facultyName = result.GetString(0);
             result.Close();
+            
             return facultyName;
         }
 
@@ -81,12 +77,12 @@ namespace QLDSV_TC.Views
         {
             if (checkData())
             {
-                String classCode = lkLOP.EditValue.ToString();
-                String schoolYear = cbNIENKHOA.Text;
-                String facultyCode = lkLOP.GetColumnValue("MAKHOA").ToString();
+                string classCode = lkLOP.EditValue.ToString();
+                string schoolYear = cbNIENKHOA.Text;
+                string facultyCode = lkLOP.GetColumnValue("MAKHOA").ToString();
                 int semester = Convert.ToInt32(this.cbHOCKY.Text);
 
-                String facultyName = getFacultyName(facultyCode);
+                string facultyName = getFacultyName(facultyCode);
                 if (facultyName == null) return;
 
                 Reports.XrptListPayTuitionOfClass xrpt = new Reports.XrptListPayTuitionOfClass(classCode, schoolYear, semester);

@@ -1,9 +1,11 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.API.Native;
 using QLDSV_TC.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -12,10 +14,10 @@ namespace QLDSV_TC.Views
     public partial class FrmQLLTC : XtraForm
     {
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
-        private String flagMode = "";
-        private String SubjectNumberSelected = "";
-        private String facultyCode = "";
-        private String oldPrimarykey = "";
+        private string flagMode = "";
+        private string SubjectNumberSelected = "";
+        private string facultyCode = "";
+        private string oldPrimarykey = "";
         private int positionSelectedSubject = -1;
         private int positionSelectedCreditClass = -1;
 
@@ -25,7 +27,7 @@ namespace QLDSV_TC.Views
                 data["NIENKHOA"].ToString(), Convert.ToInt32(data["HOCKY"]), data["MAMH"].ToString(), Convert.ToInt32(data["NHOM"]),
                 data["MAGV"].ToString(), data["MAKHOA"].ToString(), Convert.ToInt32(data["SOSVTOITHIEU"]), (bool)data["HUYLOP"]);
 
-            processStoreStack.Push(new Services.ProcessStore(flagMode, data["MALTC"].ToString(), lopTinChi));
+            processStoreStack.Push(new ProcessStore(flagMode, data["MALTC"].ToString(), lopTinChi));
         }
 
         private void fillDataTableCreditClass ()
@@ -127,6 +129,34 @@ namespace QLDSV_TC.Views
             return true;
         }
 
+        private void cancelCreditClass(int maLTC, string nienKhoa, int hocKy)
+        {
+            if (Program.connect.State == ConnectionState.Closed) Program.connect.Open();
+
+            string spString = "SP_HUYDANGKY_LOPTINCHI";
+            SqlCommand command = Program.connect.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = spString;
+            command.Parameters.Add("@MALTC", SqlDbType.Int).Value = maLTC;
+            command.Parameters.Add("@NIENKHOA", SqlDbType.NChar).Value = nienKhoa;
+            command.Parameters.Add("@HOCKY", SqlDbType.Int).Value = hocKy;
+            command.Parameters.Add("@CHIPHI", SqlDbType.Int).Value = Program.hocPhi;
+
+            try
+            {
+                command.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi hủy lớp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.connect.Close();
+            }
+        }
+
         private static string GetMaKhoa()
         {
             DataTable dt = Program.ExecSqlDataTable("SELECT MAKHOA FROM KHOA");
@@ -149,7 +179,6 @@ namespace QLDSV_TC.Views
 
             fillComboboxGV();
 
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";
@@ -484,6 +513,11 @@ namespace QLDSV_TC.Views
 
                     if (flagMode == "ADDCREDITCLASS")
                         processStoreStack.Push(new Services.ProcessStore(flagMode, row["MALTC"].ToString()));
+
+                    if (row["HUYLOP"].ToString() == "True")
+                    {
+                        cancelCreditClass(Convert.ToInt32(row["MALTC"]), row["NIENKHOA"].ToString(), Convert.ToInt32(row["HOCKY"]));
+                    }
                 }
                 catch (Exception ex)
                 {

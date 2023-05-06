@@ -1,19 +1,15 @@
 ﻿using DevExpress.XtraReports.UI;
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
 
 namespace QLDSV_TC.Reports
 {
-    public partial class XrptScoresCreditClass : DevExpress.XtraReports.UI.XtraReport
+    public partial class XrptScoresCreditClass : XtraReport
     {
         public XrptScoresCreditClass()
         {
             InitializeComponent();
         }
 
-        public XrptScoresCreditClass(String schoolYear, int semester, String subjectCode, int group)
+        public XrptScoresCreditClass(string schoolYear, int semester, string subjectCode, int group)
         {
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connectString;

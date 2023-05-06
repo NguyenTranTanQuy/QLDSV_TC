@@ -145,7 +145,6 @@ namespace QLDSV_TC.Views
 
             fillDataTableClass();
 
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";
@@ -302,7 +301,8 @@ namespace QLDSV_TC.Views
             pushDataToProcessStack(data);
 
             btnWrite.Enabled = true;
-            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
+            btnAdd.Enabled = btnDelete.Enabled = 
+            btnEdit.Enabled = btnRecover.Enabled = cbKhoa.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

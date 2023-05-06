@@ -48,7 +48,6 @@ namespace QLDSV_TC.Views
         {
             fillComboboxNienKhoa();
 
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";

@@ -1,8 +1,6 @@
 ﻿using DevExpress.Skins;
 using DevExpress.UserSkins;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -12,31 +10,32 @@ namespace QLDSV_TC
     internal static class Program
     {
         public static SqlConnection connect = new SqlConnection();
-        public static String connectString;
+        public static string connectString;
         
-        public static String connstr_publisher = "Data Source=LAPTOP-GDMEGRIH\\OWNER;Initial Catalog=QLDSV_TC;Integrated Security=True";
-        public static String servername = "";
+        public static string connstr_publisher = "Data Source=LAPTOP-GDMEGRIH\\OWNER;Initial Catalog=QLDSV_TC;Integrated Security=True";
+        public static string servername = "";
+
         public static BindingSource bdsDSPM = new BindingSource();
 
-        public static String database = "QLDSV_TC";
-        public static String mLogin;
-        public static String mPassword;
+        public static string database = "QLDSV_TC";
+        public static string mLogin;
+        public static string mPassword;
 
-        public static String mLoginDN;
-        public static String mPasswordDN;
+        public static string mLoginDN;
+        public static string mPasswordDN;
 
-        public static String mLoginSV = "";
-        public static String mPasswordSV = "";
+        public static string mLoginSV = "";
+        public static string mPasswordSV = "";
 
-        public static String mUserName;
-        public static String mName;
-        public static String mGroup;
+        public static string mUserName;
+        public static string mName;
+        public static string mGroup;
         public static int mPhongBan;
 
-        public static String remoteLogin = "HTKN";
-        public static String remotePassword = "123456";
+        public static string remoteLogin = "HTKN";
+        public static string remotePassword = "123456";
 
-        public static String defaultPasswordSV = "123456";
+        public static string defaultPasswordSV = "123456";
 
         public static SqlDataReader myReader;
 
@@ -90,7 +89,7 @@ namespace QLDSV_TC
             return dt;
         }
 
-        public static SqlDataReader ExecSqlDataReader(String cmd)
+        public static SqlDataReader ExecSqlDataReader(string cmd)
         {
             SqlDataReader myReader;
             SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
@@ -109,7 +108,7 @@ namespace QLDSV_TC
             }
         }
 
-        public static DataTable ExecSqlQuery(String cmd, String connectionstring)
+        public static DataTable ExecSqlQuery(string cmd)
         {
             DataTable dt = new DataTable();
             if (Program.connect.State == ConnectionState.Closed) Program.connect.Open();
@@ -119,8 +118,7 @@ namespace QLDSV_TC
             return dt;
         }
 
-
-        public static void ExecSqlNonQuery(String cmd)
+        public static void ExecSqlNonQuery(string cmd)
         {
             SqlCommand sqlcmd = new SqlCommand(cmd, Program.connect);
             sqlcmd.CommandType = CommandType.Text;
@@ -142,7 +140,7 @@ namespace QLDSV_TC
             }
         }
 
-        public static int CheckPrimaryKey(String query)
+        public static int CheckPrimaryKey(string query)
         {
             SqlDataReader dataReader = Program.ExecSqlDataReader(query);
             if (dataReader == null)

@@ -19,7 +19,7 @@ namespace QLDSV_TC
             return null;
         }
 
-        private void PhanQuyen()
+        private void Permission()
         {
             String role = Program.mGroup;
             if(role == "PGV" || role == "KHOA")
@@ -37,6 +37,11 @@ namespace QLDSV_TC
             }
         }
 
+        private void filterDSPM()
+        {
+            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
+        }
+
         public FrmMain()
         {
             InitializeComponent();
@@ -44,12 +49,14 @@ namespace QLDSV_TC
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            PhanQuyen();
+            Permission();
+
+            if (Program.mGroup == "PGV") filterDSPM();
         }
 
         private void btnQLSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmQLSV));
+            Form form = CheckExists(typeof(FrmQLSV));
             if (form != null) form.Activate();
             else
             {
@@ -61,7 +68,7 @@ namespace QLDSV_TC
 
         private void btnQLLH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmQLLH));
+            Form form = CheckExists(typeof(FrmQLLH));
             if (form != null) form.Activate();
             else
             {
@@ -73,7 +80,7 @@ namespace QLDSV_TC
 
         private void btnQLMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmQLMH));
+            Form form = CheckExists(typeof(FrmQLMH));
             if (form != null) form.Activate();
             else
             {
@@ -85,7 +92,7 @@ namespace QLDSV_TC
 
         private void QLLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmQLLTC));
+            Form form = CheckExists(typeof(FrmQLLTC));
             if (form != null) form.Activate();
             else
             {
@@ -97,7 +104,7 @@ namespace QLDSV_TC
 
         private void btnQLDIEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmQLCD));
+            Form form = CheckExists(typeof(FrmQLCD));
             if (form != null) form.Activate();
             else
             {
@@ -109,7 +116,7 @@ namespace QLDSV_TC
 
         private void btnQLDKLOP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmSVDK));
+            Form form = CheckExists(typeof(FrmSVDK));
             if (form != null) form.Activate();
             else
             {
@@ -121,7 +128,7 @@ namespace QLDSV_TC
 
         private void btnQLHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmQLHP));
+            Form form = CheckExists(typeof(FrmQLHP));
             if (form != null) form.Activate();
             else
             {
@@ -133,7 +140,7 @@ namespace QLDSV_TC
 
         private void btnDK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.FrmTTK));
+            Form form = CheckExists(typeof(FrmTTK));
             if (form != null) form.Activate();
             else
             {
@@ -145,7 +152,7 @@ namespace QLDSV_TC
 
         private void btnINDSLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.RpfListCreditClass));
+            Form form = CheckExists(typeof(RpfListCreditClass));
             if (form != null) form.Activate();
             else
             {
@@ -157,7 +164,7 @@ namespace QLDSV_TC
 
         private void btnINDSSVDK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.RpfStudentsListCreditClass));
+            Form form = CheckExists(typeof(RpfStudentsListCreditClass));
             if (form != null) form.Activate();
             else
             {
@@ -169,7 +176,7 @@ namespace QLDSV_TC
 
         private void btnINBANGDIEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.RpfScoresCreditClass));
+            Form form = CheckExists(typeof(RpfScoresCreditClass));
             if (form != null) form.Activate();
             else
             {
@@ -181,7 +188,7 @@ namespace QLDSV_TC
 
         private void btnINPHIEUDIEMCANHAN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.RpfStudentScores));
+            Form form = CheckExists(typeof(RpfStudentScores));
             if (form != null) form.Activate();
             else
             {
@@ -193,7 +200,7 @@ namespace QLDSV_TC
 
         private void btnINDSHOCPHILOP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.RpfListPayTuitionOfClass));
+            Form form = CheckExists(typeof(RpfListPayTuitionOfClass));
             if (form != null) form.Activate();
             else
             {
@@ -205,7 +212,7 @@ namespace QLDSV_TC
 
         private void btnINBANDIEMTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = CheckExists(typeof(Views.RpfFinalScoresOfClass));
+            Form form = CheckExists(typeof(RpfFinalScoresOfClass));
             if (form != null) form.Activate();
             else
             {

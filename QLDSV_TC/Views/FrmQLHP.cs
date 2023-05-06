@@ -1,20 +1,15 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC.Views
 {
     public partial class FrmQLHP : XtraForm
     {
-        private String maSV;
+        private string maSV;
         private int positionSelectedDetailTuition = -1;
 
         private bool checkDataInput()
@@ -34,6 +29,7 @@ namespace QLDSV_TC.Views
 
             return true;
         }
+        
         private void fillTableTuition()
         {
             try

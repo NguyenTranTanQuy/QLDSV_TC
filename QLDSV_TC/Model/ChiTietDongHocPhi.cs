@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace QLDSV_TC
 {
-    class ChiTietDongHocPhi
+    public class ChiTietDongHocPhi
     {
         public string MaSV { set; get; }
 
@@ -14,13 +9,13 @@ namespace QLDSV_TC
 
         public int HocKy { set; get; }
 
-        public String NgayDong { set; get; }
+        public string NgayDong { set; get; }
 
         public int SoTienDong { set; get; }
 
         public ChiTietDongHocPhi() {}
 
-        public ChiTietDongHocPhi(string maSV, string nienKhoa, int hocKy, String ngayDong, int soTienDong)
+        public ChiTietDongHocPhi(string maSV, string nienKhoa, int hocKy, string ngayDong, int soTienDong)
         {
             this.MaSV = maSV;
             this.NienKhoa = nienKhoa;

@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraReports.UI;
-using System;
 
 namespace QLDSV_TC.Reports
 {
@@ -10,7 +9,7 @@ namespace QLDSV_TC.Reports
             InitializeComponent();
         }
 
-        public XrptStudentScores(String studentNumber)
+        public XrptStudentScores(string studentNumber)
         {
             InitializeComponent();
             

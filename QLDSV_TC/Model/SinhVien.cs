@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace QLDSV_TC
 {
-   
-    class SinhVien
+    public class SinhVien
     {
         public string MaSV { set; get; }
         
@@ -21,7 +13,7 @@ namespace QLDSV_TC
 
         public string DiaChi { set; get; }
 
-        public String NgaySinh { set; get; }
+        public string NgaySinh { set; get; }
 
         public string MaLop { set; get; }
 
@@ -31,7 +23,7 @@ namespace QLDSV_TC
 
         public SinhVien() {}
 
-        public SinhVien(string maSV, string ho, string ten, bool phai, string diaChi, String ngaySinh, string maLop, bool dangNghiHoc, string passWord)
+        public SinhVien(string maSV, string ho, string ten, bool phai, string diaChi, string ngaySinh, string maLop, bool dangNghiHoc, string passWord)
         {
             this.MaSV = maSV;
             this.Ho = ho;

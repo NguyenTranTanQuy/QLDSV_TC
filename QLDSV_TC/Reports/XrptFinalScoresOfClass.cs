@@ -1,8 +1,4 @@
-﻿using DevExpress.XtraReports.UI;
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System;
 
 namespace QLDSV_TC.Reports
 {
@@ -13,7 +9,7 @@ namespace QLDSV_TC.Reports
             InitializeComponent();
         }
 
-        public XrptFinalScoresOfClass(String classCode)
+        public XrptFinalScoresOfClass(string classCode)
         {
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connectString;

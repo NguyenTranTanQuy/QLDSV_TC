@@ -1,5 +1,4 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using QLDSV_TC.Services;
 using System;
@@ -14,8 +13,8 @@ namespace QLDSV_TC.Views
     public partial class FrmQLSV : XtraForm
     {
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
-        private String flagMode = "";
-        private String classNumberSelected = "";
+        private string flagMode = "";
+        private string classNumberSelected = "";
         private int positionSelectedSV = -1;
         private int positionSelectedClass = -1;
 
@@ -160,7 +159,6 @@ namespace QLDSV_TC.Views
             this.LOPTableAdapter.Connection.ConnectionString = Program.connectString;
             this.LOPTableAdapter.Fill(this.qldsV_TCDataSet.LOP);
 
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'  ";
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";

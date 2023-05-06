@@ -12,9 +12,9 @@ namespace QLDSV_TC.Views
     public partial class FrmQLMH : XtraForm
     {
         private Stack<ProcessStore> processStoreStack = new Stack<ProcessStore>();
-        private String flagMode = "";
+        private string flagMode = "";
         private int positionSelectedSubject = -1;
-        private String oldSubjectName = "";
+        private string oldSubjectName = "";
 
         public FrmQLMH()
         {
@@ -26,7 +26,7 @@ namespace QLDSV_TC.Views
             MonHoc monHoc = new MonHoc(data["MAMH"].ToString(), data["TENMH"].ToString()
                 , (Int32)data["SOTIET_LT"], (Int32)data["SOTIET_TH"]);
             
-            processStoreStack.Push(new Services.ProcessStore(flagMode, data["MAMH"].ToString(), monHoc));
+            processStoreStack.Push(new ProcessStore(flagMode, data["MAMH"].ToString(), monHoc));
         }
 
         private void fillDataTableSubject()
@@ -229,7 +229,7 @@ namespace QLDSV_TC.Views
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            String MAMH = "";
+            string MAMH = "";
             if (bdsLOPTINCHI.Count > 0)
             {
                 MessageBox.Show("Không thể môn học này vì môn học đã đăng ký lớp tín chỉ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -272,9 +272,9 @@ namespace QLDSV_TC.Views
         {
             if (processStoreStack.Count > 0)
             {
-                Services.ProcessStore command = processStoreStack.Pop();
-                String MAMH = command.primaryKey;
-                MonHoc monHoc = new MonHoc();
+                ProcessStore command = processStoreStack.Pop();
+                string MAMH = command.primaryKey;
+                MonHoc monHoc;
 
                 switch (command.flagMode)
                 {
@@ -365,7 +365,7 @@ namespace QLDSV_TC.Views
                     this.MONHOCTableAdapter.Update(row);
 
                     if (flagMode == "ADDSUBJECT")
-                        processStoreStack.Push(new Services.ProcessStore(flagMode, row["MAMH"].ToString()));
+                        processStoreStack.Push(new ProcessStore(flagMode, row["MAMH"].ToString()));
                 }
                 catch (Exception ex)
                 {

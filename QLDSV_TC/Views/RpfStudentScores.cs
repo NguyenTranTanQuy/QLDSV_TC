@@ -62,10 +62,11 @@ namespace QLDSV_TC.Views
         private void RpfStudentScores_Load(object sender, EventArgs e)
         {
             this.QLDSV_TCDataSet.EnforceConstraints = false;
+
             bdsSINHVIEN.Filter = "DANGHIHOC = 0";
+            this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connectString;
             this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
 
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";

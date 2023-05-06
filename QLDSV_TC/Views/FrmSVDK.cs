@@ -10,7 +10,7 @@ namespace QLDSV_TC.Views
     {
         private void fillStudentInformation()
         {
-            String command = "EXEC SP_GETTHONGTINSV " + "'" + Program.mUserName + "'";
+            string command = "EXEC SP_GETTHONGTINSV " + "'" + Program.mUserName + "'";
             Program.myReader = Program.ExecSqlDataReader(command);
 
             if (Program.myReader == null) return;
@@ -24,14 +24,14 @@ namespace QLDSV_TC.Views
 
         private void fillComboboxNienKhoa()
         {
-            String command = "EXEC SP_GETKHOAHOC_SV " + "'" + Program.mUserName + "'";
+            string command = "EXEC SP_GETKHOAHOC_SV " + "'" + Program.mUserName + "'";
             Program.myReader = Program.ExecSqlDataReader(command);
 
             if (Program.myReader == null) return;
 
             Program.myReader.Read();
 
-            String nienKhoa = Program.myReader.GetString(0);
+            string nienKhoa = Program.myReader.GetString(0);
             Program.myReader.Close();
 
             int fromYear;
@@ -96,6 +96,7 @@ namespace QLDSV_TC.Views
         private void cbNIENKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbNIENKHOA.SelectedIndex == -1 || cbHOCKY.SelectedIndex == -1) return;
+
             fillTableCreditClass();
             fillTableRegisterStudent();
         }
@@ -103,6 +104,7 @@ namespace QLDSV_TC.Views
         private void cbHOCKY_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbNIENKHOA.SelectedIndex == -1 || cbHOCKY.SelectedIndex == -1) return;
+
             fillTableCreditClass();
             fillTableRegisterStudent();
         }

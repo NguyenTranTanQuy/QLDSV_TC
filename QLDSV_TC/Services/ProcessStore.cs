@@ -1,27 +1,28 @@
-﻿using System;
-
+﻿
 namespace QLDSV_TC.Services
 {
     public class ProcessStore
     {
-        public String flagMode { get; set; }
-        public String primaryKey { get; set; }
-        public Object dataRow { get; set; }
+        public string flagMode { get; set; }
+        
+        public string primaryKey { get; set; }
+        
+        public object dataRow { get; set; }
         
         public ProcessStore() { }
 
-        public ProcessStore(String flagMode)
+        public ProcessStore(string flagMode)
         {
             this.flagMode = flagMode;
         }
 
-        public ProcessStore(String flagMode, String primaryKey)
+        public ProcessStore(string flagMode, string primaryKey)
         {
             this.flagMode = flagMode;
             this.primaryKey = primaryKey;
         }
 
-        public ProcessStore(String flagMode, String primaryKey, Object dataRow)
+        public ProcessStore(string flagMode, string primaryKey, object dataRow)
         {
             this.flagMode = flagMode;
             this.primaryKey = primaryKey;

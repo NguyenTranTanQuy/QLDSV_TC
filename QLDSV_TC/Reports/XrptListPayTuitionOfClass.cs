@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraReports.UI;
-using System;
 using System.ComponentModel;
 
 namespace QLDSV_TC.Reports
@@ -11,7 +10,7 @@ namespace QLDSV_TC.Reports
             InitializeComponent();
         }
 
-        public XrptListPayTuitionOfClass(String classNumber, String schoolYear, int semester)
+        public XrptListPayTuitionOfClass(string classNumber, string schoolYear, int semester)
         {
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connectString;
@@ -23,7 +22,7 @@ namespace QLDSV_TC.Reports
 
         private void xrlblCurrencyToWords_BeforePrint(object sender, CancelEventArgs e)
         {
-            String currencyToWords = Services.ConvertCurrencyToWords.ConvertMoneyToString(xrlblCurrency.Text.Replace(",", ""));
+            string currencyToWords = Services.ConvertCurrencyToWords.ConvertMoneyToString(xrlblCurrency.Text.Replace(",", ""));
             
             xrlblCurrencyToWords.Text = Services.HandleString.UpperFirstCharInString(currencyToWords);
         }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace QLDSV_TC
 {
-    class DangKy
+    public class DangKy
     {
         public int MaLTC { set; get; }
 

@@ -28,7 +28,6 @@ namespace QLDSV_TC.Views
             this.QLDSV_TCDataSet.EnforceConstraints = false;
             this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
             
-            Program.bdsDSPM.Filter = "TENKHOA not LIKE 'Phòng kế toán%'";
             cbKhoa.DataSource = Program.bdsDSPM;
             cbKhoa.DisplayMember = "TENKHOA";
             cbKhoa.ValueMember = "TENSERVER";

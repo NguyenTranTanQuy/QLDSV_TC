@@ -10,7 +10,7 @@ namespace QLDSV_TC.Reports
             InitializeComponent();
         }
 
-        public XrptListCreditClass(String schoolYear, int semester)
+        public XrptListCreditClass(string schoolYear, int semester)
         {
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connectString;
